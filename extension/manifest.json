@@ -1,0 +1,34 @@
+{
+  "name": "News Feed Eradicator Alternative",
+  "description": "TBA",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "icons": {
+    "16": "icon16.png",
+    "24": "icon24.png",
+    "32": "icon32.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "dist/scripts/content.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "dist/scripts/background.js"
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "options_ui": {
+    "page": "dist/options/index.html",
+    "open_in_tab": true
+  },
+  "action": {}
+}

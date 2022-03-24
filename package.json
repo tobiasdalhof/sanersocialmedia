@@ -1,0 +1,42 @@
+{
+  "name": "chrome-extension",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "npm run clear && NODE_ENV=development run-p dev:*",
+    "dev:options": "npm run build:options -- -w",
+    "dev:content": "npm run build:content -- -w",
+    "dev:background": "npm run build:background -- -w",
+    "build": "npm run clear && npm run build:options && npm run build:content && npm run build:background",
+    "build:options": "vite build -c vite.config.options.ts",
+    "build:content": "vite build -c vite.config.content.ts",
+    "build:background": "vite build -c vite.config.background.ts",
+    "clear": "rimraf extension/dist",
+    "lint": "eslint 'src/**/*.{json,ts,js,vue}'"
+  },
+  "dependencies": {
+    "@fontsource/readex-pro": "^4.5.6",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.18.9",
+    "@types/chrome": "^0.0.180",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^17.0.22",
+    "@types/webextension-polyfill": "^0.8.2",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "chokidar": "^3.5.3",
+    "eslint": "^8.11.0",
+    "esno": "^0.14.1",
+    "fs-extra": "^10.0.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "vite-plugin-windicss": "^1.8.3",
+    "vue-tsc": "^0.29.8",
+    "webextension-polyfill": "^0.8.0",
+    "windicss": "^3.5.1"
+  }
+}

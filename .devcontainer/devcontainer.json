@@ -1,0 +1,26 @@
+{
+    "name": "Chrome Extension",
+    "build": {
+        "dockerfile": "Dockerfile",
+    },
+    "remoteUser": "node",
+    "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh", 
+        "terminal.integrated.profiles.linux": {
+            "zsh": {
+                "path": "/bin/zsh"
+            },
+        },
+        "files.eol": "\n",
+    },
+    // https://github.com/antfu/vitesse/blob/main/.vscode/extensions.json
+    "extensions": [
+        "johnsoncodehk.volar",
+        "2gua.rainbow-brackets",
+        "oderwat.indent-rainbow",
+        "yzhang.markdown-all-in-one",
+        "dbaeumer.vscode-eslint",
+        "voorjaar.windicss-intellisense",
+        "csstools.postcss"
+    ],
+}
