@@ -1,4 +1,4 @@
-import { dirname, relative, resolve } from 'path'
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import WindiCSS from 'vite-plugin-windicss'
@@ -22,14 +22,5 @@ export default defineConfig({
     WindiCSS({
       config: windiConfig,
     }),
-    {
-      // rewrite assets to use relative path
-      name: 'assets-rewrite',
-      enforce: 'post',
-      apply: 'build',
-      transformIndexHtml(html, { path }) {
-        return html.replace(/"\/assets\//g, `"${relative(dirname(path), '/assets')}/`)
-      },
-    },
   ],
 })

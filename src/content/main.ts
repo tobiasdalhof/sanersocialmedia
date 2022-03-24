@@ -18,7 +18,7 @@ function waitForElement(selector: string): Promise<HTMLElement> {
 }
 
 function init() {
-  waitForElement('ytd-browse').then((element) => {
+  waitForElement('#primary').then((element) => {
     console.log('found element', element)
     element.style.setProperty('display', 'none', 'important')
 

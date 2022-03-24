@@ -1,4 +1,4 @@
-FROM node:lts-slim
+FROM node:17-slim
 
 RUN apt-get update && apt-get install -y git zsh wget
 
