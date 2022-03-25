@@ -1,55 +1,45 @@
-function waitForElement(selector: string): Promise<HTMLElement> {
-  return new Promise((resolve) => {
-    if (document.querySelector(selector))
-      return resolve(<HTMLElement>document.querySelector(selector)!)
+import { SiteService } from '../services/SiteService'
+import * as sites from '../sites'
+import type { Store } from '../types'
 
-    const observer = new MutationObserver(() => {
-      if (document.querySelector(selector)) {
-        resolve(<HTMLElement>document.querySelector(selector)!)
-        observer.disconnect()
-      }
-    })
+const siteService = new SiteService()
 
-    observer.observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-    })
+async function init(url: URL) {
+  const store: Store = await chrome.storage.sync.get() as Store
+
+  const site = siteService.findSiteByURL(Object.values(sites), url)
+  if (!site) return
+
+  const actions = Object.values(site.actions)
+  actions.forEach((action) => {
+    if (siteService.checkAction(action, url, store.userSettings))
+      siteService.manipulateDOM(action)
   })
 }
 
-function init() {
-  waitForElement('#primary').then((element) => {
-    console.log('found element', element)
-    element.style.setProperty('display', 'none', 'important')
+let url = new URL(window.location.href)
+init(url)
 
-    const container = document.createElement('div')
-    container.style.textAlign = 'center'
-    container.style.paddingTop = '50px'
+// detect url path changes for single page applications
+setInterval(() => {
+  const newURL = new URL(window.location.href)
+  if (url.pathname !== newURL.pathname) {
+    url = newURL
+    init(newURL)
+  }
+}, 1000)
 
-    const waldtal = document.createElement('img')
-    waldtal.src = 'https://i.imgur.com/9So9LZ1.png'
-    waldtal.width = 500
+chrome.storage.onChanged.addListener(async () => {
+  const site = siteService.findSiteByURL(Object.values(sites), url)
+  if (!site) return
 
-    const text = document.createElement('div')
-    text.innerText = 'DIESE EMPFEHLUNGEN WURDEN GEBLOCKT VON: JEROME NEES!!!! PECH GEHABT SCHLAMPE XD'
-    text.style.fontSize = '30px'
-    text.style.fontWeight = 'bold'
-    text.style.color = '#ff00d4'
-    text.style.paddingTop = '50px'
+  const store: Store = await chrome.storage.sync.get() as Store
 
-    container.append(waldtal, text)
-    element.after(container)
+  const actions = Object.values(site.actions)
+  actions.forEach((action) => {
+    if (!siteService.checkAction(action, url, store.userSettings))
+      siteService.revertManipulateDOM(action)
   })
-}
 
-init()
-window.addEventListener('popstate', init)
-
-// console.log('test', document.body)
-// window.addEventListener('load', () => {
-//   console.log('test', document.body)
-//   waitForElement('ytd-browse').then((element) => {
-//     element.style.setProperty('display', 'none', 'important')
-//     console.log('found element', element)
-//   })
-// })
+  init(url)
+})

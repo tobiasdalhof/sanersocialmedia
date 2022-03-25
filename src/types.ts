@@ -5,26 +5,31 @@ export interface Store {
 export interface Site {
   name: string
   logo: string
-  actions: SiteAction[]
+  validHosts: string[]
+  actions: Record<string, SiteAction>
 }
 
 export interface SiteAction {
   name: string
+  validPaths: string[]
+  userSettingsKey: UserSettingsKey
+  manipulations: SiteActionManipulation[]
 }
 
-export interface UserSettings {
-  youtubeHomePageHideFeed?: boolean
-  youtubeVideoPageHideSidebar?: boolean
-  youtubeVideoPageHideComments?: boolean
-  instagramHomePageHideFeed?: boolean
-  instagramPostHideComments?: boolean
-  twitterHomePageHideFeed?: boolean
-  twitterSidebarHideTrends?: boolean
-  redditHomePageHideFeed?: boolean
-  tiktokHomePageHideFeed?: boolean
-  twitchHomePageHideFeed?: boolean
-  facebookHomePageHideFeed?: boolean
-  linkedinHomePageHideFeed?: boolean
-  pinterestHomePageHideFeed?: boolean
-  githubHomePageHideFeed?: boolean
+interface SiteActionManipulation {
+  selector: string
+  update(element: HTMLElement): void
+  revert(element: HTMLElement): void
 }
+
+export enum UserSettingsKey {
+  YouTubeHideHomePageFeed = 'YouTubeHideHomePageFeed',
+  YouTubeHideVideoPageComments = 'YouTubeHideVideoPageComments',
+  YouTubeHideVideoPageSidebarRelated = 'YouTubeHideVideoPageSidebarRelated',
+}
+
+type PartialRecord<K extends keyof any, T> = {
+  [P in K]?: T;
+}
+
+export type UserSettings = PartialRecord<UserSettingsKey, boolean>

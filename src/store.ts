@@ -1,23 +1,21 @@
-import type { Options, Store } from './types'
+import type { Store, UserSettingsKey } from './types'
 
 export async function getStore() {
-  const store = await chrome.storage.sync.get() as Store
-  if (!store.defaultOptions) {
-    await chrome.storage.sync.set(<Store>{
-      ...store,
-      defaultOptions: createDefaultOptions(),
-    })
-    getStore()
-  }
-  return store
+  return await chrome.storage.sync.get() as Store
 }
 
-function createDefaultOptions(): Options {
-  return {
-    sites: {
-      youtube: {
-        enabled: true,
-      },
+export async function toggleUserSettings(key: UserSettingsKey) {
+  const store = await getStore()
+  let value: boolean
+  if (!store.userSettings) value = true
+  else if (store.userSettings[key] === undefined) value = true
+  else value = !store.userSettings[key]
+
+  await chrome.storage.sync.set(<Store>{
+    ...store,
+    userSettings: {
+      ...store.userSettings,
+      [key]: value,
     },
-  }
+  })
 }

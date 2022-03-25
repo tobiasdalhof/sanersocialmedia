@@ -5,15 +5,18 @@ import '@fontsource/readex-pro/600.css'
 import 'virtual:windi.css'
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
+
 import App from './App.vue'
-import * as views from './views'
+import Index from './views/Index.vue'
+import Quotes from './views/Quotes.vue'
+import About from './views/About.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
-    { path: '/', component: views.Sites },
-    { path: '/quotes', component: views.Quotes },
-    { path: '/about', component: views.About },
+    { path: '/', component: Index },
+    { path: '/quotes', component: Quotes },
+    { path: '/about', component: About },
   ],
 })
 
