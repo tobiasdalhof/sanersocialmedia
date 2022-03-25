@@ -1,45 +1,6 @@
 import { waitForElement } from '../helpers'
 import type { Site, SiteAction, UserSettings } from '../types'
 
-// interface SiteServiceParameters {
-//   site: Site
-//   url: URL
-//   userSettings?: UserSettings
-// }
-
-// export class SiteService {
-//   private site: Site
-//   private url: URL
-//   private userSettings?: UserSettings
-
-//   constructor(parameters: SiteServiceParameters) {
-//     this.site = parameters.site
-//     this.url = parameters.url
-//     this.userSettings = parameters.userSettings
-//   }
-
-//   isValidHost(): boolean {
-//     return this.site.validHosts.includes(this.url.host)
-//   }
-
-//   isValidPath(action: SiteAction): boolean {
-//     return action.validPaths.includes(this.url.pathname)
-//   }
-
-//   isEnabled(action: SiteAction): boolean {
-//     if (!this.userSettings) return false
-//     return this.userSettings[action.userSettingsKey] === true
-//   }
-
-//   async manipulate(action: SiteAction) {
-//     const manipulations = action.manipulations.map((manipulation) => {
-//       return waitForElement(manipulation.selector).then(manipulation.update)
-//     })
-//     await Promise.all(manipulations)
-//     // inject quotes
-//   }
-// }
-
 export class SiteService {
   findSiteByURL(sites: Site[], url: URL) {
     return sites.find(site => this.isValidHost(site, url))

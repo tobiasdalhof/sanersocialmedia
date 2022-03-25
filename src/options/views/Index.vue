@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ userSettings }}
     <template v-for="(site) in sites">
       <div
         v-for="(action, index) in site.actions"
