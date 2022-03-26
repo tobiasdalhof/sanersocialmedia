@@ -57,7 +57,7 @@ const youtube: Site = {
           selector: '#secondary #related',
           update: (element) => {
             element.style.setProperty('display', 'none', 'important')
-            const quote = new QuoteService().injectRandomQuote(element)
+            new QuoteService().injectRandomQuote(element)
           },
           revertUpdate: (element) => {
             element.style.removeProperty('display')
