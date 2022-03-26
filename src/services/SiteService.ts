@@ -4,11 +4,7 @@ import { QuoteService } from './QuoteService'
 
 export class SiteService {
   findSiteByURL(sites: Site[], url: URL) {
-    return sites.find(site => this.isValidHost(site, url))
-  }
-
-  isValidHost(site: Site, url: URL): boolean {
-    return site.validHosts.includes(url.host)
+    return sites.find(site => site.validHost(url))
   }
 
   checkAction(action: SiteAction, url: URL, userSettings?: UserSettings): boolean {

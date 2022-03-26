@@ -5,13 +5,11 @@ import { UserSettingsKey } from '../types'
 const twitter: Site = {
   logo,
   name: 'LinkedIn',
-  validHosts: ['linkedin.com', 'www.linkedin.com'],
+  validHost: url => url.host.includes('linkedin.com'),
   actions: {
     hideHomePageFeed: {
       name: 'Hide feed on home page',
-      validURL: (url) => {
-        return url.pathname.includes('feed')
-      },
+      validURL: url => url.pathname.includes('feed'),
       userSettingsKey: UserSettingsKey.LinkedInHideHomePageFeed,
       manipulations: [
         {

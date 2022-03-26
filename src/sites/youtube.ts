@@ -5,13 +5,11 @@ import { UserSettingsKey } from '../types'
 const youtube: Site = {
   logo,
   name: 'YouTube',
-  validHosts: ['youtube.com', 'www.youtube.com'],
+  validHost: url => url.host.includes('youtube.com'),
   actions: {
     hideHomePageFeed: {
       name: 'Hide feed on home page',
-      validURL: (url) => {
-        return ['/'].includes(url.pathname)
-      },
+      validURL: url => ['/'].includes(url.pathname),
       userSettingsKey: UserSettingsKey.YouTubeHideHomePageFeed,
       manipulations: [
         {
@@ -29,9 +27,7 @@ const youtube: Site = {
     },
     hideVideoPageComments: {
       name: 'Hide comments on video page',
-      validURL: (url) => {
-        return ['/watch'].includes(url.pathname)
-      },
+      validURL: url => ['/watch'].includes(url.pathname),
       userSettingsKey: UserSettingsKey.YouTubeHideVideoPageComments,
       manipulations: [
         {
@@ -53,9 +49,7 @@ const youtube: Site = {
     },
     hideVideoPageSidebarRelated: {
       name: 'Hide related videos in sidebar on video page',
-      validURL: (url) => {
-        return ['/watch'].includes(url.pathname)
-      },
+      validURL: url => ['/watch'].includes(url.pathname),
       userSettingsKey: UserSettingsKey.YouTubeHideVideoPageSidebarRelated,
       manipulations: [
         {

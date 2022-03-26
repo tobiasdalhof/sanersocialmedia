@@ -7,7 +7,7 @@ export interface Store {
 export interface Site {
   name: string
   logo: string
-  validHosts: string[]
+  validHost(url: URL): boolean
   actions: Record<string, SiteAction>
 }
 

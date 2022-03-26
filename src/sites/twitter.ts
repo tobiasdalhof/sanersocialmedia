@@ -5,13 +5,11 @@ import { UserSettingsKey } from '../types'
 const twitter: Site = {
   logo,
   name: 'Twitter',
-  validHosts: ['twitter.com', 'www.twitter.com'],
+  validHost: url => url.host.includes('twitter.com'),
   actions: {
     hideHomePageFeed: {
       name: 'Hide feed on home page',
-      validURL: (url) => {
-        return ['/', '/home'].includes(url.pathname)
-      },
+      validURL: url => ['/', '/home'].includes(url.pathname),
       userSettingsKey: UserSettingsKey.TwitterHideVideoPageSidebarRelated,
       manipulations: [
         {
