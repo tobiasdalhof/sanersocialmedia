@@ -1,6 +1,8 @@
+import '../style.scss'
 import { SiteService } from '../services/SiteService'
 import * as sites from '../sites'
 import type { Store } from '../types'
+import { QuoteService } from '../services/QuoteService'
 
 const siteService = new SiteService()
 
@@ -40,6 +42,7 @@ chrome.storage.onChanged.addListener(async () => {
     if (!siteService.checkAction(action, url, store.userSettings))
       siteService.revertManipulateDOM(action)
   })
+  new QuoteService().removeInjectedQuotes()
 
   init(url)
 })

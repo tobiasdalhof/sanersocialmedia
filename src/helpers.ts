@@ -16,3 +16,22 @@ export function waitForElement(selector: string): Promise<HTMLElement> {
     })
   })
 }
+
+export function findBackgroundColor(element: HTMLElement): string | undefined {
+  const transparent = 'rgba(0, 0, 0, 0)'
+  const color = window.getComputedStyle(element).backgroundColor
+  if (color !== transparent) return color
+
+  let parent = element.parentElement
+  while (parent) {
+    const parentColor = window.getComputedStyle(parent).backgroundColor
+    if (parentColor !== transparent) return parentColor
+    parent = parent.parentElement
+  }
+
+  return undefined
+}
+
+export function getOptionsURL(): string {
+  return chrome.runtime.getURL('dist/options/index.html')
+}

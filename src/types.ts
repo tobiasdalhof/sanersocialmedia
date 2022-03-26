@@ -19,7 +19,7 @@ export interface SiteAction {
 interface SiteActionManipulation {
   selector: string
   update(element: HTMLElement): void
-  revert(element: HTMLElement): void
+  revertUpdate(element: HTMLElement): void
 }
 
 export enum UserSettingsKey {
@@ -33,3 +33,8 @@ type PartialRecord<K extends keyof any, T> = {
 }
 
 export type UserSettings = PartialRecord<UserSettingsKey, boolean>
+
+export interface Quote {
+  author: string
+  text: string
+}

@@ -1,0 +1,32 @@
+[data-chrome-extension-quote-container] {
+  &[data-is-dark] {
+    color: #fff;
+    [data-quote] {
+      border-left: solid 3px rgba(255, 255, 255, 0.5);
+    }
+  }
+  &[data-is-light] {
+    color: #000;
+    [data-quote] {
+      border-left: solid 3px rgba(0, 0, 0, 0.5);
+    }
+  }
+  [data-quote] {
+    padding: 12px 20px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+    [data-quote-text] {
+      padding-bottom: 12px;
+      font-size: 20px;
+      opacity: 95%;
+    }
+    [data-quote-author] {
+      font-size: 16px;
+      opacity: 80%;
+    }
+  }
+  [data-footer] {
+    a {
+    }
+  }
+}

@@ -28,7 +28,7 @@ export class SiteService {
   revertManipulateDOM(action: SiteAction) {
     action.manipulations.forEach((manipulation) => {
       const element = <HTMLElement>document.querySelector(manipulation.selector)
-      if (element) manipulation.revert(element)
+      if (element) manipulation.revertUpdate(element)
     })
   }
 }

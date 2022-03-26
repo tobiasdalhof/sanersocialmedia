@@ -1,6 +1,8 @@
+import { getOptionsURL } from '../helpers'
+
 chrome.action.onClicked.addListener(() => {
   chrome.tabs.create({
-    url: chrome.runtime.getURL('dist/options/index.html'),
+    url: getOptionsURL(),
     active: true,
   })
 })

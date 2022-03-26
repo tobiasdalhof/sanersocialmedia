@@ -21,6 +21,6 @@
         "yzhang.markdown-all-in-one",
         "dbaeumer.vscode-eslint",
         "voorjaar.windicss-intellisense",
-        "csstools.postcss"
+        "sibiraj-s.vscode-scss-formatter"
     ],
 }

@@ -11,24 +11,37 @@
   "content_scripts": [
     {
       "matches": [
-        "*://*.youtube.com/*"
+        "<all_urls>"
       ],
       "run_at": "document_start",
       "js": [
-        "dist/scripts/content.js"
+        "dist/content.js"
+      ],
+      "css": [
+        "dist/content.style.css"
       ]
     }
   ],
   "background": {
-    "service_worker": "dist/scripts/background.js"
+    "service_worker": "dist/background.js"
   },
-  "permissions": [
-    "storage",
-    "tabs"
-  ],
   "options_ui": {
     "page": "dist/options/index.html",
     "open_in_tab": true
   },
-  "action": {}
+  "action": {},
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "dist/options/index.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
 }

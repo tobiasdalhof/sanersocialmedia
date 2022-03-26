@@ -1,4 +1,5 @@
 import logo from 'super-tiny-icons/images/svg/youtube.svg'
+import { QuoteService } from '../services/QuoteService'
 import type { Site } from '../types'
 import { UserSettingsKey } from '../types'
 
@@ -16,8 +17,10 @@ const youtube: Site = {
           selector: 'ytd-rich-grid-renderer',
           update: (element) => {
             element.style.setProperty('display', 'none', 'important')
+            const quote = new QuoteService().injectRandomQuote(element)
+            quote.style.padding = '40px'
           },
-          revert: (element) => {
+          revertUpdate: (element) => {
             element.style.removeProperty('display')
           },
         },
@@ -34,8 +37,10 @@ const youtube: Site = {
             element.style.setProperty('opacity', '0', 'important')
             element.style.setProperty('height', '0px', 'important')
             element.style.setProperty('overflow', 'hidden', 'important')
+            const quote = new QuoteService().injectRandomQuote(element)
+            quote.style.paddingBottom = '40px'
           },
-          revert: (element) => {
+          revertUpdate: (element) => {
             element.style.removeProperty('opacity')
             element.style.removeProperty('height')
             element.style.removeProperty('overflow')
@@ -52,8 +57,9 @@ const youtube: Site = {
           selector: '#secondary #related',
           update: (element) => {
             element.style.setProperty('display', 'none', 'important')
+            const quote = new QuoteService().injectRandomQuote(element)
           },
-          revert: (element) => {
+          revertUpdate: (element) => {
             element.style.removeProperty('display')
           },
         },
