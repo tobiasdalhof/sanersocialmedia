@@ -13,20 +13,28 @@
   }
   [data-quote] {
     padding: 12px 20px;
-    margin-bottom: 6px;
     line-height: 1.2;
     [data-quote-text] {
       padding-bottom: 12px;
       font-size: 20px;
-      opacity: 95%;
+      opacity: 0.9;
     }
     [data-quote-author] {
       font-size: 16px;
-      opacity: 80%;
+      opacity: 0.8;
     }
   }
   [data-footer] {
+    margin-top: 10px;
     a {
+      font-size: 14px;
+      color: inherit;
+      opacity: 0.5;
+      text-decoration: none;
+      &:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
     }
   }
 }
