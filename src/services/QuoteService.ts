@@ -20,6 +20,8 @@ export class QuoteService {
   }
 
   injectRandomQuote(parent: HTMLElement): HTMLElement {
+    if (this.isQuoteAlreadyInjected(parent)) return this.isQuoteAlreadyInjected(parent)!
+
     const randomQuote = this.getRandomQuote()
     const bgColor = new Color(findBackgroundColor(parent))
     const isDark = bgColor.isDark()
@@ -62,6 +64,13 @@ export class QuoteService {
 
   removeInjectedQuotes() {
     const containers = document.querySelectorAll(`[${QuoteDataAttribute.Container}]`)
-    containers.forEach(container => container.remove())
+    containers.forEach((container) => {
+      container.remove()
+    })
+  }
+
+  isQuoteAlreadyInjected(parent: HTMLElement) {
+    // need to select the parentElement because the quote is inserted after parent
+    return parent.parentElement!.querySelector<HTMLElement>(`[${QuoteDataAttribute.Container}]`)
   }
 }

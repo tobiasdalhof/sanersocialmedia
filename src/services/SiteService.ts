@@ -1,5 +1,6 @@
 import { waitForElement } from '../helpers'
 import type { Site, SiteAction, UserSettings } from '../types'
+import { QuoteService } from './QuoteService'
 
 export class SiteService {
   findSiteByURL(sites: Site[], url: URL) {
@@ -17,17 +18,20 @@ export class SiteService {
   }
 
   async manipulateDOM(action: SiteAction) {
+    const quoteService = new QuoteService()
     const manipulations = action.manipulations.map((manipulation) => {
-      return waitForElement(manipulation.selector).then(manipulation.update)
+      return waitForElement(manipulation.selector).then((element) => {
+        manipulation.update({ element, quoteService })
+      })
     })
     await Promise.all(manipulations)
-    // inject quotes
   }
 
   revertManipulateDOM(action: SiteAction) {
+    const quoteService = new QuoteService()
     action.manipulations.forEach((manipulation) => {
       const element = <HTMLElement>document.querySelector(manipulation.selector)
-      if (element) manipulation.revertUpdate(element)
+      if (element) manipulation.revertUpdate({ element, quoteService })
     })
   }
 }

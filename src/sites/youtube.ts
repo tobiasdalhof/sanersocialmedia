@@ -1,5 +1,4 @@
 import logo from 'super-tiny-icons/images/svg/youtube.svg'
-import { QuoteService } from '../services/QuoteService'
 import type { Site } from '../types'
 import { UserSettingsKey } from '../types'
 
@@ -17,12 +16,12 @@ const youtube: Site = {
       manipulations: [
         {
           selector: 'ytd-rich-grid-renderer',
-          update: (element) => {
+          update: ({ element, quoteService }) => {
             element.style.setProperty('display', 'none', 'important')
-            const quote = new QuoteService().injectRandomQuote(element)
+            const quote = quoteService.injectRandomQuote(element)
             quote.style.padding = '40px'
           },
-          revertUpdate: (element) => {
+          revertUpdate: ({ element }) => {
             element.style.removeProperty('display')
           },
         },
@@ -37,14 +36,14 @@ const youtube: Site = {
       manipulations: [
         {
           selector: '#primary #comments #contents',
-          update: (element) => {
+          update: ({ element, quoteService }) => {
             element.style.setProperty('opacity', '0', 'important')
             element.style.setProperty('height', '0px', 'important')
             element.style.setProperty('overflow', 'hidden', 'important')
-            const quote = new QuoteService().injectRandomQuote(element)
+            const quote = quoteService.injectRandomQuote(element)
             quote.style.paddingBottom = '40px'
           },
-          revertUpdate: (element) => {
+          revertUpdate: ({ element }) => {
             element.style.removeProperty('opacity')
             element.style.removeProperty('height')
             element.style.removeProperty('overflow')
@@ -61,11 +60,11 @@ const youtube: Site = {
       manipulations: [
         {
           selector: '#secondary #related',
-          update: (element) => {
+          update: ({ element, quoteService }) => {
             element.style.setProperty('display', 'none', 'important')
-            new QuoteService().injectRandomQuote(element)
+            quoteService.injectRandomQuote(element)
           },
-          revertUpdate: (element) => {
+          revertUpdate: ({ element }) => {
             element.style.removeProperty('display')
           },
         },

@@ -1,25 +1,25 @@
-import logo from 'super-tiny-icons/images/svg/twitter.svg'
+import logo from 'super-tiny-icons/images/svg/linkedin.svg'
 import type { Site } from '../types'
 import { UserSettingsKey } from '../types'
 
 const twitter: Site = {
   logo,
-  name: 'Twitter',
-  validHosts: ['twitter.com', 'www.twitter.com'],
+  name: 'LinkedIn',
+  validHosts: ['linkedin.com', 'www.linkedin.com'],
   actions: {
     hideHomePageFeed: {
       name: 'Hide feed on home page',
       validURL: (url) => {
-        return ['/', '/home'].includes(url.pathname)
+        return url.pathname.includes('feed')
       },
-      userSettingsKey: UserSettingsKey.TwitterHideVideoPageSidebarRelated,
+      userSettingsKey: UserSettingsKey.LinkedInHideHomePageFeed,
       manipulations: [
         {
-          selector: '[data-testid="primaryColumn"] > div:last-child > div:nth-child(4)',
+          selector: 'main.scaffold-layout__main > div:last-child',
           update: ({ element, quoteService }) => {
             element.style.setProperty('display', 'none', 'important')
             const quote = quoteService.injectRandomQuote(element)
-            quote.style.padding = '40px'
+            quote.style.paddingTop = '10px'
           },
           revertUpdate: ({ element }) => {
             element.style.removeProperty('display')
@@ -27,24 +27,13 @@ const twitter: Site = {
         },
       ],
     },
-    hideSidebar: {
-      name: 'Hide sidebar trends and suggestions',
+    hideTrendingNewsSidebar: {
+      name: 'Hide trending news in sidebar',
       validURL: () => true,
-      userSettingsKey: UserSettingsKey.TwitterHideSidebar,
+      userSettingsKey: UserSettingsKey.LinkedInHideTrendingNewsSidebar,
       manipulations: [
         {
-          selector: '[data-testid="sidebarColumn"] section',
-          update: ({ element, quoteService }) => {
-            element.style.setProperty('display', 'none', 'important')
-            const quote = quoteService.injectRandomQuote(element)
-            quote.style.padding = '20px'
-          },
-          revertUpdate: ({ element }) => {
-            element.style.removeProperty('display')
-          },
-        },
-        {
-          selector: '[data-testid="sidebarColumn"] aside',
+          selector: 'aside.scaffold-layout__aside .news-module',
           update: ({ element, quoteService }) => {
             element.style.setProperty('display', 'none', 'important')
             const quote = quoteService.injectRandomQuote(element)

@@ -1,3 +1,5 @@
+import type { QuoteService } from './services/QuoteService'
+
 export interface Store {
   userSettings?: UserSettings
 }
@@ -16,10 +18,15 @@ export interface SiteAction {
   manipulations: SiteActionManipulation[]
 }
 
+interface SiteActionManipulationUpdateParams {
+  element: HTMLElement
+  quoteService: QuoteService
+}
+
 interface SiteActionManipulation {
   selector: string
-  update(element: HTMLElement): void
-  revertUpdate(element: HTMLElement): void
+  update(params: SiteActionManipulationUpdateParams): void
+  revertUpdate(params: SiteActionManipulationUpdateParams): void
 }
 
 export enum UserSettingsKey {
@@ -28,6 +35,8 @@ export enum UserSettingsKey {
   YouTubeHideVideoPageSidebarRelated = 'YouTubeHideVideoPageSidebarRelated',
   TwitterHideVideoPageSidebarRelated = 'TwitterHideVideoPageSidebarRelated',
   TwitterHideSidebar = 'TwitterHideSidebar',
+  LinkedInHideHomePageFeed = 'LinkedInHideHomePageFeed',
+  LinkedInHideTrendingNewsSidebar = 'LinkedInHideTrendingNewsSidebar',
 }
 
 type PartialRecord<K extends keyof any, T> = {
