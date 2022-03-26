@@ -10,7 +10,9 @@ const youtube: Site = {
   actions: {
     hideHomePageFeed: {
       name: 'Hide feed on home page',
-      validPaths: ['/'],
+      validURL: (url) => {
+        return ['/'].includes(url.pathname)
+      },
       userSettingsKey: UserSettingsKey.YouTubeHideHomePageFeed,
       manipulations: [
         {
@@ -28,7 +30,9 @@ const youtube: Site = {
     },
     hideVideoPageComments: {
       name: 'Hide comments on video page',
-      validPaths: ['/watch'],
+      validURL: (url) => {
+        return ['/watch'].includes(url.pathname)
+      },
       userSettingsKey: UserSettingsKey.YouTubeHideVideoPageComments,
       manipulations: [
         {
@@ -50,7 +54,9 @@ const youtube: Site = {
     },
     hideVideoPageSidebarRelated: {
       name: 'Hide related videos in sidebar on video page',
-      validPaths: ['/watch'],
+      validURL: (url) => {
+        return ['/watch'].includes(url.pathname)
+      },
       userSettingsKey: UserSettingsKey.YouTubeHideVideoPageSidebarRelated,
       manipulations: [
         {

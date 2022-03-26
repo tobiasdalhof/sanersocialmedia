@@ -11,7 +11,7 @@ export interface Site {
 
 export interface SiteAction {
   name: string
-  validPaths: string[]
+  validURL(url: URL): boolean
   userSettingsKey: UserSettingsKey
   manipulations: SiteActionManipulation[]
 }
@@ -26,6 +26,8 @@ export enum UserSettingsKey {
   YouTubeHideHomePageFeed = 'YouTubeHideHomePageFeed',
   YouTubeHideVideoPageComments = 'YouTubeHideVideoPageComments',
   YouTubeHideVideoPageSidebarRelated = 'YouTubeHideVideoPageSidebarRelated',
+  TwitterHideVideoPageSidebarRelated = 'TwitterHideVideoPageSidebarRelated',
+  TwitterHideSidebar = 'TwitterHideSidebar',
 }
 
 type PartialRecord<K extends keyof any, T> = {

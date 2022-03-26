@@ -1,3 +1,7 @@
+export function getOptionsURL(): string {
+  return chrome.runtime.getURL('dist/options/index.html')
+}
+
 export function waitForElement(selector: string): Promise<HTMLElement> {
   return new Promise((resolve) => {
     if (document.querySelector(selector))
@@ -30,8 +34,4 @@ export function findBackgroundColor(element: HTMLElement): string | undefined {
   }
 
   return undefined
-}
-
-export function getOptionsURL(): string {
-  return chrome.runtime.getURL('dist/options/index.html')
 }

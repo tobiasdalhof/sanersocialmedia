@@ -7,6 +7,7 @@ import { QuoteService } from '../services/QuoteService'
 const siteService = new SiteService()
 
 async function init(url: URL) {
+  new QuoteService().removeInjectedQuotes()
   const store: Store = await chrome.storage.sync.get() as Store
 
   const site = siteService.findSiteByURL(Object.values(sites), url)
@@ -29,7 +30,7 @@ setInterval(() => {
     url = newURL
     init(newURL)
   }
-}, 1000)
+}, 200)
 
 chrome.storage.onChanged.addListener(async () => {
   const site = siteService.findSiteByURL(Object.values(sites), url)
@@ -42,7 +43,6 @@ chrome.storage.onChanged.addListener(async () => {
     if (!siteService.checkAction(action, url, store.userSettings))
       siteService.revertManipulateDOM(action)
   })
-  new QuoteService().removeInjectedQuotes()
 
   init(url)
 })

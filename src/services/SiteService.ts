@@ -13,8 +13,7 @@ export class SiteService {
   checkAction(action: SiteAction, url: URL, userSettings?: UserSettings): boolean {
     if (!userSettings) return false
     const enabled = userSettings[action.userSettingsKey] === true
-    const validPath = action.validPaths.includes(url.pathname)
-    return enabled && validPath
+    return enabled && action.validURL(url)
   }
 
   async manipulateDOM(action: SiteAction) {
