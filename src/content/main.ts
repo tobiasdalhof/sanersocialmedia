@@ -11,8 +11,6 @@ async function init(url: URL) {
   if (!store.userConfig) return
 
   site.runSiteActions(url, store.userConfig)
-  if (site.params.afterRunSiteActions)
-    site.params.afterRunSiteActions({ site, userConfig: store.userConfig, url })
 }
 
 let currentUrl = new URL(window.location.href)

@@ -32,6 +32,8 @@ export default class Site {
       siteAction.injectCss()
       siteAction.manipulateDom()
     }
+    if (this.params.afterRunSiteActions)
+      this.params.afterRunSiteActions({ site: this, url, userConfig })
   }
 
   removeInjectedElements() {
