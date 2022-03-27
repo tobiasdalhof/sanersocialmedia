@@ -1,20 +1,20 @@
-import type { Store, UserSettingsKey } from './types'
+import type { Store, UserConfigKey } from './types'
 
 export async function getStore() {
   return await chrome.storage.sync.get() as Store
 }
 
-export async function toggleUserSettings(key: UserSettingsKey) {
+export async function toggleUserConfig(key: UserConfigKey) {
   const store = await getStore()
   let value: boolean
-  if (!store.userSettings) value = true
-  else if (store.userSettings[key] === undefined) value = true
-  else value = !store.userSettings[key]
+  if (!store.userConfig) value = true
+  else if (store.userConfig[key] === undefined) value = true
+  else value = !store.userConfig[key]
 
   await chrome.storage.sync.set(<Store>{
     ...store,
-    userSettings: {
-      ...store.userSettings,
+    userConfig: {
+      ...store.userConfig,
       [key]: value,
     },
   })

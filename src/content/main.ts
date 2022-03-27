@@ -2,47 +2,33 @@ import '../style.scss'
 import { SiteService } from '../services/SiteService'
 import * as sites from '../sites'
 import type { Store } from '../types'
-import { QuoteService } from '../services/QuoteService'
-
-const siteService = new SiteService()
 
 async function init(url: URL) {
-  new QuoteService().removeInjectedQuotes()
-  const store: Store = await chrome.storage.sync.get() as Store
-
-  const site = siteService.findSiteByURL(Object.values(sites), url)
+  const site = new SiteService().getSiteByUrl(Object.values(sites), url)
   if (!site) return
 
-  const actions = Object.values(site.actions)
-  actions.forEach((action) => {
-    if (siteService.checkAction(action, url, store.userSettings))
-      siteService.manipulateDOM(action)
-  })
+  const store = await chrome.storage.sync.get() as Store
+  if (!store.userConfig) return
+
+  site.runSiteActions(url, store.userConfig)
+  if (site.params.afterRunSiteActions)
+    site.params.afterRunSiteActions({ site, userConfig: store.userConfig, url })
 }
 
-let url = new URL(window.location.href)
-init(url)
+let currentUrl = new URL(window.location.href)
+init(currentUrl)
 
-// detect url path changes for single page applications
-setInterval(() => {
-  const newURL = new URL(window.location.href)
-  if (url.pathname !== newURL.pathname) {
-    url = newURL
-    init(newURL)
+const observer = new MutationObserver(() => {
+  if (window.location.href !== currentUrl.href) {
+    currentUrl = new URL(window.location.href)
+    init(currentUrl)
   }
-}, 200)
+})
+observer.observe(document, { subtree: true, childList: true })
 
 chrome.storage.onChanged.addListener(async () => {
-  const site = siteService.findSiteByURL(Object.values(sites), url)
+  const site = new SiteService().getSiteByUrl(Object.values(sites), currentUrl)
   if (!site) return
-
-  const store: Store = await chrome.storage.sync.get() as Store
-
-  const actions = Object.values(site.actions)
-  actions.forEach((action) => {
-    if (!siteService.checkAction(action, url, store.userSettings))
-      siteService.revertManipulateDOM(action)
-  })
-
-  init(url)
+  site.removeInjectedElements()
+  init(currentUrl)
 })

@@ -1,4 +1,5 @@
 [data-chrome-extension-quote-container] {
+  display: block !important;
   &[data-is-dark] {
     color: #fff;
     [data-quote] {
@@ -12,19 +13,23 @@
     }
   }
   [data-quote] {
+    display: block !important;
     padding: 12px 20px;
     line-height: 1.2;
     [data-quote-text] {
+      display: block !important;
       padding-bottom: 12px;
       font-size: 20px;
       opacity: 0.9;
     }
     [data-quote-author] {
+      display: block !important;
       font-size: 16px;
       opacity: 0.8;
     }
   }
   [data-footer] {
+    display: block !important;
     margin-top: 10px;
     a {
       font-size: 14px;

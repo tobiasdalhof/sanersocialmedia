@@ -1,70 +1,76 @@
-import logo from 'super-tiny-icons/images/svg/youtube.svg'
-import type { Site } from '../types'
-import { UserSettingsKey } from '../types'
+import logoSvg from 'super-tiny-icons/images/svg/youtube.svg'
+import { waitForElement } from '../helpers'
+import Site from '../lib/Site'
+import SiteAction from '../lib/SiteAction'
+import { UserConfigKey } from '../types'
 
-const youtube: Site = {
-  logo,
+const youtube = new Site({
+  logoSvg,
   name: 'YouTube',
-  validHost: url => url.host.includes('youtube.com'),
-  actions: {
-    hideHomePageFeed: {
+  validateUrl: url => url.host.includes('youtube.com'),
+  siteActions: [
+    new SiteAction({
       name: 'Hide feed on home page',
-      validURL: url => ['/'].includes(url.pathname),
-      userSettingsKey: UserSettingsKey.YouTubeHideHomePageFeed,
-      manipulations: [
-        {
-          selector: 'ytd-rich-grid-renderer',
-          update: ({ element, quoteService }) => {
-            element.style.setProperty('display', 'none', 'important')
-            const quote = quoteService.injectRandomQuote(element)
-            quote.style.padding = '40px'
-          },
-          revertUpdate: ({ element }) => {
-            element.style.removeProperty('display')
-          },
-        },
-      ],
-    },
-    hideVideoPageComments: {
+      validateUrl: url => url.pathname === '/',
+      requiredUserConfigKey: UserConfigKey.GitHubHideHomePageFeed,
+      injectCss: `
+        ytd-rich-grid-renderer {
+          display: none!important;
+        }
+      `,
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('ytd-rich-grid-renderer')
+        const quote = siteAction.createQuoteElement(container)
+        quote.style.padding = '40px'
+        container.after(quote)
+      },
+    }),
+    new SiteAction({
       name: 'Hide comments on video page',
-      validURL: url => ['/watch'].includes(url.pathname),
-      userSettingsKey: UserSettingsKey.YouTubeHideVideoPageComments,
-      manipulations: [
-        {
-          selector: '#primary #comments #contents',
-          update: ({ element, quoteService }) => {
-            element.style.setProperty('opacity', '0', 'important')
-            element.style.setProperty('height', '0px', 'important')
-            element.style.setProperty('overflow', 'hidden', 'important')
-            const quote = quoteService.injectRandomQuote(element)
-            quote.style.paddingBottom = '40px'
-          },
-          revertUpdate: ({ element }) => {
-            element.style.removeProperty('opacity')
-            element.style.removeProperty('height')
-            element.style.removeProperty('overflow')
-          },
-        },
-      ],
-    },
-    hideVideoPageSidebarRelated: {
+      validateUrl: url => ['/watch'].includes(url.pathname),
+      requiredUserConfigKey: UserConfigKey.YouTubeHideVideoPageComments,
+      injectCss: `
+        #primary #comments #contents {
+          opacity: 0!important;
+          height: 0px!important;
+          overflow: hidden!important;
+        }
+      `,
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('#primary #comments #contents')
+        const quote = siteAction.createQuoteElement(container)
+        quote.style.paddingBottom = '40px'
+        container.after(quote)
+      },
+    }),
+    new SiteAction({
       name: 'Hide related videos in sidebar on video page',
-      validURL: url => ['/watch'].includes(url.pathname),
-      userSettingsKey: UserSettingsKey.YouTubeHideVideoPageSidebarRelated,
-      manipulations: [
-        {
-          selector: '#secondary #related',
-          update: ({ element, quoteService }) => {
-            element.style.setProperty('display', 'none', 'important')
-            quoteService.injectRandomQuote(element)
-          },
-          revertUpdate: ({ element }) => {
-            element.style.removeProperty('display')
-          },
-        },
-      ],
-    },
+      validateUrl: url => ['/watch'].includes(url.pathname),
+      requiredUserConfigKey: UserConfigKey.YouTubeHideVideoPageSidebarRelated,
+      injectCss: `
+        #secondary #related {
+          display: none!important;
+        }
+      `,
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('#secondary #related')
+        const quote = siteAction.createQuoteElement(container)
+        quote.style.paddingBottom = '40px'
+        container.after(quote)
+      },
+    }),
+  ],
+  afterRunSiteActions: ({ site, url, userConfig }) => {
+    waitForElement('#logo').then((element) => {
+      element.addEventListener('click', () => {
+        setTimeout(() => site.runSiteActions(url, userConfig), 2000)
+      })
+    })
+    waitForElement('#endpoint').then((element) => {
+      element.addEventListener('click', () => {
+        setTimeout(() => site.runSiteActions(url, userConfig), 2000)
+      })
+    })
   },
-}
-
+})
 export default youtube

@@ -1,49 +1,47 @@
-import logo from 'super-tiny-icons/images/svg/linkedin.svg'
-import type { Site } from '../types'
-import { UserSettingsKey } from '../types'
+import logoSvg from 'super-tiny-icons/images/svg/linkedin.svg'
+import { waitForElement } from '../helpers'
+import Site from '../lib/Site'
+import SiteAction from '../lib/SiteAction'
+import { UserConfigKey } from '../types'
 
-const twitter: Site = {
-  logo,
+const linkedin = new Site({
+  logoSvg,
   name: 'LinkedIn',
-  validHost: url => url.host.includes('linkedin.com'),
-  actions: {
-    hideHomePageFeed: {
+  validateUrl: url => url.host.includes('linkedin.com'),
+  siteActions: [
+    new SiteAction({
       name: 'Hide feed on home page',
-      validURL: url => url.pathname.includes('feed'),
-      userSettingsKey: UserSettingsKey.LinkedInHideHomePageFeed,
-      manipulations: [
-        {
-          selector: 'main.scaffold-layout__main > div:last-child',
-          update: ({ element, quoteService }) => {
-            element.style.setProperty('display', 'none', 'important')
-            const quote = quoteService.injectRandomQuote(element)
-            quote.style.paddingTop = '10px'
-          },
-          revertUpdate: ({ element }) => {
-            element.style.removeProperty('display')
-          },
-        },
-      ],
-    },
-    hideTrendingNewsSidebar: {
+      validateUrl: url => url.pathname.includes('feed'),
+      requiredUserConfigKey: UserConfigKey.LinkedInHideHomePageFeed,
+      injectCss: `
+        main.scaffold-layout__main > div:last-child {
+          display: none!important;
+        }
+      `,
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('main.scaffold-layout__main > div:last-child')
+        const quote = siteAction.createQuoteElement(container)
+        quote.style.paddingTop = '10px'
+        container.before(quote)
+      },
+    }),
+    new SiteAction({
       name: 'Hide trending news in sidebar',
-      validURL: () => true,
-      userSettingsKey: UserSettingsKey.LinkedInHideTrendingNewsSidebar,
-      manipulations: [
-        {
-          selector: 'aside.scaffold-layout__aside .news-module',
-          update: ({ element, quoteService }) => {
-            element.style.setProperty('display', 'none', 'important')
-            const quote = quoteService.injectRandomQuote(element)
-            quote.style.padding = '20px'
-          },
-          revertUpdate: ({ element }) => {
-            element.style.removeProperty('display')
-          },
-        },
-      ],
-    },
-  },
-}
+      validateUrl: () => true,
+      requiredUserConfigKey: UserConfigKey.LinkedInHideTrendingNewsSidebar,
+      injectCss: `
+        aside.scaffold-layout__aside .news-module {
+          display: none!important;
+        }
+      `,
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('aside.scaffold-layout__aside .news-module')
+        const quote = siteAction.createQuoteElement(container)
+        quote.style.padding = '20px'
+        container.before(quote)
+      },
+    }),
+  ],
+})
 
-export default twitter
+export default linkedin
