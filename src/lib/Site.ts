@@ -6,10 +6,10 @@ interface SiteParams {
   logoSvg: string
   validateUrl(url: URL): boolean
   siteActions: SiteAction[]
-  afterRunSiteActions?(params: CustomizeBehaviourParams): void
+  afterRunSiteActions?(params: AfterRunSiteActionsParams): void
 }
 
-interface CustomizeBehaviourParams {
+interface AfterRunSiteActionsParams {
   site: Site
   userConfig: UserConfig
   url: URL
