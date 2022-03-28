@@ -1,33 +1,16 @@
 <template>
-  <div class="p-3">
-    <nav class="flex justify-center space-x-5 py-5 text-2xl">
-      <router-link v-for="(item, index) in items" :key="'item-' + index" :to="item.to">
-        <span>{{ item.name }}</span>
-      </router-link>
-    </nav>
-    <main class="container max-w-4xl mx-auto">
+  <div class="container max-w-4xl mx-auto p-3">
+    <div class="flex items-center border-b border-dark-800 py-5">
+      <img src="./images/relieved.svg" alt="Sanity" class="w-7 mr-3" />
+      <div>Sanity - Browse social media with less noise</div>
+    </div>
+
+    <main class="mt-10">
       <router-view></router-view>
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { RouteLocationRaw } from 'vue-router'
-import { RouterLink, RouterView } from 'vue-router'
-
-interface NavItem {
-  name: string
-  to: RouteLocationRaw
-}
-
-const items: NavItem[] = [
-  {
-    name: 'Site settings',
-    to: { path: '/' },
-  },
-  {
-    name: 'Support this project',
-    to: { path: '/support' },
-  },
-]
+import { RouterView } from 'vue-router'
 </script>

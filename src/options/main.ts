@@ -8,13 +8,11 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import App from './App.vue'
 import Index from './views/Index.vue'
-import Support from './views/Support.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     { path: '/', component: Index },
-    { path: '/support', component: Support },
   ],
 })
 

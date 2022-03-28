@@ -1,12 +1,15 @@
 {
-  "name": "Sanity Extension - Saner Social Media",
-  "description": "TBA",
+  "name": "Sanity - Browse social media with less noise",
+  "description": "Replace news feeds and recommendations with an inspiring quote. News Feed Eradicator alternative.",
   "version": "0.0.1",
   "manifest_version": 3,
   "icons": {
     "16": "icon16.png",
     "24": "icon24.png",
-    "32": "icon32.png"
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "64": "icon64.png",
+    "128": "icon128.png"
   },
   "content_scripts": [
     {

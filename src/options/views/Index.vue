@@ -2,13 +2,13 @@
   <div v-if="ready">
     <div class="mb-2 space-x-2">
       <button
-        class="px-4 py-2 rounded-full text-sm bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-gray-300 opacity-50 hover:opacity-100 transition-opacity active:ring-1 ring-blue-500"
+        class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-700 opacity-50 hover:opacity-100 transition-opacity active:ring-1 ring-blue-500 leading-none"
         @click.prevent="enableAll()"
       >
         <span>Enable all</span>
       </button>
       <button
-        class="px-4 py-2 rounded-full text-sm bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-gray-300 opacity-50 hover:opacity-100 transition-opacity active:ring-1 ring-blue-500"
+        class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-700 opacity-50 hover:opacity-100 transition-opacity active:ring-1 ring-blue-500 leading-none"
         @click.prevent="disableAll()"
       >
         <span>Disable all</span>
@@ -24,7 +24,7 @@
         @click="toggle(siteAction)"
       >
         <div
-          class="flex justify-between items-center bg-gray-800 rounded-full px-3 py-2 cursor-pointer select-none active:ring-1 ring-blue-500"
+          class="flex justify-between items-center bg-dark-800 rounded-full px-3 py-2 cursor-pointer select-none active:ring-1 ring-blue-500 leading-none"
         >
           <div class="flex items-center">
             <div
@@ -32,9 +32,7 @@
               :style="{ backgroundImage: `url(${site.params.logoSvg})` }"
             ></div>
             <div class="ml-4">
-              <span
-                class="text-base text-gray-300"
-              >{{ site.params.name }} - {{ siteAction.params.name }}</span>
+              <span>{{ site.params.name }} - {{ siteAction.params.name }}</span>
             </div>
           </div>
           <div class="ml-4">
@@ -42,6 +40,31 @@
             <app-icon v-else :value="mdiClose" class="w-7 text-red-500"></app-icon>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="mt-10 p-8 border border-blue-500 rounded-2xl">
+        <div>
+          <span class="font-bold">Are you enjoying Sanity?</span> Please consider to support this free and
+          <a
+            href="https://github.com/tobidalhof/sanityextension"
+            target="_blank"
+            class="text-blue-500"
+          >open source</a> project.
+        </div>
+        <ul class="list-disc pl-6 mt-3">
+          <li>Tell your friends</li>
+          <li>Visit the Chrome Web Store and write a review</li>
+          <li>
+            Report bugs on
+            <a
+              href="https://github.com/tobidalhof/sanityextension"
+              target="_blank"
+              class="text-blue-500"
+            >GitHub</a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
