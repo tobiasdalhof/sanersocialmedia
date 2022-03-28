@@ -40,7 +40,7 @@ const linkedin = new Site({
         const quote = siteAction.createQuoteElement(container)
         if (!quote) return
         quote.style.padding = '20px'
-        container.before(quote)
+        container.after(quote)
       },
     }),
   ],

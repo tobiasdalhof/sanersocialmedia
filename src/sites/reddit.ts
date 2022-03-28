@@ -14,17 +14,16 @@ const reddit = new Site({
       validateUrl: url => url.pathname === '/',
       requiredUserConfigKey: UserConfigKey.RedditHideHomePageFeed,
       injectCss: `
-        .scrollerItem,
-        .ListingLayout-outerContainer div div div div:nth-of-type(2) {
+        .scrollerItem {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('.ListingLayout-outerContainer div div div div:nth-of-type(2)')
+        const container = await waitForElement('.scrollerItem')
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
           if (!quote) return
-          container.after(quote)
+          container.before(quote)
         }, 1000)
       },
     }),

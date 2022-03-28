@@ -14,12 +14,12 @@ const youtube = new Site({
       validateUrl: url => url.pathname === '/',
       requiredUserConfigKey: UserConfigKey.YouTubeHideHomePageFeed,
       injectCss: `
-        ytd-rich-grid-renderer {
+        ytd-browse #primary {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('ytd-rich-grid-renderer')
+        const container = await waitForElement('ytd-browse #primary')
         const quote = siteAction.createQuoteElement(container)
         if (!quote) return
         quote.style.padding = '40px'
@@ -31,14 +31,14 @@ const youtube = new Site({
       validateUrl: url => ['/watch'].includes(url.pathname),
       requiredUserConfigKey: UserConfigKey.YouTubeHideVideoPageComments,
       injectCss: `
-        #primary #comments #contents {
+        #comments #contents {
           opacity: 0!important;
           height: 0px!important;
           overflow: hidden!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('#primary #comments #contents')
+        const container = await waitForElement('#comments #contents')
         const quote = siteAction.createQuoteElement(container)
         if (!quote) return
         quote.style.paddingBottom = '40px'

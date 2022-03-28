@@ -2,6 +2,7 @@ import logoSvg from 'super-tiny-icons/images/svg/instagram.svg'
 import { waitForElement } from '../helpers'
 import Site from '../lib/Site'
 import SiteAction from '../lib/SiteAction'
+import { QuoteElementDataAttribute } from '../services/ElementService'
 import { UserConfigKey } from '../types'
 
 const instagram = new Site({
@@ -14,7 +15,7 @@ const instagram = new Site({
       validateUrl: url => url.pathname === '/',
       requiredUserConfigKey: UserConfigKey.InstagramHideHomePageFeed,
       injectCss: `
-        main > section > :not([data-chrome-extension-quote-container])  {
+        main > section > :not([${QuoteElementDataAttribute.Container}])  {
           display: none!important;
         }
       `,

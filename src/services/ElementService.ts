@@ -3,7 +3,7 @@ import { findBackgroundColor, getOptionsURL } from '../helpers'
 import { QuoteService } from './QuoteService'
 
 export enum QuoteElementDataAttribute {
-  Container = 'data-chrome-extension-quote-container',
+  Container = 'data-sanityextension-quote-container',
   IsDark = 'data-is-dark',
   IsLight = 'data-is-light',
   Quote = 'data-quote',
