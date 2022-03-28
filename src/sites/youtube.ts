@@ -28,7 +28,7 @@ const youtube = new Site({
     }),
     new SiteAction({
       name: 'Hide related videos in sidebar on video page',
-      validateUrl: url => ['/watch'].includes(url.pathname),
+      validateUrl: () => true,
       requiredUserConfigKey: UserConfigKey.YouTubeHideVideoSidebarRelated,
       injectCss: `
         #secondary #related {
@@ -45,7 +45,7 @@ const youtube = new Site({
     }),
     new SiteAction({
       name: 'Hide comments on video page',
-      validateUrl: url => ['/watch'].includes(url.pathname),
+      validateUrl: () => true,
       requiredUserConfigKey: UserConfigKey.YouTubeHideVideoComments,
       injectCss: `
         #comments #contents {
