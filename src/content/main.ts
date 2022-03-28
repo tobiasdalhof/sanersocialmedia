@@ -3,7 +3,10 @@ import { SiteService } from '../services/SiteService'
 import * as sites from '../sites'
 import type { Store } from '../types'
 
+let waitInit = false
 async function init(url: URL) {
+  if (waitInit) return
+  waitInit = true
   const site = new SiteService().getSiteByUrl(Object.values(sites), url)
   if (!site) return
 
@@ -11,6 +14,7 @@ async function init(url: URL) {
   if (!store.userConfig) return
 
   site.runSiteActions(url, store.userConfig)
+  waitInit = false
 }
 
 let currentUrl = new URL(window.location.href)
