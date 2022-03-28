@@ -1,4 +1,4 @@
-import '../style.scss'
+import '../style/quote.scss'
 import { SiteService } from '../services/SiteService'
 import * as sites from '../sites'
 import type { Store } from '../types'
@@ -15,6 +15,7 @@ async function init(url: URL) {
 
 let currentUrl = new URL(window.location.href)
 init(currentUrl)
+setInterval(() => init(currentUrl), 1000)
 
 const observer = new MutationObserver(() => {
   if (window.location.href !== currentUrl.href) {
@@ -27,6 +28,5 @@ observer.observe(document, { subtree: true, childList: true })
 chrome.storage.onChanged.addListener(async () => {
   const site = new SiteService().getSiteByUrl(Object.values(sites), currentUrl)
   if (!site) return
-  site.removeInjectedElements()
   init(currentUrl)
 })

@@ -6,13 +6,6 @@ interface SiteParams {
   logoSvg: string
   validateUrl(url: URL): boolean
   siteActions: SiteAction[]
-  afterRunSiteActions?(params: AfterRunSiteActionsParams): void
-}
-
-interface AfterRunSiteActionsParams {
-  site: Site
-  userConfig: UserConfig
-  url: URL
 }
 
 export default class Site {
@@ -28,15 +21,12 @@ export default class Site {
 
   runSiteActions(url: URL, userConfig: UserConfig) {
     for (const siteAction of this.params.siteActions) {
-      if (!siteAction.canRun(url, userConfig)) continue
+      if (!siteAction.canRun(url, userConfig)) {
+        siteAction.removeInjectedElements()
+        continue
+      }
       siteAction.injectCss()
       siteAction.manipulateDom()
     }
-    if (this.params.afterRunSiteActions)
-      this.params.afterRunSiteActions({ site: this, url, userConfig })
-  }
-
-  removeInjectedElements() {
-    this.params.siteActions.forEach(siteAction => siteAction.removeInjectedElements())
   }
 }

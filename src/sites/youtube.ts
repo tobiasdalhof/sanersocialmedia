@@ -12,7 +12,7 @@ const youtube = new Site({
     new SiteAction({
       name: 'Hide feed on home page',
       validateUrl: url => url.pathname === '/',
-      requiredUserConfigKey: UserConfigKey.GitHubHideHomePageFeed,
+      requiredUserConfigKey: UserConfigKey.YouTubeHideHomePageFeed,
       injectCss: `
         ytd-rich-grid-renderer {
           display: none!important;
@@ -60,18 +60,6 @@ const youtube = new Site({
       },
     }),
   ],
-  afterRunSiteActions: ({ site, url, userConfig }) => {
-    waitForElement('#logo').then((element) => {
-      element.addEventListener('click', () => {
-        setTimeout(() => site.runSiteActions(url, userConfig), 2000)
-      })
-    })
-    waitForElement('#endpoint').then((element) => {
-      element.addEventListener('click', () => {
-        setTimeout(() => site.runSiteActions(url, userConfig), 2000)
-      })
-    })
-  },
 })
 
 export default youtube

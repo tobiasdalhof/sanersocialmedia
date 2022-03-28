@@ -27,18 +27,6 @@ const tiktok = new Site({
       },
     }),
   ],
-  afterRunSiteActions: ({ site, url, userConfig }) => {
-    waitForElement('[data-e2e="tiktok-logo"]').then((element) => {
-      element.addEventListener('click', () => {
-        setTimeout(() => site.runSiteActions(url, userConfig), 1000)
-      })
-    })
-    waitForElement('[data-e2e="nav-foryou"]').then((element) => {
-      element.addEventListener('click', () => {
-        setTimeout(() => site.runSiteActions(url, userConfig), 1000)
-      })
-    })
-  },
 })
 
 export default tiktok
