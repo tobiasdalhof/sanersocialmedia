@@ -1,7 +1,7 @@
 {
-  "name": "Sanity - Browse social media with less noise",
-  "description": "Replace news feeds and recommendations with an inspiring quote. News Feed Eradicator alternative.",
-  "version": "0.0.1",
+  "name": "Sanity - Saner Social Media",
+  "description": "Replace addictive and noisy social media site features with an inspirational quote. News Feed Eradicator alternative.",
+  "version": "1.0.0",
   "manifest_version": 3,
   "icons": {
     "16": "icon16.png",
