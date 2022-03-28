@@ -7,12 +7,12 @@ import { UserConfigKey } from '../types'
 const linkedin = new Site({
   logoSvg,
   name: 'LinkedIn',
-  validateUrl: url => url.host.includes('linkedin.com'),
+  validateUrl: url => url.host.replace('www.', '') === 'linkedin.com',
   siteActions: [
     new SiteAction({
       name: 'Hide feed on home page',
       validateUrl: url => url.pathname.includes('feed'),
-      requiredUserConfigKey: UserConfigKey.LinkedInHideHomePageFeed,
+      requiredUserConfigKey: UserConfigKey.LinkedInHideHomeFeed,
       injectCss: `
         main.scaffold-layout__main > div:last-child {
           display: none!important;
@@ -29,7 +29,7 @@ const linkedin = new Site({
     new SiteAction({
       name: 'Hide trending news in sidebar',
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.LinkedInHideTrendingNewsSidebar,
+      requiredUserConfigKey: UserConfigKey.LinkedInHideSidebarTrendingNews,
       injectCss: `
         aside.scaffold-layout__aside .news-module {
           display: none!important;

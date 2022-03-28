@@ -3,17 +3,19 @@ export interface Store {
 }
 
 export enum UserConfigKey {
-  YouTubeHideHomePageFeed = 'YouTubeHideHomePageFeed',
-  YouTubeHideVideoPageComments = 'YouTubeHideVideoPageComments',
-  YouTubeHideVideoPageSidebarRelated = 'YouTubeHideVideoPageSidebarRelated',
+  YouTubeHideHomeFeed = 'YouTubeHideHomeFeed',
+  YouTubeHideVideoSidebarRelated = 'YouTubeHideVideoSidebarRelated',
+  YouTubeHideVideoComments = 'YouTubeHideVideoComments',
   TwitterHideHomeFeed = 'TwitterHideHomeFeed',
-  TwitterHideSidebar = 'TwitterHideSidebar',
-  LinkedInHideHomePageFeed = 'LinkedInHideHomePageFeed',
-  LinkedInHideTrendingNewsSidebar = 'LinkedInHideTrendingNewsSidebar',
-  GitHubHideHomePageFeed = 'GitHubHideHomePageFeed',
-  RedditHideHomePageFeed = 'RedditHideHomePageFeed',
-  TikTokHideHomePageFeed = 'TikTokHideHomePageFeed',
-  InstagramHideHomePageFeed = 'InstagramHideHomePageFeed',
+  TwitterHideSidebarTrends = 'TwitterHideSidebarTrends',
+  TwitterHideSidebarFollowSuggestions = 'TwitterHideSidebarFollowSuggestions',
+  InstagramHideHomeFeed = 'InstagramHideHomeFeed',
+  FacebookHideHomeFeed = 'FacebookHideHomeFeed',
+  TikTokHideHomeFeed = 'TikTokHideHomeFeed',
+  LinkedInHideHomeFeed = 'LinkedInHideHomeFeed',
+  LinkedInHideSidebarTrendingNews = 'LinkedInHideSidebarTrendingNews',
+  RedditHideHomeFeed = 'RedditHideHomeFeed',
+  GitHubHideHomeFeed = 'GitHubHideHomeFeed',
 }
 
 type PartialRecord<K extends keyof any, T> = {

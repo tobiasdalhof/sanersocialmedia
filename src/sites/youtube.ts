@@ -7,12 +7,12 @@ import { UserConfigKey } from '../types'
 const youtube = new Site({
   logoSvg,
   name: 'YouTube',
-  validateUrl: url => url.host.includes('youtube.com'),
+  validateUrl: url => url.host.replace('www.', '') === 'youtube.com',
   siteActions: [
     new SiteAction({
       name: 'Hide feed on home page',
       validateUrl: url => url.pathname === '/',
-      requiredUserConfigKey: UserConfigKey.YouTubeHideHomePageFeed,
+      requiredUserConfigKey: UserConfigKey.YouTubeHideHomeFeed,
       injectCss: `
         ytd-browse #primary {
           display: none!important;
@@ -27,9 +27,26 @@ const youtube = new Site({
       },
     }),
     new SiteAction({
+      name: 'Hide related videos in sidebar on video page',
+      validateUrl: url => ['/watch'].includes(url.pathname),
+      requiredUserConfigKey: UserConfigKey.YouTubeHideVideoSidebarRelated,
+      injectCss: `
+        #secondary #related {
+          display: none!important;
+        }
+      `,
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('#secondary #related')
+        const quote = siteAction.createQuoteElement(container)
+        if (!quote) return
+        quote.style.paddingBottom = '40px'
+        container.after(quote)
+      },
+    }),
+    new SiteAction({
       name: 'Hide comments on video page',
       validateUrl: url => ['/watch'].includes(url.pathname),
-      requiredUserConfigKey: UserConfigKey.YouTubeHideVideoPageComments,
+      requiredUserConfigKey: UserConfigKey.YouTubeHideVideoComments,
       injectCss: `
         #comments #contents {
           opacity: 0!important;
@@ -39,23 +56,6 @@ const youtube = new Site({
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('#comments #contents')
-        const quote = siteAction.createQuoteElement(container)
-        if (!quote) return
-        quote.style.paddingBottom = '40px'
-        container.after(quote)
-      },
-    }),
-    new SiteAction({
-      name: 'Hide related videos in sidebar on video page',
-      validateUrl: url => ['/watch'].includes(url.pathname),
-      requiredUserConfigKey: UserConfigKey.YouTubeHideVideoPageSidebarRelated,
-      injectCss: `
-        #secondary #related {
-          display: none!important;
-        }
-      `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('#secondary #related')
         const quote = siteAction.createQuoteElement(container)
         if (!quote) return
         quote.style.paddingBottom = '40px'

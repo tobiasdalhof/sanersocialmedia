@@ -7,12 +7,12 @@ import { UserConfigKey } from '../types'
 const github = new Site({
   logoSvg,
   name: 'GitHub',
-  validateUrl: url => url.host.includes('github.com'),
+  validateUrl: url => url.host.replace('www.', '') === 'github.com',
   siteActions: [
     new SiteAction({
       name: 'Hide feed on home page',
       validateUrl: url => url.pathname === '/',
-      requiredUserConfigKey: UserConfigKey.GitHubHideHomePageFeed,
+      requiredUserConfigKey: UserConfigKey.GitHubHideHomeFeed,
       injectCss: `
         #dashboard, [aria-label="Explore"] {
           display: none!important;

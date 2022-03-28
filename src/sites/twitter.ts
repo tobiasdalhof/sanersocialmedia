@@ -7,7 +7,7 @@ import { UserConfigKey } from '../types'
 const twitter = new Site({
   logoSvg,
   name: 'Twitter',
-  validateUrl: url => url.host.includes('twitter.com'),
+  validateUrl: url => url.host.replace('www.', '') === 'twitter.com',
   siteActions: [
     new SiteAction({
       name: 'Hide feed on home page',
@@ -27,28 +27,37 @@ const twitter = new Site({
       },
     }),
     new SiteAction({
-      name: 'Hide sidebar trends and suggestions',
+      name: 'Hide trends in sidebar',
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.TwitterHideSidebar,
+      requiredUserConfigKey: UserConfigKey.TwitterHideSidebarTrends,
       injectCss: `
-        [data-testid="sidebarColumn"] section,
+        [data-testid="sidebarColumn"] section {
+          display: none!important;
+        }
+      `,
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('[data-testid="sidebarColumn"] section')
+        const quote = siteAction.createQuoteElement(container)
+        if (!quote) return
+        quote.style.padding = '20px'
+        container.after(quote)
+      },
+    }),
+    new SiteAction({
+      name: 'Hide follow suggestions in sidebar',
+      validateUrl: () => true,
+      requiredUserConfigKey: UserConfigKey.TwitterHideSidebarFollowSuggestions,
+      injectCss: `
         [data-testid="sidebarColumn"] aside {
           display: none!important;
         }
       `,
-      manipulateDom: ({ siteAction }) => {
-        waitForElement('[data-testid="sidebarColumn"] section').then((element) => {
-          const quote = siteAction.createQuoteElement(element)
-          if (!quote) return
-          quote.style.padding = '20px'
-          element.after(quote)
-        })
-        waitForElement('[data-testid="sidebarColumn"] aside').then((element) => {
-          const quote = siteAction.createQuoteElement(element)
-          if (!quote) return
-          quote.style.padding = '20px'
-          element.after(quote)
-        })
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('[data-testid="sidebarColumn"] aside')
+        const quote = siteAction.createQuoteElement(container)
+        if (!quote) return
+        quote.style.padding = '20px'
+        container.after(quote)
       },
     }),
   ],

@@ -1,25 +1,25 @@
-import logoSvg from 'super-tiny-icons/images/svg/tiktok.svg'
+import logoSvg from 'super-tiny-icons/images/svg/facebook.svg'
 import { waitForElement } from '../helpers'
 import Site from '../lib/Site'
 import SiteAction from '../lib/SiteAction'
 import { UserConfigKey } from '../types'
 
-const tiktok = new Site({
+const facebook = new Site({
   logoSvg,
-  name: 'TikTok',
-  validateUrl: url => url.host.replace('www.', '') === 'tiktok.com',
+  name: 'Facebook',
+  validateUrl: url => url.host.replace('www.', '') === 'facebook.com',
   siteActions: [
     new SiteAction({
       name: 'Hide feed on home page',
-      validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.TikTokHideHomeFeed,
+      validateUrl: url => url.pathname === '/',
+      requiredUserConfigKey: UserConfigKey.FacebookHideHomeFeed,
       injectCss: `
-        [data-e2e="recommend-list-item-container"] {
+        div[role="feed"] {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('[data-e2e="recommend-list-item-container"]')
+        const container = await waitForElement('div[role="feed"]')
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
           if (!quote) return
@@ -30,4 +30,4 @@ const tiktok = new Site({
   ],
 })
 
-export default tiktok
+export default facebook

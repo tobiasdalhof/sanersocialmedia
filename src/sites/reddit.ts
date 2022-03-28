@@ -7,12 +7,12 @@ import { UserConfigKey } from '../types'
 const reddit = new Site({
   logoSvg,
   name: 'Reddit',
-  validateUrl: url => url.host.includes('reddit.com'),
+  validateUrl: url => url.host.replace('www.', '') === 'reddit.com',
   siteActions: [
     new SiteAction({
       name: 'Hide feed on home page',
       validateUrl: url => url.pathname === '/',
-      requiredUserConfigKey: UserConfigKey.RedditHideHomePageFeed,
+      requiredUserConfigKey: UserConfigKey.RedditHideHomeFeed,
       injectCss: `
         .scrollerItem {
           display: none!important;
