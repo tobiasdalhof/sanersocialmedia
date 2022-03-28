@@ -1,5 +1,5 @@
 import logoSvg from 'super-tiny-icons/images/svg/instagram.svg'
-import { waitForElement } from '../helpers'
+import { mute, waitForElement } from '../helpers'
 import Site from '../lib/Site'
 import SiteAction from '../lib/SiteAction'
 import { QuoteElementDataAttribute } from '../services/ElementService'
@@ -25,6 +25,7 @@ const instagram = new Site({
           const quote = siteAction.createQuoteElement(container)
           if (!quote) return
           container.appendChild(quote)
+          mute(container)
         }, 1000)
       },
     }),

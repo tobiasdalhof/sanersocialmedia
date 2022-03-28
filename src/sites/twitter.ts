@@ -1,5 +1,5 @@
 import logoSvg from 'super-tiny-icons/images/svg/twitter.svg'
-import { waitForElement } from '../helpers'
+import { mute, waitForElement } from '../helpers'
 import Site from '../lib/Site'
 import SiteAction from '../lib/SiteAction'
 import { UserConfigKey } from '../types'
@@ -24,6 +24,7 @@ const twitter = new Site({
         if (!quote) return
         quote.style.padding = '40px'
         container.after(quote)
+        mute(container)
       },
     }),
     new SiteAction({

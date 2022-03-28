@@ -35,3 +35,14 @@ export function findBackgroundColor(element: HTMLElement): string | undefined {
 
   return undefined
 }
+
+export function mute(parent: HTMLElement) {
+  parent.querySelectorAll<HTMLVideoElement>('video').forEach((element) => {
+    element.muted = true
+    element.pause()
+  })
+  parent.querySelectorAll<HTMLAudioElement>('audio').forEach((element) => {
+    element.muted = true
+    element.pause()
+  })
+}

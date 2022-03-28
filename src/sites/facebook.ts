@@ -1,5 +1,5 @@
 import logoSvg from 'super-tiny-icons/images/svg/facebook.svg'
-import { waitForElement } from '../helpers'
+import { mute, waitForElement } from '../helpers'
 import Site from '../lib/Site'
 import SiteAction from '../lib/SiteAction'
 import { UserConfigKey } from '../types'
@@ -24,6 +24,7 @@ const facebook = new Site({
           const quote = siteAction.createQuoteElement(container)
           if (!quote) return
           container.before(quote)
+          mute(container)
         }, 1000)
       },
     }),
