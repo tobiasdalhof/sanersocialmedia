@@ -22,6 +22,7 @@ const tiktok = new Site({
         const container = await waitForElement('[data-e2e="recommend-list-item-container"]')
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
+          if (!quote) return
           container.before(quote)
         }, 1000)
       },

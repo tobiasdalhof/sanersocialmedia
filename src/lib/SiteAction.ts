@@ -48,9 +48,13 @@ export default class SiteAction {
     elements.forEach(element => element.remove())
   }
 
-  createQuoteElement(parent: HTMLElement): HTMLElement {
-    const foundQuote = <HTMLElement>document.querySelector(`[${this.idDataAttribute}=${this.id}][${QuoteElementDataAttribute.Container}]`)
-    if (foundQuote) return foundQuote
+  quoteElementExists(parent: HTMLElement): boolean {
+    return !!<HTMLElement>parent.parentElement?.querySelector(`[${this.idDataAttribute}=${this.id}][${QuoteElementDataAttribute.Container}]`)
+  }
+
+  createQuoteElement(parent: HTMLElement): HTMLElement | undefined {
+    if (this.quoteElementExists(parent))
+      return undefined
 
     const quote = new ElementService().createQuoteElement(parent)
     quote.setAttribute(this.idDataAttribute, this.id)

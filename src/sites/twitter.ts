@@ -21,6 +21,7 @@ const twitter = new Site({
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('[data-testid="primaryColumn"] > div:last-child > div:nth-child(4)')
         const quote = siteAction.createQuoteElement(container)
+        if (!quote) return
         quote.style.padding = '40px'
         container.after(quote)
       },
@@ -38,11 +39,13 @@ const twitter = new Site({
       manipulateDom: ({ siteAction }) => {
         waitForElement('[data-testid="sidebarColumn"] section').then((element) => {
           const quote = siteAction.createQuoteElement(element)
+          if (!quote) return
           quote.style.padding = '20px'
           element.after(quote)
         })
         waitForElement('[data-testid="sidebarColumn"] aside').then((element) => {
           const quote = siteAction.createQuoteElement(element)
+          if (!quote) return
           quote.style.padding = '20px'
           element.after(quote)
         })

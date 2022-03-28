@@ -22,8 +22,8 @@ const reddit = new Site({
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('.ListingLayout-outerContainer div div div div:nth-of-type(2)')
         setTimeout(() => {
-          // reddit sucks
           const quote = siteAction.createQuoteElement(container)
+          if (!quote) return
           container.after(quote)
         }, 1000)
       },

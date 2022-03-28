@@ -22,6 +22,7 @@ const instagram = new Site({
         setTimeout(async () => {
           const container = await waitForElement('main > section')
           const quote = siteAction.createQuoteElement(container)
+          if (!quote) return
           container.appendChild(quote)
         }, 1000)
       },
