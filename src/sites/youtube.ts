@@ -73,4 +73,5 @@ const youtube = new Site({
     })
   },
 })
+
 export default youtube

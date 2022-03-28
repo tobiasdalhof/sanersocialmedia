@@ -12,6 +12,7 @@ export enum UserConfigKey {
   LinkedInHideTrendingNewsSidebar = 'LinkedInHideTrendingNewsSidebar',
   GitHubHideHomePageFeed = 'GitHubHideHomePageFeed',
   RedditHideHomePageFeed = 'RedditHideHomePageFeed',
+  TikTokHideHomePageFeed = 'TikTokHideHomePageFeed',
 }
 
 type PartialRecord<K extends keyof any, T> = {
