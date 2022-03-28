@@ -12,6 +12,7 @@
     "build:options": "vite build -c vite.config.options.ts",
     "build:content": "vite build -c vite.config.content.ts",
     "build:background": "vite build -c vite.config.background.ts",
+    "zip": "pnpm run build && (cd ./extension; zip -r ../extension.zip .)",
     "clear": "rimraf extension/dist",
     "lint": "eslint 'src/**/*.{json,ts,js,vue}'"
   },
