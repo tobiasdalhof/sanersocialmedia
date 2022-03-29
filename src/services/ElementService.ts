@@ -48,7 +48,7 @@ export default class ElementService {
     footer.setAttribute(QuoteElementDataAttribute.Footer, '')
 
     const optionsLink = document.createElement('a')
-    optionsLink.textContent = 'Sanity - Saner Social Media'
+    optionsLink.textContent = 'Saner Social Media Extension'
     optionsLink.href = getOptionsURL()
     optionsLink.target = '_blank'
     optionsLink.setAttribute(QuoteElementDataAttribute.OptionsLink, '')

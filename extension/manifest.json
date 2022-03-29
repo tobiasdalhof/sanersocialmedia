@@ -1,6 +1,6 @@
 {
-  "name": "Sanity - Saner Social Media",
-  "description": "Replace addictive and annoying social media site features with an inspirational quote. News Feed Eradicator alternative.",
+  "name": "Saner Social Media",
+  "description": "Replace addictive and annoying social media site features with an inspirational quote",
   "version": "1.0.0",
   "manifest_version": 3,
   "icons": {
