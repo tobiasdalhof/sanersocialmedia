@@ -2,6 +2,16 @@
 
 Chrome extension for replacing addictive and annoying social media site features with inspirational quotes.
 
+- [Saner Social Media](#saner-social-media)
+  - [Screenshots](#screenshots)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Development](#development)
+  - [Support this project](#support-this-project)
+  - [Acknowledgements](#acknowledgements)
+
+## Screenshots
+
 YouTube home example:
 
 ![YouTube Home](./screenshots/youtube-home.png)
@@ -10,33 +20,19 @@ Extension options:
 
 ![Options](./screenshots/options.png)
 
-## Supported sites & features
+## Features
 
-- YouTube
-  - Hide feed on home page
-  - Hide related videos in sidebar on video page
-  - Hide comments on video page
-- Twitter
-  - Hide feed on home page
-  - Hide trends in sidebar
-  - Hide follow suggestions in sidebar
-- Instagram
-  - Hide feed on home page
-- Facebook
-  - Hide feed on home page
-- TikTok
-  - Hide feed on home page
-- LinkedIn
-  - Hide feed on home page
-  - Hide trending news in sidebar
-- Twitch
-  - Hide feed on home page
-- Reddit
-  - Hide feed on home page
-- GitHub
-  - Hide feed on home page
+- Support for various social media sites
+  - YouTube
+  - Twitter
+  - Instagram
+  - Facebook
+  - TikTok
+  - LinkedIn
+  - Twitch
+  - Reddit
+  - GitHub
 - 1600+ inspirational quotes
-- Support for dark mode and light mode of all sites
 
 ## Installation
 
@@ -61,6 +57,14 @@ Extension options:
   - Click `Load unpacked` and select the `extension` directory
 
 Note: HMR for the options page is [not possible yet](https://github.com/antfu/vitesse-webext/issues/59#issuecomment-1011008367). 
+
+## Support this project
+
+**Feeling saner already?** Please consider to support this free and open source project.
+
+- Tell your friends
+- Visit the Chrome Web Store and write a review (COMING SOON!)
+- Report bugs on GitHub
 
 ## Acknowledgements
 
