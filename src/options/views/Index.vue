@@ -59,7 +59,7 @@
           <li>
             Report bugs on
             <a
-              href="https://github.com/tobidalhof/sanityextension"
+              href="https://github.com/tobidalhof/sanityextension/issues"
               target="_blank"
               class="text-blue-500"
             >GitHub</a>
