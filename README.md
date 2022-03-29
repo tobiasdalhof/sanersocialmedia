@@ -15,14 +15,28 @@ Chrome extension for replacing addictive and annoying social media site features
 ## Features
 
 - Support for YouTube
+  - Hide feed on home page
+  - Hide related videos in sidebar on video page
+  - Hide comments on video page
 - Support for Twitter
+  - Hide feed on home page
+  - Hide trends in sidebar
+  - Hide follow suggestions in sidebar
 - Support for Instagram
+  - Hide feed on home page
 - Support for Facebook
+  - Hide feed on home page
 - Support for TikTok
+  - Hide feed on home page
 - Support for LinkedIn
+  - Hide feed on home page
+  - Hide trending news in sidebar
 - Support for Twitch
+  - Hide feed on home page
 - Support for Reddit
+  - Hide feed on home page
 - Support for GitHub
+  - Hide feed on home page
 - 1600+ inspirational quotes
 
 ## Installation
