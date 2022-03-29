@@ -11,7 +11,7 @@ const twitter = new Site({
   siteActions: [
     new SiteAction({
       name: 'Hide feed on home page',
-      validateUrl: url => ['/', '/home'].includes(url.pathname),
+      validateUrl: () => true,
       requiredUserConfigKey: UserConfigKey.TwitterHideHomeFeed,
       injectCss: `
         [data-testid="primaryColumn"] > div:last-child > div:nth-child(4) {
