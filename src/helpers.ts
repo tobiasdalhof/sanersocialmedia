@@ -21,7 +21,7 @@ export function waitForElement(selector: string): Promise<HTMLElement> {
   })
 }
 
-export function findBackgroundColor(element: HTMLElement): string | undefined {
+export function findBackgroundColor(element: HTMLElement): string {
   const transparent = 'rgba(0, 0, 0, 0)'
   const color = window.getComputedStyle(element).backgroundColor
   if (color !== transparent) return color
@@ -33,7 +33,8 @@ export function findBackgroundColor(element: HTMLElement): string | undefined {
     parent = parent.parentElement
   }
 
-  return undefined
+  const body = document.querySelector('body')!
+  return window.getComputedStyle(body).backgroundColor
 }
 
 export function mute(parent: HTMLElement) {

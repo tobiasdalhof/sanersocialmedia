@@ -1,4 +1,6 @@
 import { paramCase } from 'change-case'
+import Color from 'color'
+import { findBackgroundColor } from '../helpers'
 import ElementService, { QuoteElementDataAttribute } from '../services/ElementService'
 import type { UserConfig, UserConfigKey } from '../types'
 
@@ -56,8 +58,15 @@ export default class SiteAction {
     if (this.quoteElementExists(parent))
       return undefined
 
-    const quote = new ElementService().createQuoteElement(parent)
-    quote.setAttribute(this.idDataAttribute, this.id)
-    return quote
+    try {
+      const bgColor = new Color(findBackgroundColor(parent))
+      const isDark = bgColor.isDark()
+      const quote = new ElementService().createQuoteElement(isDark)
+      quote.setAttribute(this.idDataAttribute, this.id)
+      return quote
+    }
+    catch {
+      return undefined
+    }
   }
 }

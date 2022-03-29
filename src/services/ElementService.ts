@@ -1,5 +1,4 @@
-import Color from 'color'
-import { findBackgroundColor, getOptionsURL } from '../helpers'
+import { getOptionsURL } from '../helpers'
 import { QuoteService } from './QuoteService'
 
 export enum QuoteElementDataAttribute {
@@ -20,14 +19,12 @@ export default class ElementService {
     return style
   }
 
-  createQuoteElement(parent: HTMLElement): HTMLElement {
+  createQuoteElement(dark: boolean): HTMLElement {
     const randomQuote = new QuoteService().getRandomQuote()
-    const bgColor = new Color(findBackgroundColor(parent))
-    const isDark = bgColor.isDark()
 
     const quoteContainer = document.createElement('div')
     quoteContainer.setAttribute(QuoteElementDataAttribute.Container, '')
-    if (isDark) quoteContainer.setAttribute(QuoteElementDataAttribute.IsDark, '')
+    if (dark) quoteContainer.setAttribute(QuoteElementDataAttribute.IsDark, '')
     else quoteContainer.setAttribute(QuoteElementDataAttribute.IsLight, '')
 
     const quote = document.createElement('div')
