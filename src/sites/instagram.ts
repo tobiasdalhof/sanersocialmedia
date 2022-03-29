@@ -12,7 +12,7 @@ const instagram = new Site({
   siteActions: [
     new SiteAction({
       name: 'Hide feed on home page',
-      validateUrl: url => url.pathname === '/',
+      validateUrl: () => true,
       requiredUserConfigKey: UserConfigKey.InstagramHideHomeFeed,
       injectCss: `
         main > section > :not([${QuoteElementDataAttribute.Container}]) {
