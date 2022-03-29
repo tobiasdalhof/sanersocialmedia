@@ -2,7 +2,11 @@
 
 Chrome extension for replacing addictive and annoying social media site features with inspirational quotes.
 
+YouTube home example:
+
 ![YouTube Home](./screenshots/youtube-home.png)
+
+Extension options:
 
 ![Options](./screenshots/options.png)
 
@@ -32,6 +36,7 @@ Chrome extension for replacing addictive and annoying social media site features
 - GitHub
   - Hide feed on home page
 - 1600+ inspirational quotes
+- Support for dark mode and light mode of all sites
 
 ## Installation
 
