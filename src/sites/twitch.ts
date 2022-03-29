@@ -1,29 +1,30 @@
-import logoSvg from 'super-tiny-icons/images/svg/reddit.svg'
+import logoSvg from 'super-tiny-icons/images/svg/twitch.svg'
 import { mute, waitForElement } from '../helpers'
 import Site from '../lib/Site'
 import SiteAction from '../lib/SiteAction'
 import { UserConfigKey } from '../types'
 
-const reddit = new Site({
+const twitch = new Site({
   logoSvg,
-  name: 'Reddit',
-  validateUrl: url => url.host.replace('www.', '') === 'reddit.com',
+  name: 'Twitch',
+  validateUrl: url => url.host.replace('www.', '') === 'twitch.tv',
   siteActions: [
     new SiteAction({
       name: 'Hide feed on home page',
       validateUrl: url => url.pathname === '/',
-      requiredUserConfigKey: UserConfigKey.RedditHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.TwitchHideHomeFeed,
       injectCss: `
-        .scrollerItem {
+        .root-scrollable {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('.scrollerItem')
+        const container = await waitForElement('.root-scrollable')
         mute(container)
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
           if (!quote) return
+          quote.style.padding = '30px'
           container.before(quote)
         }, 1000)
       },
@@ -31,4 +32,4 @@ const reddit = new Site({
   ],
 })
 
-export default reddit
+export default twitch

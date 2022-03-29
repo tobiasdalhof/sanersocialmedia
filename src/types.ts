@@ -14,6 +14,7 @@ export enum UserConfigKey {
   TikTokHideHomeFeed = 'TikTokHideHomeFeed',
   LinkedInHideHomeFeed = 'LinkedInHideHomeFeed',
   LinkedInHideSidebarTrendingNews = 'LinkedInHideSidebarTrendingNews',
+  TwitchHideHomeFeed = 'TwitchHideHomeFeed',
   RedditHideHomeFeed = 'RedditHideHomeFeed',
   GitHubHideHomeFeed = 'GitHubHideHomeFeed',
 }

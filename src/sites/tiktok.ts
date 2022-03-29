@@ -20,11 +20,11 @@ const tiktok = new Site({
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('[data-e2e="recommend-list-item-container"]')
+        mute(container)
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
           if (!quote) return
           container.before(quote)
-          mute(container)
         }, 1000)
       },
     }),

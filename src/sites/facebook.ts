@@ -20,11 +20,11 @@ const facebook = new Site({
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('div[role="feed"]')
+        mute(container)
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
           if (!quote) return
           container.before(quote)
-          mute(container)
         }, 1000)
       },
     }),

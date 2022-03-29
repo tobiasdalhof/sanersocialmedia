@@ -20,11 +20,11 @@ const twitter = new Site({
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('[data-testid="primaryColumn"] > div:last-child > div:nth-child(4)')
+        mute(container)
         const quote = siteAction.createQuoteElement(container)
         if (!quote) return
         quote.style.padding = '40px'
         container.after(quote)
-        mute(container)
       },
     }),
     new SiteAction({

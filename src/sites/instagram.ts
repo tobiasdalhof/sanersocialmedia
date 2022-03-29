@@ -22,10 +22,10 @@ const instagram = new Site({
       manipulateDom: ({ siteAction }) => {
         setTimeout(async () => {
           const container = await waitForElement('main > section')
+          mute(container)
           const quote = siteAction.createQuoteElement(container)
           if (!quote) return
           container.appendChild(quote)
-          mute(container)
         }, 1000)
       },
     }),

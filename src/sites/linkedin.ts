@@ -20,11 +20,11 @@ const linkedin = new Site({
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('main.scaffold-layout__main > div:last-child')
+        mute(container)
         const quote = siteAction.createQuoteElement(container)
         if (!quote) return
         quote.style.paddingTop = '10px'
         container.before(quote)
-        mute(container)
       },
     }),
     new SiteAction({

@@ -4,7 +4,8 @@ import instagram from './instagram'
 import facebook from './facebook'
 import tiktok from './tiktok'
 import linkedin from './linkedin'
+import twitch from './twitch'
 import reddit from './reddit'
 import github from './github'
 
-export { youtube, twitter, instagram, facebook, tiktok, linkedin, reddit, github }
+export { youtube, twitter, instagram, facebook, tiktok, linkedin, twitch, reddit, github }
