@@ -10,6 +10,7 @@ Chrome extension for replacing addictive and annoying social media site features
   - [Acknowledgements](#acknowledgements)
 
 ![YouTube Home](./screenshots/youtube-home.png)
+![Twitter Home](./screenshots/twitter-home.png)
 ![Options](./screenshots/options.png)
 
 ## Features
