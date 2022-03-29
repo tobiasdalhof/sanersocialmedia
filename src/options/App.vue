@@ -62,7 +62,7 @@
         <div>
           <span class="font-bold">Feeling saner already?</span> Please consider to support this free and
           <a
-            href="https://github.com/tobidalhof/sanityextension"
+            href="https://github.com/tobidalhof/sanersocialmedia"
             target="_blank"
             class="text-blue-500"
           >open source</a> project.
@@ -73,7 +73,7 @@
           <li>
             Report bugs on
             <a
-              href="https://github.com/tobidalhof/sanityextension/issues"
+              href="https://github.com/tobidalhof/sanersocialmedia/issues"
               target="_blank"
               class="text-blue-500"
             >GitHub</a>
