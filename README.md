@@ -42,16 +42,16 @@ Chrome extension for replacing addictive and annoying features of various social
 
 ## Installation
 
-**Option 1** – Install it from the Chrome Web Store (COMING SOON!)
+**Option 1** – Install from Chrome Web Store (COMING SOON)
 
-**Option 2** – Install from source:
+**Option 2** – Install from GitHub release:
 
-- Clone this repo
-- Install dependencies with `pnpm install`
-- Build project with `pnpm build`
+- Navigate to [releases](https://github.com/tobidalhof/sanersocialmedia/releases)
+- Download `extension.zip` of your preferred release
+- Unzip `extension.zip`
 - Open `chrome://extensions/` in Chrome
   - Enable `Developer mode`
-  - Click `Load unpacked` and select the `extension` directory
+  - Click `Load unpacked` and select the unzipped `extension` directory
 
 ## Development
 
@@ -69,7 +69,7 @@ Note: HMR for the options page is [not possible yet](https://github.com/antfu/vi
 Please consider to support this free and open source project.
 
 - Tell your friends
-- Visit the Chrome Web Store and write a review (COMING SOON!)
+- Visit the Chrome Web Store and write a review (COMING SOON)
 - Report bugs on GitHub
 
 ## Acknowledgements
