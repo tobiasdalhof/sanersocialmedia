@@ -7,15 +7,17 @@
     "16": "icon16.png",
     "24": "icon24.png",
     "32": "icon32.png",
-    "48": "icon48.png",
-    "64": "icon64.png",
-    "128": "icon128.png"
+    "48": "logo48.png",
+    "64": "logo64.png",
+    "128": "logo128.png"
   },
   "content_scripts": [
     {
       "matches": [
-        "<all_urls>"
+        "http://*/*",
+        "https://*/*"
       ],
+      "all_frames": true,
       "run_at": "document_start",
       "js": [
         "dist/content.js"
