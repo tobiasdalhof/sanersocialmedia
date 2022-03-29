@@ -7,7 +7,7 @@
           <span>Saner Social Media</span>
         </div>
         <div class="opacity-70 leading-none">
-          <span>Replace addictive and annoying social media site features with an inspirational quote</span>
+          <span>Replace addictive and annoying social media site features with inspirational quotes</span>
         </div>
       </div>
     </header>
