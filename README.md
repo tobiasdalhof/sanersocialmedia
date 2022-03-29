@@ -1,6 +1,6 @@
 # Saner Social Media
 
-Chrome extension for replacing addictive and annoying social media site features with inspirational quotes.
+Chrome extension for replacing addictive and annoying features of various social media sites with inspirational quotes.
 
 - [Saner Social Media](#saner-social-media)
   - [Features](#features)

@@ -1,13 +1,13 @@
 <template>
   <div v-if="ready" class="container max-w-4xl mx-auto p-5">
     <header class="flex items-center py-5">
-      <img src="./images/logo.svg" alt="Saner Social Media" class="w-15 mr-4" />
+      <img src="./images/logo.svg" alt="Saner Social Media" class="w-16 mr-4" />
       <div>
-        <div class="text-xl leading-none mb-1">
+        <div class="text-2xl">
           <span>Saner Social Media</span>
         </div>
-        <div class="opacity-70 leading-none">
-          <span>Replace addictive and annoying social media site features with inspirational quotes</span>
+        <div class="opacity-60">
+          <span>Replace addictive and annoying features of various social media sites with inspirational quotes</span>
         </div>
       </div>
     </header>
@@ -15,13 +15,13 @@
     <main class="my-5">
       <div class="mb-2 space-x-2">
         <button
-          class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-700 opacity-50 hover:opacity-100 transition-opacity active:ring-2 ring-blue-500 leading-none"
+          class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-700 opacity-60 hover:opacity-100 transition-opacity active:ring-2 ring-blue-500 leading-none"
           @click.prevent="enableAll()"
         >
           <span>Enable all</span>
         </button>
         <button
-          class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-700 opacity-50 hover:opacity-100 transition-opacity active:ring-2 ring-blue-500 leading-none"
+          class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-700 opacity-60 hover:opacity-100 transition-opacity active:ring-2 ring-blue-500 leading-none"
           @click.prevent="disableAll()"
         >
           <span>Disable all</span>
@@ -33,7 +33,7 @@
           v-for="(siteAction, siteActionIndex) in site.params.siteActions"
           :key="'site-action-' + siteActionIndex"
           class="mb-2 transition-opacity"
-          :class="{ 'opacity-50 hover:opacity-100': !isEnabled(siteAction) }"
+          :class="{ 'opacity-60 hover:opacity-100': !isEnabled(siteAction) }"
           @click="toggle(siteAction)"
         >
           <div
