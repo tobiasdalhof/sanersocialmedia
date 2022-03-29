@@ -19,10 +19,10 @@ const instagram = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: ({ siteAction }) => {
-        setTimeout(async () => {
-          const container = await waitForElement('main > section')
-          mute(container)
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('main > section')
+        mute(container)
+        setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
           if (!quote) return
           container.appendChild(quote)
