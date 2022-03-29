@@ -73,4 +73,4 @@ Please consider to support this free and open source project.
 
 ## Acknowledgements
 
-Special thanks goes to [@jordwest](https://github.com/jordwest) for creating [News Feed Eradicator](https://github.com/jordwest/news-feed-eradicator) which obviosly was a big inspiration for me. I created this extension to add support for more social media sites.
+Special thanks goes to [@jordwest](https://github.com/jordwest) for creating [News Feed Eradicator](https://github.com/jordwest/news-feed-eradicator) which obviously was a big inspiration for me. I created this extension to add support for more social media sites.
