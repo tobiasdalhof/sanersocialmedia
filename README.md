@@ -42,7 +42,7 @@ Chrome extension for replacing addictive and annoying features of various social
 
 ## Installation
 
-**Option 1** – Install from Chrome Web Store (COMING SOON)
+**Option 1** – Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk)
 
 **Option 2** – Install from GitHub release:
 
@@ -69,7 +69,7 @@ Note: HMR for the options page is [not possible yet](https://github.com/antfu/vi
 Please consider to support this free and open source project.
 
 - Tell your friends
-- Visit the Chrome Web Store and write a review (COMING SOON)
+- Visit the [Chrome Web Store](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk) and write a review
 - Report bugs on GitHub
 
 ## Acknowledgements
