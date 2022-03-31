@@ -65,11 +65,18 @@
             href="https://github.com/tobidalhof/sanersocialmedia"
             target="_blank"
             class="text-blue-500"
-          >open source</a> project.
+          >open source</a> project:
         </div>
         <ul class="list-disc pl-6 mt-3">
           <li>Tell your friends</li>
-          <li>Visit the Chrome Web Store and write a review</li>
+          <li>
+            Visit the
+            <a
+              href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"
+              target="_blank"
+              class="text-blue-500"
+            >Chrome Web Store</a> and write a short review
+          </li>
           <li>
             Report bugs on
             <a
