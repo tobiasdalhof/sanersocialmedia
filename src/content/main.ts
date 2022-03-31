@@ -30,7 +30,5 @@ const observer = new MutationObserver(() => {
 observer.observe(document, { subtree: true, childList: true })
 
 chrome.storage.onChanged.addListener(async () => {
-  const site = new SiteService().getSiteByUrl(Object.values(sites), currentUrl)
-  if (!site) return
   init(currentUrl)
 })
