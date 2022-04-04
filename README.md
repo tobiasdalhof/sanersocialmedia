@@ -1,3 +1,6 @@
+[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/stars/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white)](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk)
+[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white)](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk)
+
 # Saner Social Media
 
 Chrome extension for replacing addictive and annoying features of various social media sites with inspirational quotes.
