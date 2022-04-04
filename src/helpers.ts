@@ -34,7 +34,9 @@ export function findBackgroundColor(element: HTMLElement): string {
   }
 
   const body = document.querySelector('body')!
-  return window.getComputedStyle(body).backgroundColor
+  const bodyBgColor = window.getComputedStyle(body).backgroundColor
+  if (bodyBgColor === transparent) return 'rgba(255, 255, 255, 1)'
+  return bodyBgColor
 }
 
 export function mute(parent: HTMLElement) {
