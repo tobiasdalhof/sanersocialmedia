@@ -12,6 +12,8 @@ export enum UserConfigKey {
   InstagramHideHomeFeed = 'InstagramHideHomeFeed',
   FacebookHideHomeFeed = 'FacebookHideHomeFeed',
   TikTokHideHomeFeed = 'TikTokHideHomeFeed',
+  PinterestHideHomeFeed = 'PinterestHideHomeFeed',
+  PinterestHideRelatedPins = 'PinterestHideRelatedPins',
   LinkedInHideHomeFeed = 'LinkedInHideHomeFeed',
   LinkedInHideSidebarTrendingNews = 'LinkedInHideSidebarTrendingNews',
   TwitchHideHomeFeed = 'TwitchHideHomeFeed',

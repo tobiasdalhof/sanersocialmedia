@@ -29,6 +29,9 @@ Chrome extension for replacing addictive and annoying features of various social
   - Hide feed on home page
 - Support for TikTok
   - Hide feed on home page
+- Support for Pinterest
+  - Hide feed on home page
+  - Hide related pins
 - Support for LinkedIn
   - Hide feed on home page
   - Hide trending news in sidebar

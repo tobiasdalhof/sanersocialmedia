@@ -2,7 +2,7 @@ import { getOptionsURL } from '../helpers'
 import { QuoteService } from './QuoteService'
 
 export enum QuoteElementDataAttribute {
-  Container = 'data-sanityextension-quote-container',
+  Container = 'data-sanersocialmedia-quote-container',
   IsDark = 'data-is-dark',
   IsLight = 'data-is-light',
   Quote = 'data-quote',
