@@ -18,12 +18,13 @@ const twitch = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
+      manipulateDom: async({ siteAction }) => {
         const container = await waitForElement('.root-scrollable')
         mute(container)
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
-          if (!quote) return
+          if (!quote)
+            return
           quote.style.padding = '30px'
           container.before(quote)
         }, 1000)

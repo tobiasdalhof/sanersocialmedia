@@ -27,13 +27,15 @@ export default class SiteAction {
   }
 
   canRun(url: URL, userConfig: UserConfig): boolean {
-    if (!userConfig[this.params.requiredUserConfigKey]) return false
+    if (!userConfig[this.params.requiredUserConfigKey])
+      return false
     return this.params.validateUrl(url)
   }
 
   injectCss(): HTMLStyleElement {
     const foundStyle = <HTMLStyleElement>document.querySelector(`style[${this.idDataAttribute}=${this.id}]`)
-    if (foundStyle) return foundStyle
+    if (foundStyle)
+      return foundStyle
 
     const style = new ElementService().createStyleElement(this.params.injectCss)
     style.setAttribute(this.idDataAttribute, this.id)

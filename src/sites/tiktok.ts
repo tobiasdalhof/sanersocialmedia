@@ -18,12 +18,13 @@ const tiktok = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
+      manipulateDom: async({ siteAction }) => {
         const container = await waitForElement('[data-e2e="recommend-list-item-container"]')
         mute(container)
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
-          if (!quote) return
+          if (!quote)
+            return
           container.before(quote)
         }, 1000)
       },

@@ -5,13 +5,16 @@ import type { Store } from '../types'
 
 let waitInit = false
 async function init(url: URL) {
-  if (waitInit) return
+  if (waitInit)
+    return
   waitInit = true
   const site = new SiteService().getSiteByUrl(Object.values(sites), url)
-  if (!site) return
+  if (!site)
+    return
 
   const store = await chrome.storage.sync.get() as Store
-  if (!store.userConfig) return
+  if (!store.userConfig)
+    return
 
   site.runSiteActions(url, store.userConfig)
   waitInit = false
@@ -29,6 +32,6 @@ const observer = new MutationObserver(() => {
 })
 observer.observe(document, { subtree: true, childList: true })
 
-chrome.storage.onChanged.addListener(async () => {
+chrome.storage.onChanged.addListener(async() => {
   init(currentUrl)
 })

@@ -2,7 +2,7 @@ import { getOptionsURL } from '../helpers'
 import { QuoteService } from './QuoteService'
 
 export enum QuoteElementDataAttribute {
-  Container = 'data-sanityextension-quote-container',
+  Container = 'data-sanersocialmedia-quote-container',
   IsDark = 'data-is-dark',
   IsLight = 'data-is-light',
   Quote = 'data-quote',
@@ -24,7 +24,8 @@ export default class ElementService {
 
     const quoteContainer = document.createElement('div')
     quoteContainer.setAttribute(QuoteElementDataAttribute.Container, '')
-    if (dark) quoteContainer.setAttribute(QuoteElementDataAttribute.IsDark, '')
+    if (dark)
+      quoteContainer.setAttribute(QuoteElementDataAttribute.IsDark, '')
     else quoteContainer.setAttribute(QuoteElementDataAttribute.IsLight, '')
 
     const quote = document.createElement('div')

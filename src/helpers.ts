@@ -24,17 +24,22 @@ export function waitForElement(selector: string): Promise<HTMLElement> {
 export function findBackgroundColor(element: HTMLElement): string {
   const transparent = 'rgba(0, 0, 0, 0)'
   const color = window.getComputedStyle(element).backgroundColor
-  if (color !== transparent) return color
+  if (color !== transparent)
+    return color
 
   let parent = element.parentElement
   while (parent) {
     const parentColor = window.getComputedStyle(parent).backgroundColor
-    if (parentColor !== transparent) return parentColor
+    if (parentColor !== transparent)
+      return parentColor
     parent = parent.parentElement
   }
 
   const body = document.querySelector('body')!
-  return window.getComputedStyle(body).backgroundColor
+  const bodyBgColor = window.getComputedStyle(body).backgroundColor
+  if (bodyBgColor === transparent)
+    return 'rgba(255, 255, 255, 1)'
+  return bodyBgColor
 }
 
 export function mute(parent: HTMLElement) {
