@@ -1,7 +1,7 @@
 {
   "name": "Saner Social Media",
   "description": "Replace addictive and annoying features of various social media sites with inspirational quotes",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "manifest_version": 3,
   "icons": {
     "16": "icon16.png",
