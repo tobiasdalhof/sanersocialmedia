@@ -22,7 +22,8 @@ const youtube = new Site({
         const container = await waitForElement('ytd-browse #primary')
         mute(container)
         const quote = siteAction.createQuoteElement(container)
-        if (!quote) return
+        if (!quote)
+          return
         quote.style.padding = '40px'
         container.after(quote)
       },
@@ -39,7 +40,8 @@ const youtube = new Site({
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('#secondary #related')
         const quote = siteAction.createQuoteElement(container)
-        if (!quote) return
+        if (!quote)
+          return
         quote.style.paddingBottom = '40px'
         container.after(quote)
       },
@@ -58,7 +60,8 @@ const youtube = new Site({
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('#comments #contents')
         const quote = siteAction.createQuoteElement(container)
-        if (!quote) return
+        if (!quote)
+          return
         quote.style.paddingBottom = '40px'
         container.after(quote)
       },

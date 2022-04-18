@@ -24,7 +24,8 @@ export default class ElementService {
 
     const quoteContainer = document.createElement('div')
     quoteContainer.setAttribute(QuoteElementDataAttribute.Container, '')
-    if (dark) quoteContainer.setAttribute(QuoteElementDataAttribute.IsDark, '')
+    if (dark)
+      quoteContainer.setAttribute(QuoteElementDataAttribute.IsDark, '')
     else quoteContainer.setAttribute(QuoteElementDataAttribute.IsLight, '')
 
     const quote = document.createElement('div')

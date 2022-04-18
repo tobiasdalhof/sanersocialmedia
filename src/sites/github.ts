@@ -21,7 +21,8 @@ const github = new Site({
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('#dashboard')
         const quote = siteAction.createQuoteElement(container)
-        if (!quote) return
+        if (!quote)
+          return
         container.after(quote)
       },
     }),

@@ -23,7 +23,8 @@ const twitch = new Site({
         mute(container)
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
-          if (!quote) return
+          if (!quote)
+            return
           quote.style.padding = '30px'
           container.before(quote)
         }, 1000)

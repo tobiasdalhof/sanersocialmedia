@@ -1,3 +1,57 @@
+<script setup lang="ts">
+import { onMounted, onUnmounted, ref } from 'vue'
+import { mdiCheck, mdiClose } from '@mdi/js'
+import * as sites from '../sites'
+import { getStore, setUserConfig, toggleUserConfigKey } from '../store'
+import type { UserConfig } from '../types'
+import { UserConfigKey } from '../types'
+import type SiteAction from '../lib/SiteAction'
+import { AppIcon } from './components'
+
+const userConfig = ref<UserConfig>()
+async function getUserConfig() {
+  const store = await getStore()
+  userConfig.value = store.userConfig
+}
+
+const ready = ref(false)
+onMounted(async () => {
+  chrome.storage.onChanged.addListener(getUserConfig)
+  await getUserConfig()
+  ready.value = true
+})
+
+onUnmounted(() => {
+  chrome.storage.onChanged.removeListener(getUserConfig)
+})
+
+function isEnabled(siteAction: SiteAction): boolean {
+  if (!userConfig.value)
+    return false
+  return userConfig.value[siteAction.params.requiredUserConfigKey] === true
+}
+
+async function toggle(siteAction: SiteAction) {
+  await toggleUserConfigKey(siteAction.params.requiredUserConfigKey)
+}
+
+async function enableAll() {
+  const userConfig: UserConfig = {}
+  Object.values(UserConfigKey).forEach((key) => {
+    userConfig[key] = true
+  })
+  await setUserConfig(userConfig)
+}
+
+async function disableAll() {
+  const userConfig: UserConfig = {}
+  Object.values(UserConfigKey).forEach((key) => {
+    userConfig[key] = false
+  })
+  await setUserConfig(userConfig)
+}
+</script>
+
 <template>
   <div v-if="ready" class="container max-w-4xl mx-auto p-5">
     <header class="flex items-center py-5">
@@ -90,56 +144,3 @@
     </footer>
   </div>
 </template>
-
-<script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
-import { mdiCheck, mdiClose } from '@mdi/js'
-import * as sites from '../sites'
-import { getStore, setUserConfig, toggleUserConfigKey } from '../store'
-import type { UserConfig } from '../types'
-import { UserConfigKey } from '../types'
-import type SiteAction from '../lib/SiteAction'
-import { AppIcon } from './components'
-
-const userConfig = ref<UserConfig>()
-async function getUserConfig() {
-  const store = await getStore()
-  userConfig.value = store.userConfig
-}
-
-const ready = ref(false)
-onMounted(async () => {
-  chrome.storage.onChanged.addListener(getUserConfig)
-  await getUserConfig()
-  ready.value = true
-})
-
-onUnmounted(() => {
-  chrome.storage.onChanged.removeListener(getUserConfig)
-})
-
-function isEnabled(siteAction: SiteAction): boolean {
-  if (!userConfig.value) return false
-  return userConfig.value[siteAction.params.requiredUserConfigKey] === true
-}
-
-async function toggle(siteAction: SiteAction) {
-  await toggleUserConfigKey(siteAction.params.requiredUserConfigKey)
-}
-
-async function enableAll() {
-  const userConfig: UserConfig = {}
-  Object.values(UserConfigKey).forEach((key) => {
-    userConfig[key] = true
-  })
-  await setUserConfig(userConfig)
-}
-
-async function disableAll() {
-  const userConfig: UserConfig = {}
-  Object.values(UserConfigKey).forEach((key) => {
-    userConfig[key] = false
-  })
-  await setUserConfig(userConfig)
-}
-</script>

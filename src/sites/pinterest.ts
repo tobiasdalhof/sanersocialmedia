@@ -23,7 +23,8 @@ const pinterest = new Site({
         mute(container)
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
-          if (!quote) return
+          if (!quote)
+            return
           quote.style.padding = '24px'
           container.after(quote)
         }, 1000)
@@ -43,7 +44,8 @@ const pinterest = new Site({
         mute(container)
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
-          if (!quote) return
+          if (!quote)
+            return
           quote.style.padding = '24px'
           container.after(quote)
         }, 1000)
