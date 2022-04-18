@@ -18,7 +18,7 @@ const pinterest = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
+      manipulateDom: async({ siteAction }) => {
         const container = await waitForElement('[data-test-id="homefeed-feed"]')
         mute(container)
         setTimeout(() => {
@@ -39,7 +39,7 @@ const pinterest = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
+      manipulateDom: async({ siteAction }) => {
         const container = await waitForElement('[data-test-id="relatedPins"]')
         mute(container)
         setTimeout(() => {

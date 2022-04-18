@@ -18,7 +18,7 @@ const twitch = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
+      manipulateDom: async({ siteAction }) => {
         const container = await waitForElement('.root-scrollable')
         mute(container)
         setTimeout(() => {

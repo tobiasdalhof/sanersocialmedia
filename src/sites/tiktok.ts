@@ -18,7 +18,7 @@ const tiktok = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
+      manipulateDom: async({ siteAction }) => {
         const container = await waitForElement('[data-e2e="recommend-list-item-container"]')
         mute(container)
         setTimeout(() => {
