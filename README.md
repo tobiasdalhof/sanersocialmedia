@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://github.com/tobidalhof/sanersocialmedia/raw/main/images/logo128.png" alt="Saner Social Media"/>
+  <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://github.com/tobidalhof/sanersocialmedia/raw/main/images/logo128.png" alt="Saner Social Media"></a>
   <br/>
   Saner Social Media
 </h1>
