@@ -1,7 +1,4 @@
 {
-  "name": "sanersocialmedia",
-  "private": true,
-  "version": "0.0.0",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "dev": "npm run clear && NODE_ENV=development run-p dev:*",
@@ -14,7 +11,7 @@
     "build:background": "vite build -c vite.config.background.ts",
     "zip": "npm run build && (cd ./extension; zip -r ../extension.zip .)",
     "clear": "rimraf extension/dist",
-    "lint": "eslint 'src/**/*.{json,ts,js,vue}'"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@fontsource/readex-pro": "^4.5.6",
