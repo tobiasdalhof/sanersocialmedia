@@ -1,18 +1,28 @@
-![YouTube Home](./images/logo128.png)
-# Saner Social Media
+<h1 align="center">
+  <img src="https://github.com/tobidalhof/sanersocialmedia/raw/main/images/logo128.png" alt="Saner Social Media"/>
+  <br/>
+  Saner Social Media
+</h1>
 
-[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/v/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white)](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk)
-[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white)](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk)
-[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white)](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk)
+<p align="center">
+  <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk" target="_blank">
+    <img src="https://img.shields.io/chrome-web-store/v/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store">
+  </a>
+  <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk" target="_blank">
+    <img src="https://img.shields.io/chrome-web-store/rating/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store Rating">
+  </a>
+  <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk" target="_blank">
+    <img src="https://img.shields.io/chrome-web-store/users/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store Users">
+  </a>
+</p>
 
 Chrome extension for replacing addictive and annoying features of various social media sites with inspirational quotes.
 
-- [Saner Social Media](#saner-social-media)
-  - [Feature highlights & supported sites](#feature-highlights--supported-sites)
-  - [Installation](#installation)
-  - [Development](#development)
-  - [Support this project](#support-this-project)
-  - [Acknowledgements](#acknowledgements)
+- [Feature highlights & supported sites](#feature-highlights--supported-sites)
+- [Installation](#installation)
+- [Development](#development)
+- [Support this project](#support-this-project)
+- [Acknowledgements](#acknowledgements)
 
 ![Options](./images/options.png)
 ![YouTube Home](./images/youtube-home.png)
