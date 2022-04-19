@@ -13,9 +13,9 @@
 Chrome extension for replacing addictive and annoying features of various social media sites with inspirational quotes.
 
 - [Feature highlights & supported sites](#feature-highlights--supported-sites)
+- [Support this project](#support-this-project)
 - [Installation](#installation)
 - [Development](#development)
-- [Support this project](#support-this-project)
 - [Acknowledgements](#acknowledgements)
 
 ![Options](./images/options.png)
@@ -53,6 +53,15 @@ Chrome extension for replacing addictive and annoying features of various social
 - 1600+ inspirational quotes
 - Works with dark and light themes
 
+## Support this project
+
+Please consider to support this free and open source project.
+
+- Tell your friends
+- Visit the [Chrome Web Store](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk) and write a review
+- Star us on GitHub
+- Report bugs on [GitHub](https://github.com/tobidalhof/sanersocialmedia/issues)
+
 ## Installation
 
 **Option 1** – Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk)
@@ -76,14 +85,6 @@ Chrome extension for replacing addictive and annoying features of various social
   - Click `Load unpacked` and select the `extension` directory
 
 Note: HMR for the options page is [not possible yet](https://github.com/antfu/vitesse-webext/issues/59#issuecomment-1011008367). 
-
-## Support this project
-
-Please consider to support this free and open source project.
-
-- Tell your friends
-- Visit the [Chrome Web Store](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk) and write a review
-- Report bugs on [GitHub](https://github.com/tobidalhof/sanersocialmedia/issues)
 
 ## Acknowledgements
 
