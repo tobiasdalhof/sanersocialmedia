@@ -1,23 +1,24 @@
+![YouTube Home](./images/logo128.png)
+# Saner Social Media
+
 [![Chrome Web Store Users](https://img.shields.io/chrome-web-store/v/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white)](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk)
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white)](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk)
 [![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white)](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk)
 
-# Saner Social Media
-
 Chrome extension for replacing addictive and annoying features of various social media sites with inspirational quotes.
 
 - [Saner Social Media](#saner-social-media)
-  - [Features](#features)
+  - [Feature highlights & supported sites](#feature-highlights--supported-sites)
   - [Installation](#installation)
   - [Development](#development)
   - [Support this project](#support-this-project)
   - [Acknowledgements](#acknowledgements)
 
-![YouTube Home](./screenshots/youtube-home.png)
-![Twitter Home](./screenshots/twitter-home.png)
-![Options](./screenshots/options.png)
+![Options](./images/options.png)
+![YouTube Home](./images/youtube-home.png)
+![Twitter Home](./images/twitter-home.png)
 
-## Features
+## Feature highlights & supported sites
 
 - Support for YouTube
   - Hide feed on home page
@@ -46,6 +47,7 @@ Chrome extension for replacing addictive and annoying features of various social
 - Support for GitHub
   - Hide feed on home page
 - 1600+ inspirational quotes
+- Works with dark and light themes
 
 ## Installation
 
@@ -77,7 +79,7 @@ Please consider to support this free and open source project.
 
 - Tell your friends
 - Visit the [Chrome Web Store](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk) and write a review
-- Report bugs on GitHub
+- Report bugs on [GitHub](https://github.com/tobidalhof/sanersocialmedia/issues)
 
 ## Acknowledgements
 
