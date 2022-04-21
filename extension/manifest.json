@@ -1,7 +1,7 @@
 {
   "name": "Saner Social Media",
-  "description": "Replace addictive and annoying features of various social media sites with inspirational quotes",
-  "version": "1.1.0",
+  "description": "Hide homepage feeds, recommendations and other distractions on YouTube, Twitter, Instagram, Facebook, TikTok, Pinterest, LinkedIn, Twitch, Reddit and GitHub.",
+  "version": "1.1.1",
   "manifest_version": 3,
   "icons": {
     "16": "icon16.png",

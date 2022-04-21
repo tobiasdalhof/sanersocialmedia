@@ -53,25 +53,21 @@ async function disableAll() {
 
 const chromeWebStoreUrl = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
 const gitHubUrl = 'https://github.com/tobidalhof/sanersocialmedia'
-const gitHubIssuesUrl = 'https://github.com/tobidalhof/sanersocialmedia/issues'
 </script>
 
 <template>
   <div v-if="ready" class="container max-w-4xl mx-auto p-5">
-    <header class="flex items-center py-5">
-      <img src="./images/logo.svg" alt="Saner Social Media" class="w-16 mr-4">
+    <header class="flex items-center pb-8">
+      <img src="./images/logo.svg" alt="Saner Social Media" class="w-10 mr-4">
       <div>
         <div class="text-2xl">
           <span>Saner Social Media</span>
-        </div>
-        <div class="opacity-60">
-          <span>Replace addictive and annoying features of various social media sites with inspirational quotes</span>
         </div>
       </div>
     </header>
 
     <section>
-      <div class="mt-5 mb-10 p-8 border-2 border-blue-500 rounded-2xl">
+      <div class="mb-8 p-8 border-2 border-blue-500 rounded-2xl">
         <div>
           <span class="font-bold">Feeling saner already?</span> Please consider to support this free and
           <a :href="gitHubUrl" target="_blank" class="text-blue-500">open source</a>
@@ -86,7 +82,7 @@ const gitHubIssuesUrl = 'https://github.com/tobidalhof/sanersocialmedia/issues'
           </li>
           <li>
             Report bugs on
-            <a :href="gitHubIssuesUrl" target="_blank" class="text-blue-500">GitHub</a>
+            <a :href="gitHubUrl" target="_blank" class="text-blue-500">GitHub</a>
           </li>
         </ul>
       </div>
