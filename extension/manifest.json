@@ -1,6 +1,6 @@
 {
   "name": "Saner Social Media",
-  "description": "Hide recommendations and more on YouTube, Twitter, Instagram, Facebook, TikTok, Pinterest, LinkedIn, Twitch, Reddit and GitHub.",
+  "description": "Hide homepage feeds, recommendations and other distractions on 10 different social media sites.",
   "version": "1.1.1",
   "manifest_version": 3,
   "icons": {
