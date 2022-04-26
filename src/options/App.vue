@@ -15,7 +15,7 @@ async function getUserConfig() {
 }
 
 const ready = ref(false)
-onMounted(async() => {
+onMounted(async () => {
   chrome.storage.onChanged.addListener(getUserConfig)
   await getUserConfig()
   ready.value = true

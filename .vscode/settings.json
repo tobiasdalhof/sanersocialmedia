@@ -1,7 +1,7 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.associations": {
-    "*.css": "postcss",
+    "*.css": "postcss"
   },
   "search.useIgnoreFiles": false,
   "windicss.enableAttrUtilityCompletion": false,
@@ -17,5 +17,5 @@
   },
   "[typescript]": {
     "editor.formatOnSave": false
-  },
+  }
 }

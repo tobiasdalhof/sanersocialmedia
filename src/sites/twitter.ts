@@ -18,7 +18,7 @@ const twitter = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async({ siteAction }) => {
+      manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('[data-testid="primaryColumn"] > div:last-child > div:nth-child(4)')
         mute(container)
         const quote = siteAction.createQuoteElement(container)
@@ -37,7 +37,7 @@ const twitter = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async({ siteAction }) => {
+      manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('[data-testid="sidebarColumn"] section')
         const quote = siteAction.createQuoteElement(container)
         if (!quote)
@@ -55,7 +55,7 @@ const twitter = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async({ siteAction }) => {
+      manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('[data-testid="sidebarColumn"] aside')
         const quote = siteAction.createQuoteElement(container)
         if (!quote)
