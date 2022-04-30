@@ -6,7 +6,7 @@ import windiConfig from './windi.config'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: resolve(__dirname, './src/website'),
+  root: resolve(__dirname, './website'),
   plugins: [
     vue(),
     WindiCSS({

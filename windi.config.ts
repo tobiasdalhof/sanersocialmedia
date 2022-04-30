@@ -5,6 +5,7 @@ export default defineConfig({
   extract: {
     include: [
       resolve(__dirname, 'src/**/*.{vue,html}'),
+      resolve(__dirname, 'website/**/*.{vue,html}'),
     ],
   },
   theme: {
