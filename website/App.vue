@@ -103,7 +103,7 @@ function generateSiteDescription(site: Site): string {
         </div>
       </a>
     </div>
-    <div class="text-center mt-5 opacity-50">
+    <div class="text-center text-xs mt-5 opacity-50">
       <span>Saner Social Media is a project by Tobias Dalhof, Wolfgangstraße 11, 73479 Ellwangen (Jagst), Germany</span>
     </div>
   </footer>
