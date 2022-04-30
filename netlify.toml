@@ -6,4 +6,4 @@
 
 [build]
   publish = "website/dist"
-  command = "npx pnpm i --store=node_modules/.pnpm-store && pnpm build:website"
+  command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm build:website"
