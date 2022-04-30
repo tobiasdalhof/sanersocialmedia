@@ -4,9 +4,6 @@
         "dockerfile": "Dockerfile",
     },
     "remoteUser": "node",
-    "features": {
-        "aws-cli": "latest"
-    },
     "settings": {
         "terminal.integrated.defaultProfile.linux": "zsh", 
         "terminal.integrated.profiles.linux": {

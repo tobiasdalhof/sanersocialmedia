@@ -1,0 +1,9 @@
+# copied from https://github.com/vuejs/docs/blob/main/netlify.toml
+
+[build.environment]
+  NODE_VERSION = "17"
+  NPM_FLAGS = "--version" # prevent Netlify npm install
+
+[build]
+  publish = "website/dist"
+  command = "npx pnpm i --store=node_modules/.pnpm-store && pnpm build:website"
