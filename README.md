@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://github.com/tobidalhof/sanersocialmedia/raw/main/images/logo64.png" alt="Saner Social Media"></a>
+  <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://github.com/tobidalhof/sanersocialmedia/raw/main/.github/logo64.png" alt="Saner Social Media"></a>
   <br/>
   Saner Social Media
 </h1>
@@ -18,9 +18,9 @@ Chrome extension for replacing addictive and annoying features of various social
 - [Development](#development)
 - [Acknowledgements](#acknowledgements)
 
-![Options](./images/options.png)
-![YouTube Home](./images/youtube-home.png)
-![Twitter Home](./images/twitter-home.png)
+![Options](./.github/options.png)
+![YouTube Home](./.github/youtube-home.png)
+![Twitter Home](./.github/twitter-home.png)
 
 ## Feature highlights & supported sites
 

@@ -58,7 +58,7 @@ const gitHubUrl = 'https://github.com/tobidalhof/sanersocialmedia'
 <template>
   <div v-if="ready" class="container max-w-4xl mx-auto p-5">
     <header class="flex items-center pb-8">
-      <img src="./images/logo.svg" alt="Saner Social Media" class="w-10 mr-4">
+      <img src="./assets/logo.svg" alt="Saner Social Media" class="w-10 mr-4">
       <div>
         <div class="text-2xl">
           <span>Saner Social Media</span>
