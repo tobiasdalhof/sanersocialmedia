@@ -47,6 +47,9 @@ function generateSiteDescription(site: Site): string {
           <span>Add to Chrome - It's free</span>
         </a>
       </div>
+      <div class="mt-10">
+        <img src="./assets/youtube-home.png" alt="YouTube home without recommendations" class="rounded">
+      </div>
     </div>
   </header>
   <main class="mt-15 pt-15 border-t border-dark-800">
