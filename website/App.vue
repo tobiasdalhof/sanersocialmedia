@@ -33,15 +33,15 @@ function generateSiteDescription(site: Site): string {
 <template>
   <header class="flex items-center justify-between p-5 leading-none">
     <div class="flex items-center select-none">
-      <img class="w-5 h-5 mr-2 md:w-8 md:h-8 md:mr-4" src="./assets/logo.svg" alt="Logo">
+      <img class="w-8 h-8 mr-4" src="./assets/logo.svg" alt="Logo">
       <div>
-        <span class="md:text-lg">Saner Social Media</span>
+        <span class="text-lg">Saner Social Media</span>
       </div>
     </div>
     <a :href="gitHubUrl" class="inline-flex items-center select-none" target="_blank">
-      <app-icon :value="mdiGithub" class="w-5 h-5 mr-1 md:w-8 md:h-8 md:mr-2" />
-      <div>
-        <span class="md:text-lg">Star us on GitHub</span>
+      <app-icon :value="mdiGithub" class="w-8 h-8" />
+      <div class="ml-2 hidden sm:block">
+        <span class="text-lg">Star us on GitHub</span>
       </div>
     </a>
   </header>
@@ -116,7 +116,7 @@ function generateSiteDescription(site: Site): string {
       </swiper>
     </div>
     <div class="mt-10 mx-auto max-w-3xl">
-      <div class="grid grid-cols-2 space-x-5 text-center">
+      <div class="grid grid-cols-1 sm:grid-cols-2 space-y-5 sm:space-y-0 space-x-0 sm:space-x-5 text-center">
         <div>
           <app-icon class="w-6 h-6 text-yellow-300" :value="mdiCommentQuoteOutline" />
           <h3 class="mt-3 mb-1 font-semibold">
@@ -141,10 +141,7 @@ function generateSiteDescription(site: Site): string {
   <footer class="mt-15 p-10 border-t border-dark-500">
     <div class="text-center text-sm opacity-70">
       <a href="mailto:sanersocialmedia@gmail.com" class="inline-flex items-center leading-none">
-        <app-icon :value="mdiEmail" class="w-4 h-4 mr-1" />
-        <div>
-          <span>Contact me at sanersocialmedia@gmail.com</span>
-        </div>
+        <span><app-icon :value="mdiEmail" class="w-4 h-4 mr-1" />Contact me at sanersocialmedia@gmail.com</span>
       </a>
     </div>
     <div class="mt-1 text-center text-xs opacity-70">
