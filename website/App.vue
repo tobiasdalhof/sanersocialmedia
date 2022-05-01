@@ -46,7 +46,7 @@ function generateSiteDescription(site: Site): string {
     </a>
   </header>
   <main class="mt-5 p-5">
-    <div class="mx-auto max-w-4xl">
+    <div class="mx-auto max-w-3xl">
       <h1 class="text-3xl leading-snug text-center text-yellow-200">
         Hide homepage feeds, recommendations and other distractions on {{ sites.length }} different social media sites
       </h1>
@@ -115,18 +115,18 @@ function generateSiteDescription(site: Site): string {
         </swiper-slide>
       </swiper>
     </div>
-    <div class="mt-10 mx-auto max-w-4xl">
-      <div class="grid grid-cols-2">
-        <div class="p-5">
+    <div class="mt-10 mx-auto max-w-3xl">
+      <div class="grid grid-cols-2 space-x-5 text-center">
+        <div>
           <app-icon class="w-6 h-6 text-yellow-300" :value="mdiCommentQuoteOutline" />
           <h3 class="mt-3 mb-1 font-semibold">
             1621 different inspirational quotes
           </h3>
           <p class="opacity-80">
-            We will show you inspirational quotes instead of potentially time wasting recommendations.
+            See inspirational quotes instead of potentially time wasting recommendations.
           </p>
         </div>
-        <div class="p-5">
+        <div>
           <app-icon class="w-6 h-6 text-blue-500" :value="mdiSync" />
           <h3 class="mt-3 mb-1 font-semibold">
             Use on multiple computers
