@@ -73,7 +73,7 @@ function generateSiteDescription(site: Site): string {
         </div>
       </div>
     </div>
-    <div class="mt-10 mx-auto max-w-5xl">
+    <div class="mt-10 mx-auto max-w-3xl">
       <div />
       <swiper
         :modules="[ Navigation ]"
