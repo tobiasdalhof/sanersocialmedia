@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { mdiCommentQuoteOutline, mdiEmail, mdiGithub, mdiGoogleChrome, mdiSync } from '@mdi/js'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/navigation'
 import type Site from '../src/lib/Site'
 import * as _sites from '../src/sites'
 import { AppIcon } from './components'
@@ -27,48 +31,103 @@ function generateSiteDescription(site: Site): string {
 </script>
 
 <template>
-  <header class="p-5">
-    <div class="flex items-center mb-15">
-      <img class="w-8 mr-4" src="./assets/logo.svg" alt="Logo">
+  <header class="flex items-center justify-between p-5 leading-none">
+    <div class="flex items-center select-none">
+      <img class="w-8 h-8 mr-4" src="./assets/logo.svg" alt="Logo">
       <div>
         <span class="text-lg">Saner Social Media</span>
       </div>
     </div>
-    <div class="container mx-auto max-w-4xl text-center">
-      <h1 class="text-3xl leading-snug text-yellow-200">
+    <a :href="gitHubUrl" class="inline-flex items-center select-none" target="_blank">
+      <app-icon :value="mdiGithub" class="w-8 h-8 mr-2" />
+      <div>
+        <span class="text-lg">Star us on GitHub</span>
+      </div>
+    </a>
+  </header>
+  <main class="mt-5 p-5">
+    <div class="mx-auto max-w-4xl">
+      <h1 class="text-3xl leading-snug text-center text-yellow-200">
         Hide homepage feeds, recommendations and other distractions on {{ sites.length }} different social media sites
       </h1>
-      <p class="mt-5 mb-10 text-lg max-w-xl mx-auto">
+      <p class="mt-5 mb-10 max-w-xl mx-auto text-center text-lg">
         Saner Social Media is a Chrome extension that helps you to regain focus, stop wasting time and improve mental health.
       </p>
-      <div>
-        <a :href="chromeWebStoreUrl" target="_blank" class="inline-flex items-center justify-center px-8 h-58px leading-none rounded-full from-yellow-200 to-yellow-400 hover:from-yellow-300 hover:to-yellow-500  bg-gradient-to-br text-lg font-semibold text-dark-900 select-none active:ring">
-          <app-icon :value="mdiGoogleChrome" class="w-8 mr-2" />
+      <div class="text-center">
+        <a :href="chromeWebStoreUrl" target="_blank" class="inline-flex items-center justify-center px-8 h-58px leading-none rounded-full from-yellow-300 to-yellow-500 hover:from-yellow-400 hover:to-yellow-600  bg-gradient-to-br text-lg font-semibold text-dark-900 select-none active:ring">
+          <app-icon :value="mdiGoogleChrome" class="w-8 h-8 mr-2" />
           <span>Add to Chrome - It's free</span>
         </a>
       </div>
       <div class="mt-10">
-        <img src="./assets/youtube-home.png" alt="YouTube home without recommendations" class="rounded">
+        <h2 class="mb-5 text-yellow-200 text-center text-lg">
+          It works with
+        </h2>
+        <div class="flex flex-wrap justify-center items-center space-x-2 max-w-2xl mx-auto -mb-2">
+          <div v-for="(site, index) in sites" :key="'site'+index" class="flex items-center mb-2  pl-1 pr-3 py-1 rounded-full leading-none ring-1 ring-dark-200 select-none">
+            <div class="w-5 h-5 bg-center rounded-full" :style="{ backgroundImage: `url(${site.params.logoSvg})` }" />
+            <div class="ml-2">
+              <span class="text-sm">{{ site.params.name }}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </header>
-  <main class="mt-15 pt-15 border-t border-dark-800">
-    <div class="container mx-auto max-w-4xl">
-      <h2 class="text-2xl text-center">
-        Feature highlights & supported sites
-      </h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 mt-10">
+    <div class="mt-10 mx-auto max-w-5xl">
+      <div />
+      <swiper
+        :modules="[ Navigation ]"
+        :slides-per-view="1"
+        :space-between="50"
+        :navigation="true"
+        :loop="true"
+        :auto-height="true"
+      >
+        <swiper-slide>
+          <img src="./assets/screenshots/youtube.png" alt="Hide YouTube homepage feed, sidebar and comments" class="rounded-xl">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="./assets/screenshots/twitter.png" alt="Hide Twitter homepage feed, trends and follow suggestions in sidebar" class="rounded-xl">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="./assets/screenshots/instagram.png" alt="Hide Instagram homepage feed" class="rounded-xl">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="./assets/screenshots/facebook.png" alt="Hide Facebook homepage feed" class="rounded-xl">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="./assets/screenshots/tiktok.png" alt="Hide TikTok homepage feed" class="rounded-xl">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="./assets/screenshots/pinterest.png" alt="Hide Pinterest homepage feed and related pins" class="rounded-xl">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="./assets/screenshots/linkedin.png" alt="Hide LinkedIn homepage feed" class="rounded-xl">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="./assets/screenshots/twitch.png" alt="Hide Twitch homepage feed" class="rounded-xl">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="./assets/screenshots/reddit.png" alt="Hide Reddit homepage feed" class="rounded-xl">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="./assets/screenshots/github.png" alt="Hide GitHub homepage feed" class="rounded-xl">
+        </swiper-slide>
+      </swiper>
+    </div>
+    <div class="mt-10 mx-auto max-w-4xl">
+      <div class="grid grid-cols-2">
         <div class="p-5">
-          <app-icon class="w-8 text-yellow-300" :value="mdiCommentQuoteOutline" />
+          <app-icon class="w-6 h-6 text-yellow-300" :value="mdiCommentQuoteOutline" />
           <h3 class="mt-3 mb-1 font-semibold">
-            1621 inspirational quotes
+            1621 different inspirational quotes
           </h3>
           <p class="opacity-80">
             We will show you inspirational quotes instead of potentially time wasting recommendations.
           </p>
         </div>
         <div class="p-5">
-          <app-icon class="w-8 text-blue-500" :value="mdiSync" />
+          <app-icon class="w-6 h-6 text-blue-500" :value="mdiSync" />
           <h3 class="mt-3 mb-1 font-semibold">
             Use on multiple computers
           </h3>
@@ -76,35 +135,20 @@ function generateSiteDescription(site: Site): string {
             Extension settings are synced with your Google account.
           </p>
         </div>
-        <div v-for="(site, siteIndex) in sites" :key="'site-' + siteIndex" class="p-5">
-          <div class="w-8 h-8 bg-center rounded-full" :style="{ backgroundImage: `url(${site.params.logoSvg})` }" />
-          <h3 class="mt-3 mb-1 font-semibold">
-            Support for {{ site.params.name }}
-          </h3>
-          <p class="opacity-80">
-            {{ generateSiteDescription(site) }}
-          </p>
-        </div>
       </div>
     </div>
   </main>
-  <footer class="bg-black mt-15 p-10 ">
-    <div class="md:flex md:space-x-5 justify-center">
+  <footer class="mt-15 p-10 border-t border-dark-500">
+    <div class="text-center text-sm opacity-70">
       <a href="mailto:sanersocialmedia@gmail.com" class="inline-flex items-center leading-none">
-        <app-icon :value="mdiEmail" class="w-4 mr-2" />
+        <app-icon :value="mdiEmail" class="w-4 h-4 mr-1" />
         <div>
-          <span>sanersocialmedia@gmail.com</span>
-        </div>
-      </a>
-      <a :href="gitHubUrl" class="inline-flex items-center leading-none">
-        <app-icon :value="mdiGithub" class="w-4 mr-2" />
-        <div>
-          <span>View source code on GitHub</span>
+          <span>Contact me at sanersocialmedia@gmail.com</span>
         </div>
       </a>
     </div>
-    <div class="text-center text-xs mt-5 opacity-50">
-      <span>Saner Social Media is a project by Tobias Dalhof, Wolfgangstraße 11, 73479 Ellwangen (Jagst), Germany</span>
+    <div class="mt-1 text-center text-xs opacity-70">
+      <span>Imprint: Saner Social Media is a project by Tobias Dalhof, Wolfgangstr. 11, 73479 Ellwangen (Jagst), Germany</span>
     </div>
   </footer>
 </template>
