@@ -15,7 +15,7 @@
     },
     // https://github.com/antfu/vitesse/blob/main/.vscode/extensions.json
     "extensions": [
-        "johnsoncodehk.volar",
+        "Vue.volar",
         "2gua.rainbow-brackets",
         "oderwat.indent-rainbow",
         "yzhang.markdown-all-in-one",
