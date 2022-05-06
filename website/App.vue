@@ -108,7 +108,7 @@ function generateSiteDescription(site: Site): string {
           <img src="./assets/screenshots/twitch.png" alt="Hide Twitch homepage feed" class="rounded-xl">
         </swiper-slide>
         <swiper-slide>
-          <img src="./assets/screenshots/reddit.png" alt="Hide Reddit homepage feed" class="rounded-xl">
+          <img src="./assets/screenshots/reddit.png" alt="Hide Reddit feed on homepage and all subreddits" class="rounded-xl">
         </swiper-slide>
         <swiper-slide>
           <img src="./assets/screenshots/github.png" alt="Hide GitHub homepage feed" class="rounded-xl">
