@@ -1,7 +1,7 @@
 {
   "name": "Saner Social Media",
   "description": "Hide homepage feeds, recommendations and other distractions on 10 different social media sites.",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "manifest_version": 3,
   "icons": {
     "16": "icon16.png",

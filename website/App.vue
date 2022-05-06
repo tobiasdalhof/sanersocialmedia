@@ -108,7 +108,7 @@ function generateSiteDescription(site: Site): string {
           <img src="./assets/screenshots/twitch.png" alt="Hide Twitch homepage feed" class="rounded-xl">
         </swiper-slide>
         <swiper-slide>
-          <img src="./assets/screenshots/reddit.png" alt="Hide Reddit homepage feed" class="rounded-xl">
+          <img src="./assets/screenshots/reddit.png" alt="Hide Reddit feed on homepage and all subreddits" class="rounded-xl">
         </swiper-slide>
         <swiper-slide>
           <img src="./assets/screenshots/github.png" alt="Hide GitHub homepage feed" class="rounded-xl">
@@ -141,7 +141,7 @@ function generateSiteDescription(site: Site): string {
   <footer class="mt-15 p-10 border-t border-dark-500">
     <div class="text-center text-sm opacity-70">
       <a href="mailto:sanersocialmedia@gmail.com" class="inline-flex items-center leading-none">
-        <span><app-icon :value="mdiEmail" class="w-4 h-4 mr-1" />Contact me at sanersocialmedia@gmail.com</span>
+        <app-icon :value="mdiEmail" class="w-4 h-4 mr-1" />Contact me at sanersocialmedia@gmail.com
       </a>
     </div>
     <div class="mt-1 text-center text-xs opacity-70">
