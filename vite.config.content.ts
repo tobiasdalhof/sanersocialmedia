@@ -6,6 +6,7 @@ export default defineConfig({
   build: {
     outDir: resolve(__dirname, 'extension/dist'),
     emptyOutDir: false,
+    minify: false,
     lib: {
       entry: resolve(__dirname, 'src/content/main.ts'),
       name: 'content',

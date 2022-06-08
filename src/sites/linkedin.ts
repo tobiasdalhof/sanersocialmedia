@@ -11,7 +11,7 @@ const linkedin = new Site({
   siteActions: [
     new SiteAction({
       name: 'Hide feed on home page',
-      validateUrl: url => url.pathname.includes('feed'),
+      validateUrl: url => ['/', '/feed', '/feed/'].includes(url.pathname),
       requiredUserConfigKey: UserConfigKey.LinkedInHideHomeFeed,
       injectCss: `
         main.scaffold-layout__main > div:last-child {
