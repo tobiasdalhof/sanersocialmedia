@@ -1,5 +1,5 @@
 chrome.runtime.onInstalled.addListener((details) => {
-  if (!details.previousVersion)
+  if (details.reason === chrome.runtime.OnInstalledReason.INSTALL)
     chrome.runtime.openOptionsPage()
 })
 
