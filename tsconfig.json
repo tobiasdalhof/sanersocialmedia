@@ -26,6 +26,6 @@
     "website/**/*.ts",
     "website/**/*.d.ts",
     "website/**/*.tsx",
-    "website/**/*.vue",
+    "website/**/*.vue"
   ]
 }

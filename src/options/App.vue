@@ -104,9 +104,9 @@ const gitHubUrl = 'https://github.com/tobidalhof/sanersocialmedia'
         </button>
       </div>
 
-      <div v-for="(site, siteIndex) in sites" :key="'site-' + siteIndex">
+      <div v-for="(site, siteIndex) in sites" :key="`site-${siteIndex}`">
         <div
-          v-for="(siteAction, siteActionIndex) in site.params.siteActions" :key="'site-action-' + siteActionIndex"
+          v-for="(siteAction, siteActionIndex) in site.params.siteActions" :key="`site-action-${siteActionIndex}`"
           class="mb-2 transition-opacity" :class="{ 'opacity-60 hover:opacity-100': !isEnabled(siteAction) }"
           @click="toggle(siteAction)"
         >

@@ -64,7 +64,7 @@ function generateSiteDescription(site: Site): string {
           It works with
         </h2>
         <div class="flex flex-wrap justify-center items-center space-x-2 max-w-2xl mx-auto -mb-2">
-          <div v-for="(site, index) in sites" :key="'site'+index" class="flex items-center mb-2  pl-1 pr-3 py-1 rounded-full leading-none ring-1 ring-dark-200 select-none">
+          <div v-for="(site, index) in sites" :key="`site${index}`" class="flex items-center mb-2  pl-1 pr-3 py-1 rounded-full leading-none ring-1 ring-dark-200 select-none">
             <div class="w-5 h-5 bg-center rounded-full" :style="{ backgroundImage: `url(${site.params.logoSvg})` }" />
             <div class="ml-2">
               <span class="text-sm">{{ site.params.name }}</span>
@@ -76,7 +76,7 @@ function generateSiteDescription(site: Site): string {
     <div class="mt-10 mx-auto max-w-3xl">
       <div />
       <swiper
-        :modules="[ Navigation ]"
+        :modules="[Navigation]"
         :slides-per-view="1"
         :space-between="50"
         :navigation="true"
