@@ -89,3 +89,5 @@ Note: HMR for the options page is [not possible yet](https://github.com/antfu/vi
 ## Acknowledgements
 
 Special thanks goes to [@jordwest](https://github.com/jordwest) for creating [News Feed Eradicator](https://github.com/jordwest/news-feed-eradicator) which obviously was a big inspiration for me. I created this extension to add support for more social media sites.
+
+Inspirational quotes provided by [dwyl/quotes](https://github.com/dwyl/quotes/blob/main/quotes.json).
