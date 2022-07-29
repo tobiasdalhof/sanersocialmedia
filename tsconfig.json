@@ -14,8 +14,7 @@
       "dom"
     ],
     "types": [
-      "@types/node",
-      "@types/chrome"
+      "@types/node"
     ]
   },
   "include": [

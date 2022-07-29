@@ -120,8 +120,8 @@ const gitHubUrl = 'https://github.com/tobidalhof/sanersocialmedia'
               </div>
             </div>
             <div class="ml-4">
-              <app-icon v-if="isEnabled(siteAction)" :value="mdiCheck" class="w-7 text-green-500" />
-              <app-icon v-else :value="mdiClose" class="w-7 text-red-500" />
+              <AppIcon v-if="isEnabled(siteAction)" :value="mdiCheck" class="w-7 text-green-500" />
+              <AppIcon v-else :value="mdiClose" class="w-7 text-red-500" />
             </div>
           </div>
         </div>
