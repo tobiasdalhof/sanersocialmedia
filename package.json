@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
-    "@types/chrome": "^0.0.180",
+    "@types/chrome": "^0.0.193",
     "@types/node": "^17.0.45",
     "@vitejs/plugin-vue": "^3.0.1",
     "eslint": "^8.20.0",
