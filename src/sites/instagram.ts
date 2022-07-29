@@ -15,12 +15,12 @@ const instagram = new Site({
       validateUrl: () => true,
       requiredUserConfigKey: UserConfigKey.InstagramHideHomeFeed,
       injectCss: `
-        main > section > :not([${QuoteElementDataAttribute.Container}]) {
+        main > div > section > :not([${QuoteElementDataAttribute.Container}]) {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('main > section')
+        const container = await waitForElement('main > div > section')
         mute(container)
         setTimeout(() => {
           const quote = siteAction.createQuoteElement(container)
