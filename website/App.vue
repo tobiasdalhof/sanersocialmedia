@@ -39,7 +39,7 @@ function generateSiteDescription(site: Site): string {
       </div>
     </div>
     <a :href="gitHubUrl" class="inline-flex items-center select-none" target="_blank">
-      <app-icon :value="mdiGithub" class="w-8 h-8" />
+      <AppIcon :value="mdiGithub" class="w-8 h-8" />
       <div class="ml-2 hidden sm:block">
         <span class="text-lg">Star us on GitHub</span>
       </div>
@@ -55,7 +55,7 @@ function generateSiteDescription(site: Site): string {
       </p>
       <div class="text-center">
         <a :href="chromeWebStoreUrl" target="_blank" class="inline-flex items-center justify-center px-8 h-58px leading-none rounded-full from-yellow-300 to-yellow-500 hover:from-yellow-400 hover:to-yellow-600  bg-gradient-to-br text-lg font-semibold text-dark-900 select-none active:ring">
-          <app-icon :value="mdiGoogleChrome" class="w-8 h-8 mr-2" />
+          <AppIcon :value="mdiGoogleChrome" class="w-8 h-8 mr-2" />
           <span>Add to Chrome - It's free</span>
         </a>
       </div>
@@ -75,7 +75,7 @@ function generateSiteDescription(site: Site): string {
     </div>
     <div class="mt-10 mx-auto max-w-3xl">
       <div />
-      <swiper
+      <Swiper
         :modules="[Navigation]"
         :slides-per-view="1"
         :space-between="50"
@@ -83,42 +83,42 @@ function generateSiteDescription(site: Site): string {
         :loop="true"
         :auto-height="true"
       >
-        <swiper-slide>
+        <SwiperSlide>
           <img src="./assets/screenshots/youtube.png" alt="Hide YouTube homepage feed, sidebar and comments" class="rounded-xl">
-        </swiper-slide>
-        <swiper-slide>
+        </SwiperSlide>
+        <SwiperSlide>
           <img src="./assets/screenshots/twitter.png" alt="Hide Twitter homepage feed, trends and follow suggestions in sidebar" class="rounded-xl">
-        </swiper-slide>
-        <swiper-slide>
+        </SwiperSlide>
+        <SwiperSlide>
           <img src="./assets/screenshots/instagram.png" alt="Hide Instagram homepage feed" class="rounded-xl">
-        </swiper-slide>
-        <swiper-slide>
+        </SwiperSlide>
+        <SwiperSlide>
           <img src="./assets/screenshots/facebook.png" alt="Hide Facebook homepage feed" class="rounded-xl">
-        </swiper-slide>
-        <swiper-slide>
+        </SwiperSlide>
+        <SwiperSlide>
           <img src="./assets/screenshots/tiktok.png" alt="Hide TikTok homepage feed" class="rounded-xl">
-        </swiper-slide>
-        <swiper-slide>
+        </SwiperSlide>
+        <SwiperSlide>
           <img src="./assets/screenshots/pinterest.png" alt="Hide Pinterest homepage feed and related pins" class="rounded-xl">
-        </swiper-slide>
-        <swiper-slide>
+        </SwiperSlide>
+        <SwiperSlide>
           <img src="./assets/screenshots/linkedin.png" alt="Hide LinkedIn homepage feed" class="rounded-xl">
-        </swiper-slide>
-        <swiper-slide>
+        </SwiperSlide>
+        <SwiperSlide>
           <img src="./assets/screenshots/twitch.png" alt="Hide Twitch homepage feed" class="rounded-xl">
-        </swiper-slide>
-        <swiper-slide>
+        </SwiperSlide>
+        <SwiperSlide>
           <img src="./assets/screenshots/reddit.png" alt="Hide Reddit feed on homepage and all subreddits" class="rounded-xl">
-        </swiper-slide>
-        <swiper-slide>
+        </SwiperSlide>
+        <SwiperSlide>
           <img src="./assets/screenshots/github.png" alt="Hide GitHub homepage feed" class="rounded-xl">
-        </swiper-slide>
-      </swiper>
+        </SwiperSlide>
+      </Swiper>
     </div>
     <div class="mt-10 mx-auto max-w-3xl">
       <div class="grid grid-cols-1 sm:grid-cols-2 space-y-5 sm:space-y-0 space-x-0 sm:space-x-5 text-center">
         <div>
-          <app-icon class="w-6 h-6 text-yellow-300" :value="mdiCommentQuoteOutline" />
+          <AppIcon class="w-6 h-6 text-yellow-300" :value="mdiCommentQuoteOutline" />
           <h3 class="mt-3 mb-1 font-semibold">
             1621 different inspirational quotes
           </h3>
@@ -127,7 +127,7 @@ function generateSiteDescription(site: Site): string {
           </p>
         </div>
         <div>
-          <app-icon class="w-6 h-6 text-blue-500" :value="mdiSync" />
+          <AppIcon class="w-6 h-6 text-blue-500" :value="mdiSync" />
           <h3 class="mt-3 mb-1 font-semibold">
             Use on multiple computers
           </h3>
@@ -141,7 +141,7 @@ function generateSiteDescription(site: Site): string {
   <footer class="mt-15 p-10 border-t border-dark-500">
     <div class="text-center text-sm opacity-70">
       <a href="mailto:sanersocialmedia@gmail.com" class="inline-flex items-center leading-none">
-        <app-icon :value="mdiEmail" class="w-4 h-4 mr-1" />Contact me at sanersocialmedia@gmail.com
+        <AppIcon :value="mdiEmail" class="w-4 h-4 mr-1" />Contact me at sanersocialmedia@gmail.com
       </a>
     </div>
     <div class="mt-1 text-center text-xs opacity-70">
