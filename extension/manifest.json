@@ -1,7 +1,7 @@
 {
   "name": "Saner Social Media: Focus & Stop Wasting Time",
   "description": "Hide home feeds, recommendations and other distractions on 10 different social media sites.",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "manifest_version": 3,
   "icons": {
     "16": "icon16.png",
