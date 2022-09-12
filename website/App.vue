@@ -23,11 +23,6 @@ const sites: Site[] = [
   _sites.reddit,
   _sites.github,
 ]
-
-function generateSiteDescription(site: Site): string {
-  const actionNames = site.params.siteActions.map(action => action.params.name)
-  return `${actionNames.join(', ')}.`
-}
 </script>
 
 <template>
