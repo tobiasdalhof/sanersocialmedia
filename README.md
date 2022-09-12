@@ -10,9 +10,9 @@
   <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://img.shields.io/chrome-web-store/users/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store Users"></a>
 </p>
 
-Saner Social Media is a Chrome extension to hide homepage feeds, recommendations and other distractions on 10 different social media sites.
+Saner Social Media was created for people who need to use social media for work but don't want to be exposed to it's addictive features like home feeds and recommendations.
 
-- [Feature highlights & supported sites](#feature-highlights--supported-sites)
+- [Currently supported sites and feature highlights](#currently-supported-sites-and-feature-highlights)
 - [Support this project](#support-this-project)
 - [Installation](#installation)
 - [Development](#development)
@@ -22,34 +22,18 @@ Saner Social Media is a Chrome extension to hide homepage feeds, recommendations
 ![YouTube Home](./.github/youtube-home.png)
 ![Twitter Home](./.github/twitter-home.png)
 
-## Feature highlights & supported sites
+## Currently supported sites and feature highlights
 
-- Support for YouTube
-  - Hide feed on home page
-  - Hide related videos in sidebar on video page
-  - Hide comments on video page
-- Support for Twitter
-  - Hide feed on home page
-  - Hide trends in sidebar
-  - Hide follow suggestions in sidebar
-- Support for Instagram
-  - Hide feed on home page
-- Support for Facebook
-  - Hide feed on home page
-- Support for TikTok
-  - Hide feed on home page
-- Support for Pinterest
-  - Hide feed on home page
-  - Hide related pins
-- Support for LinkedIn
-  - Hide feed on home page
-  - Hide trending news in sidebar
-- Support for Twitch
-  - Hide feed on home page
-- Support for Reddit
-  - Hide feed on home page
-- Support for GitHub
-  - Hide feed on home page
+- YouTube
+- Twitter
+- Instagram
+- Facebook
+- TikTok
+- Pinterest
+- LinkedIn
+- Twitch
+- Reddit
+- GitHub
 - 1600+ inspirational quotes
 - Works with dark and light themes
 
