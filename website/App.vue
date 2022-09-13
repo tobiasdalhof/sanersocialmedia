@@ -43,10 +43,10 @@ const sites: Site[] = [
   <main class="mt-5 p-5">
     <div class="mx-auto max-w-3xl">
       <h1 class="text-3xl leading-snug text-center text-yellow-200">
-        Hide homepage feeds, recommendations and other distractions on {{ sites.length }} different social media sites
+        Replace home feeds, recommendations and other social media distractions with inspirational quotes
       </h1>
       <p class="mt-5 mb-10 max-w-xl mx-auto text-center text-lg">
-        Saner Social Media is a Chrome extension that helps you to regain focus, stop wasting time and improve mental health.
+        Saner Social Media was created for people who need to use social media for work but don't want to be exposed to it's addictive features like home feeds and recommendations.
       </p>
       <div class="text-center">
         <a :href="chromeWebStoreUrl" target="_blank" class="inline-flex items-center justify-center px-8 h-58px leading-none rounded-full from-yellow-300 to-yellow-500 hover:from-yellow-400 hover:to-yellow-600  bg-gradient-to-br text-lg font-semibold text-dark-900 select-none active:ring">
