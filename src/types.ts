@@ -20,6 +20,7 @@ export enum UserConfigKey {
   RedditHideHomeFeed = 'RedditHideHomeFeed',
   RedditHideSubredditsFeed = 'RedditHideSubredditsFeed',
   GitHubHideHomeFeed = 'GitHubHideHomeFeed',
+  HideQuoteWidgetOptionsLink = 'HideQuoteWidgetOptionsLink',
 }
 
 type PartialRecord<K extends keyof any, T> = {

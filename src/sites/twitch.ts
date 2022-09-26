@@ -22,7 +22,7 @@ const twitch = new Site({
         const container = await waitForElement('.root-scrollable')
         mute(container)
         setTimeout(() => {
-          const quote = siteAction.createQuoteElement(container)
+          const quote = siteAction.createQuoteWidget(container)
           if (!quote)
             return
           quote.style.padding = '30px'

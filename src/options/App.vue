@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { mdiCheck, mdiClose } from '@mdi/js'
 import * as sites from '../sites'
 import { getStore, setUserConfig, toggleUserConfigKey } from '../store'
 import type { UserConfig } from '../types'
 import { UserConfigKey } from '../types'
 import type SiteAction from '../lib/SiteAction'
-import { AppIcon } from './components'
+import AppIcon from './components/AppIcon'
+
+const chromeWebStoreUrl = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
+const gitHubUrl = 'https://github.com/tobidalhof/sanersocialmedia'
 
 const userConfig = ref<UserConfig>()
 async function getUserConfig() {
@@ -25,34 +28,47 @@ onUnmounted(() => {
   chrome.storage.onChanged.removeListener(getUserConfig)
 })
 
-function isEnabled(siteAction: SiteAction): boolean {
+function isSiteEnabled(siteAction: SiteAction): boolean {
   if (!userConfig.value)
     return false
   return userConfig.value[siteAction.params.requiredUserConfigKey] === true
 }
 
-async function toggle(siteAction: SiteAction) {
+async function toggleSiteAction(siteAction: SiteAction) {
   await toggleUserConfigKey(siteAction.params.requiredUserConfigKey)
 }
 
-async function enableAll() {
-  const userConfig: UserConfig = {}
-  Object.values(UserConfigKey).forEach((key) => {
-    userConfig[key] = true
-  })
-  await setUserConfig(userConfig)
+async function enableAllSiteActions() {
+  const config: UserConfig = {}
+
+  for (const site of Object.values(sites)) {
+    site.params.siteActions.forEach((siteAction) => {
+      config[siteAction.params.requiredUserConfigKey] = true
+    })
+  }
+
+  await setUserConfig({ ...userConfig.value, ...config })
 }
 
-async function disableAll() {
-  const userConfig: UserConfig = {}
-  Object.values(UserConfigKey).forEach((key) => {
-    userConfig[key] = false
-  })
-  await setUserConfig(userConfig)
+async function disableAllSiteActions() {
+  const config: UserConfig = {}
+
+  for (const site of Object.values(sites)) {
+    site.params.siteActions.forEach((siteAction) => {
+      config[siteAction.params.requiredUserConfigKey] = false
+    })
+  }
+
+  await setUserConfig({ ...userConfig.value, ...config })
 }
 
-const chromeWebStoreUrl = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
-const gitHubUrl = 'https://github.com/tobidalhof/sanersocialmedia'
+const hideOptionsLink = computed(() => {
+  return userConfig.value?.HideQuoteWidgetOptionsLink === true
+})
+
+async function toggleHideOptionsLink() {
+  await toggleUserConfigKey(UserConfigKey.HideQuoteWidgetOptionsLink)
+}
 </script>
 
 <template>
@@ -89,42 +105,60 @@ const gitHubUrl = 'https://github.com/tobidalhof/sanersocialmedia'
     </section>
 
     <main class="my-5">
-      <div class="mb-2 space-x-2">
+      <div class="space-x-2">
         <button
           class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-700 opacity-60 hover:opacity-100 transition-opacity active:ring-2 ring-blue-500 leading-none"
-          @click.prevent="enableAll()"
+          @click.prevent="enableAllSiteActions()"
         >
           <span>Enable all</span>
         </button>
         <button
           class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-700 opacity-60 hover:opacity-100 transition-opacity active:ring-2 ring-blue-500 leading-none"
-          @click.prevent="disableAll()"
+          @click.prevent="disableAllSiteActions()"
         >
           <span>Disable all</span>
         </button>
       </div>
 
-      <div v-for="(site, siteIndex) in sites" :key="`site-${siteIndex}`">
-        <div
-          v-for="(siteAction, siteActionIndex) in site.params.siteActions" :key="`site-action-${siteActionIndex}`"
-          class="mb-2 transition-opacity" :class="{ 'opacity-60 hover:opacity-100': !isEnabled(siteAction) }"
-          @click="toggle(siteAction)"
-        >
+      <div class="mt-2 mb-8">
+        <div v-for="(site, siteIndex) in sites" :key="`site-${siteIndex}`">
           <div
-            class="flex justify-between items-center bg-dark-800 rounded-full px-3 py-2 cursor-pointer select-none active:ring-2 ring-blue-500 leading-none"
+            v-for="(siteAction, siteActionIndex) in site.params.siteActions" :key="`site-action-${siteActionIndex}`"
+            class="mb-2 transition-opacity" :class="{ 'opacity-60 hover:opacity-100': !isSiteEnabled(siteAction) }"
+            @click="toggleSiteAction(siteAction)"
           >
-            <div class="flex items-center">
-              <div class="w-7 h-7 bg-center rounded-full" :style="{ backgroundImage: `url(${site.params.logoSvg})` }" />
-              <div class="ml-4">
-                <span>{{ site.params.name }} - {{ siteAction.params.name }}</span>
+            <div
+              class="flex justify-between items-center bg-dark-800 rounded-full px-3 py-2 cursor-pointer select-none active:ring-2 ring-blue-500 leading-none"
+            >
+              <div class="flex items-center">
+                <div class="w-7 h-7 bg-center rounded-full" :style="{ backgroundImage: `url(${site.params.logoSvg})` }" />
+                <div class="ml-4">
+                  <span>{{ site.params.name }} - {{ siteAction.params.name }}</span>
+                </div>
               </div>
-            </div>
-            <div class="ml-4">
-              <AppIcon v-if="isEnabled(siteAction)" :value="mdiCheck" class="w-7 text-green-500" />
-              <AppIcon v-else :value="mdiClose" class="w-7 text-red-500" />
+              <div class="ml-4">
+                <AppIcon v-if="isSiteEnabled(siteAction)" :value="mdiCheck" class="w-7 text-green-500" />
+                <AppIcon v-else :value="mdiClose" class="w-7 text-red-500" />
+              </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="flex items-center select-none">
+        <input
+          id="hide-quote-widget-options-link"
+          :checked="hideOptionsLink"
+          type="checkbox"
+          class="w-4 h-4 cursor-pointer"
+          @input="toggleHideOptionsLink()"
+        >
+        <label
+          class="ml-2 cursor-pointer"
+          for="hide-quote-widget-options-link"
+        >
+          Make it harder to disable the extension by hiding the options link below the quote
+        </label>
       </div>
     </main>
   </div>

@@ -32,6 +32,6 @@ const observer = new MutationObserver(() => {
 })
 observer.observe(document, { subtree: true, childList: true })
 
-chrome.storage.onChanged.addListener(async () => {
+chrome.storage.onChanged.addListener(() => {
   init(currentUrl)
 })

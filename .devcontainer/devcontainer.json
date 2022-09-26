@@ -15,12 +15,13 @@
     },
     // https://github.com/antfu/vitesse/blob/main/.vscode/extensions.json
     "extensions": [
-        "Vue.volar",
         "2gua.rainbow-brackets",
-        "oderwat.indent-rainbow",
-        "yzhang.markdown-all-in-one",
         "dbaeumer.vscode-eslint",
+        "GitHub.copilot",
+        "oderwat.indent-rainbow",
+        "sibiraj-s.vscode-scss-formatter",
         "voorjaar.windicss-intellisense",
-        "sibiraj-s.vscode-scss-formatter"
+        "Vue.volar",
+        "yzhang.markdown-all-in-one"
     ],
 }

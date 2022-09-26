@@ -1,10 +1,11 @@
 import { getOptionsURL } from '../helpers'
 import { QuoteService } from './QuoteService'
 
-export enum QuoteElementDataAttribute {
+export enum QuoteWidgetDataAttribute {
   Container = 'data-sanersocialmedia-quote-container',
   IsDark = 'data-is-dark',
   IsLight = 'data-is-light',
+  HideOptionsLink = 'data-hide-options-link',
   Quote = 'data-quote',
   QuoteText = 'data-quote-text',
   QuoteAuthor = 'data-quote-author',
@@ -12,46 +13,45 @@ export enum QuoteElementDataAttribute {
   OptionsLink = 'data-options-link',
 }
 
-export default class ElementService {
-  createStyleElement(css: string): HTMLStyleElement {
-    const style = document.createElement('style')
-    style.appendChild(document.createTextNode(css))
-    return style
-  }
+interface CreateQuoteWidgetOptions {
+  isDark: boolean
+}
 
-  createQuoteElement(dark: boolean): HTMLElement {
+export default class WidgetService {
+  createQuoteWidget(options: CreateQuoteWidgetOptions): HTMLElement {
     const randomQuote = new QuoteService().getRandomQuote()
 
     const quoteContainer = document.createElement('div')
-    quoteContainer.setAttribute(QuoteElementDataAttribute.Container, '')
-    if (dark)
-      quoteContainer.setAttribute(QuoteElementDataAttribute.IsDark, '')
-    else quoteContainer.setAttribute(QuoteElementDataAttribute.IsLight, '')
+    quoteContainer.setAttribute(QuoteWidgetDataAttribute.Container, '')
+    if (options.isDark)
+      quoteContainer.setAttribute(QuoteWidgetDataAttribute.IsDark, '')
+    else quoteContainer.setAttribute(QuoteWidgetDataAttribute.IsLight, '')
 
     const quote = document.createElement('div')
-    quote.setAttribute(QuoteElementDataAttribute.Quote, '')
+    quote.setAttribute(QuoteWidgetDataAttribute.Quote, '')
 
     const quoteText = document.createElement('div')
-    quoteText.setAttribute(QuoteElementDataAttribute.QuoteText, '')
+    quoteText.setAttribute(QuoteWidgetDataAttribute.QuoteText, '')
     quoteText.textContent = randomQuote.text
 
     const quoteAuthor = document.createElement('div')
-    quoteAuthor.setAttribute(QuoteElementDataAttribute.QuoteAuthor, '')
+    quoteAuthor.setAttribute(QuoteWidgetDataAttribute.QuoteAuthor, '')
     quoteAuthor.textContent = `— ${randomQuote.author}`
 
     quote.appendChild(quoteText)
     quote.appendChild(quoteAuthor)
 
     const footer = document.createElement('div')
-    footer.setAttribute(QuoteElementDataAttribute.Footer, '')
+    footer.setAttribute(QuoteWidgetDataAttribute.Footer, '')
 
     const optionsLink = document.createElement('a')
     optionsLink.textContent = 'Saner Social Media Extension'
     optionsLink.href = getOptionsURL()
     optionsLink.target = '_blank'
-    optionsLink.setAttribute(QuoteElementDataAttribute.OptionsLink, '')
+    optionsLink.setAttribute(QuoteWidgetDataAttribute.OptionsLink, '')
 
     footer.appendChild(optionsLink)
+
     quoteContainer.appendChild(quote)
     quoteContainer.appendChild(footer)
 
