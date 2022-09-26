@@ -12,19 +12,17 @@ export enum QuoteElementDataAttribute {
   OptionsLink = 'data-options-link',
 }
 
-export default class WidgetService {
-  createStyleElement(css: string): HTMLStyleElement {
-    const style = document.createElement('style')
-    style.appendChild(document.createTextNode(css))
-    return style
-  }
+interface CreateQuoteWidgetOptions {
+  isDark: boolean
+}
 
-  createQuoteWidget(dark: boolean): HTMLElement {
+export default class WidgetService {
+  createQuoteWidget(options: CreateQuoteWidgetOptions): HTMLElement {
     const randomQuote = new QuoteService().getRandomQuote()
 
     const quoteContainer = document.createElement('div')
     quoteContainer.setAttribute(QuoteElementDataAttribute.Container, '')
-    if (dark)
+    if (options.isDark)
       quoteContainer.setAttribute(QuoteElementDataAttribute.IsDark, '')
     else quoteContainer.setAttribute(QuoteElementDataAttribute.IsLight, '')
 

@@ -37,9 +37,11 @@ export default class SiteAction {
     if (foundStyle)
       return foundStyle
 
-    const style = new WidgetService().createStyleElement(this.params.injectCss)
+    const style = document.createElement('style')
+    style.appendChild(document.createTextNode(this.params.injectCss))
     style.setAttribute(this.idDataAttribute, this.id)
     document.querySelector('head')!.appendChild(style)
+
     return style
   }
 
@@ -63,7 +65,7 @@ export default class SiteAction {
     try {
       const bgColor = new Color(findBackgroundColor(parent))
       const isDark = bgColor.isDark()
-      const quote = new WidgetService().createQuoteWidget(isDark)
+      const quote = new WidgetService().createQuoteWidget({ isDark })
       quote.setAttribute(this.idDataAttribute, this.id)
       return quote
     }
