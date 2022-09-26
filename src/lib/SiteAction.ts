@@ -91,7 +91,7 @@ export default class SiteAction {
       const widget = new WidgetService().createQuoteWidget({ isDark })
       widget.setAttribute(this.idDataAttribute, this.id)
       if (hideOptionsLink)
-        widget.setAttribute(QuoteWidgetDataAttribute.Container, '')
+        widget.setAttribute(QuoteWidgetDataAttribute.HideOptionsLink, '')
 
       return widget
     }
