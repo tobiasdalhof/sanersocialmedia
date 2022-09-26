@@ -21,7 +21,8 @@ export default class Site {
 
   runSiteActions(url: URL, userConfig: UserConfig) {
     for (const siteAction of this.params.siteActions) {
-      if (!siteAction.canRun(url, userConfig)) {
+      siteAction.setUserConfig(userConfig)
+      if (!siteAction.canRun(url)) {
         siteAction.removeInjectedElements()
         continue
       }

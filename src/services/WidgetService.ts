@@ -14,6 +14,7 @@ export enum QuoteElementDataAttribute {
 
 interface CreateQuoteWidgetOptions {
   isDark: boolean
+  hideOptionsLink: boolean
 }
 
 export default class WidgetService {
@@ -40,18 +41,21 @@ export default class WidgetService {
     quote.appendChild(quoteText)
     quote.appendChild(quoteAuthor)
 
-    const footer = document.createElement('div')
-    footer.setAttribute(QuoteElementDataAttribute.Footer, '')
-
-    const optionsLink = document.createElement('a')
-    optionsLink.textContent = 'Saner Social Media Extension'
-    optionsLink.href = getOptionsURL()
-    optionsLink.target = '_blank'
-    optionsLink.setAttribute(QuoteElementDataAttribute.OptionsLink, '')
-
-    footer.appendChild(optionsLink)
     quoteContainer.appendChild(quote)
-    quoteContainer.appendChild(footer)
+
+    if (!options.hideOptionsLink) {
+      const footer = document.createElement('div')
+      footer.setAttribute(QuoteElementDataAttribute.Footer, '')
+
+      const optionsLink = document.createElement('a')
+      optionsLink.textContent = 'Saner Social Media Extension'
+      optionsLink.href = getOptionsURL()
+      optionsLink.target = '_blank'
+      optionsLink.setAttribute(QuoteElementDataAttribute.OptionsLink, '')
+
+      footer.appendChild(optionsLink)
+      quoteContainer.appendChild(footer)
+    }
 
     return quoteContainer
   }

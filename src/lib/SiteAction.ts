@@ -20,15 +20,21 @@ export default class SiteAction {
   public params: SiteActionParams
   private id: string
   private readonly idDataAttribute = 'data-site-action-id'
+  private userConfig?: UserConfig
 
   constructor(params: SiteActionParams) {
     this.params = params
     this.id = paramCase(params.name)
   }
 
-  canRun(url: URL, userConfig: UserConfig): boolean {
-    if (!userConfig[this.params.requiredUserConfigKey])
+  setUserConfig(userConfig?: UserConfig) {
+    this.userConfig = userConfig
+  }
+
+  canRun(url: URL): boolean {
+    if (!this.userConfig || !this.userConfig[this.params.requiredUserConfigKey])
       return false
+
     return this.params.validateUrl(url)
   }
 
@@ -55,7 +61,10 @@ export default class SiteAction {
   }
 
   quoteElementExists(parent: HTMLElement): boolean {
-    return !!<HTMLElement>parent.parentElement?.querySelector(`[${this.idDataAttribute}=${this.id}][${QuoteElementDataAttribute.Container}]`)
+    if (<HTMLElement>parent.parentElement?.querySelector(`[${this.idDataAttribute}=${this.id}][${QuoteElementDataAttribute.Container}]`))
+      return true
+
+    return false
   }
 
   createQuoteWidget(parent: HTMLElement): HTMLElement | undefined {
@@ -65,7 +74,14 @@ export default class SiteAction {
     try {
       const bgColor = new Color(findBackgroundColor(parent))
       const isDark = bgColor.isDark()
-      const quote = new WidgetService().createQuoteWidget({ isDark })
+      let hideOptionsLink = false
+      if (this.userConfig)
+        hideOptionsLink = this.userConfig.HideQuoteWidgetOptionsLink === true
+
+      const quote = new WidgetService().createQuoteWidget({
+        isDark,
+        hideOptionsLink,
+      })
       quote.setAttribute(this.idDataAttribute, this.id)
       return quote
     }
