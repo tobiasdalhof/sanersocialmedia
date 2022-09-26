@@ -21,7 +21,7 @@ const linkedin = new Site({
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('main.scaffold-layout__main > div:last-child')
         mute(container)
-        const quote = siteAction.createQuoteElement(container)
+        const quote = siteAction.createQuoteWidget(container)
         if (!quote)
           return
         quote.style.paddingTop = '10px'
@@ -39,7 +39,7 @@ const linkedin = new Site({
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('aside.scaffold-layout__aside .news-module')
-        const quote = siteAction.createQuoteElement(container)
+        const quote = siteAction.createQuoteWidget(container)
         if (!quote)
           return
         quote.style.padding = '20px'

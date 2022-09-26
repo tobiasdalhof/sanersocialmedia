@@ -22,7 +22,7 @@ const pinterest = new Site({
         const container = await waitForElement('[data-test-id="homefeed-feed"]')
         mute(container)
         setTimeout(() => {
-          const quote = siteAction.createQuoteElement(container)
+          const quote = siteAction.createQuoteWidget(container)
           if (!quote)
             return
           quote.style.padding = '24px'
@@ -43,7 +43,7 @@ const pinterest = new Site({
         const container = await waitForElement('[data-test-id="relatedPins"]')
         mute(container)
         setTimeout(() => {
-          const quote = siteAction.createQuoteElement(container)
+          const quote = siteAction.createQuoteWidget(container)
           if (!quote)
             return
           quote.style.padding = '24px'

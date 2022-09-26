@@ -28,7 +28,7 @@ function createHideRedditFeedAction(params: CreateHideRedditFeedActionParams): S
       const container = await waitForElement('.scrollerItem')
       mute(container)
       setTimeout(() => {
-        const quote = siteAction.createQuoteElement(container)
+        const quote = siteAction.createQuoteWidget(container)
         if (!quote)
           return
         container.before(quote)

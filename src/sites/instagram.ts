@@ -2,7 +2,7 @@ import logoSvg from 'super-tiny-icons/images/svg/instagram.svg'
 import { mute, waitForElement } from '../helpers'
 import Site from '../lib/Site'
 import SiteAction from '../lib/SiteAction'
-import { QuoteElementDataAttribute } from '../services/ElementService'
+import { QuoteElementDataAttribute } from '../services/WidgetService'
 import { UserConfigKey } from '../types'
 
 const instagram = new Site({
@@ -23,7 +23,7 @@ const instagram = new Site({
         const container = await waitForElement('main > div > section')
         mute(container)
         setTimeout(() => {
-          const quote = siteAction.createQuoteElement(container)
+          const quote = siteAction.createQuoteWidget(container)
           if (!quote)
             return
           quote.style.paddingTop = '25px'

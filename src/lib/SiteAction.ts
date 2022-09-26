@@ -1,7 +1,7 @@
 import { paramCase } from 'change-case'
 import Color from 'color'
 import { findBackgroundColor } from '../helpers'
-import ElementService, { QuoteElementDataAttribute } from '../services/ElementService'
+import WidgetService, { QuoteElementDataAttribute } from '../services/WidgetService'
 import type { UserConfig, UserConfigKey } from '../types'
 
 interface SiteActionParams {
@@ -37,7 +37,7 @@ export default class SiteAction {
     if (foundStyle)
       return foundStyle
 
-    const style = new ElementService().createStyleElement(this.params.injectCss)
+    const style = new WidgetService().createStyleElement(this.params.injectCss)
     style.setAttribute(this.idDataAttribute, this.id)
     document.querySelector('head')!.appendChild(style)
     return style
@@ -56,14 +56,14 @@ export default class SiteAction {
     return !!<HTMLElement>parent.parentElement?.querySelector(`[${this.idDataAttribute}=${this.id}][${QuoteElementDataAttribute.Container}]`)
   }
 
-  createQuoteElement(parent: HTMLElement): HTMLElement | undefined {
+  createQuoteWidget(parent: HTMLElement): HTMLElement | undefined {
     if (this.quoteElementExists(parent))
       return undefined
 
     try {
       const bgColor = new Color(findBackgroundColor(parent))
       const isDark = bgColor.isDark()
-      const quote = new ElementService().createQuoteElement(isDark)
+      const quote = new WidgetService().createQuoteWidget(isDark)
       quote.setAttribute(this.idDataAttribute, this.id)
       return quote
     }

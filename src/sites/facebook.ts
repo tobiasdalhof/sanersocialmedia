@@ -22,7 +22,7 @@ const facebook = new Site({
         const container = await waitForElement('div[role="feed"]')
         mute(container)
         setTimeout(() => {
-          const quote = siteAction.createQuoteElement(container)
+          const quote = siteAction.createQuoteWidget(container)
           if (!quote)
             return
           container.before(quote)

@@ -12,14 +12,14 @@ export enum QuoteElementDataAttribute {
   OptionsLink = 'data-options-link',
 }
 
-export default class ElementService {
+export default class WidgetService {
   createStyleElement(css: string): HTMLStyleElement {
     const style = document.createElement('style')
     style.appendChild(document.createTextNode(css))
     return style
   }
 
-  createQuoteElement(dark: boolean): HTMLElement {
+  createQuoteWidget(dark: boolean): HTMLElement {
     const randomQuote = new QuoteService().getRandomQuote()
 
     const quoteContainer = document.createElement('div')
