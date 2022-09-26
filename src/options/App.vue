@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { mdiCheck, mdiClose } from '@mdi/js'
 import * as sites from '../sites'
 import { getStore, setUserConfig, toggleUserConfigKey } from '../store'

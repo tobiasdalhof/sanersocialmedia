@@ -20,14 +20,6 @@ async function init(url: URL) {
   waitInit = false
 }
 
-function destroy(url: URL) {
-  const site = new SiteService().getSiteByUrl(Object.values(sites), url)
-  if (!site)
-    return
-
-  site.params.siteActions.forEach(siteAction => siteAction.removeInjectedElements())
-}
-
 let currentUrl = new URL(window.location.href)
 init(currentUrl)
 setInterval(() => init(currentUrl), 1000)
@@ -40,7 +32,6 @@ const observer = new MutationObserver(() => {
 })
 observer.observe(document, { subtree: true, childList: true })
 
-chrome.storage.onChanged.addListener(async () => {
-  destroy(currentUrl)
-  await init(currentUrl)
+chrome.storage.onChanged.addListener(() => {
+  init(currentUrl)
 })

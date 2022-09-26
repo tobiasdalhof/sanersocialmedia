@@ -1,7 +1,7 @@
 import { paramCase } from 'change-case'
 import Color from 'color'
 import { findBackgroundColor } from '../helpers'
-import WidgetService, { QuoteElementDataAttribute } from '../services/WidgetService'
+import WidgetService, { QuoteWidgetDataAttribute } from '../services/WidgetService'
 import type { UserConfig, UserConfigKey } from '../types'
 
 interface SiteActionParams {
@@ -32,7 +32,10 @@ export default class SiteAction {
   }
 
   canRun(url: URL): boolean {
-    if (!this.userConfig || !this.userConfig[this.params.requiredUserConfigKey])
+    if (!this.userConfig)
+      return false
+
+    if (!this.userConfig[this.params.requiredUserConfigKey])
       return false
 
     return this.params.validateUrl(url)
@@ -60,30 +63,37 @@ export default class SiteAction {
     elements.forEach(element => element.remove())
   }
 
-  quoteElementExists(parent: HTMLElement): boolean {
-    if (<HTMLElement>parent.parentElement?.querySelector(`[${this.idDataAttribute}=${this.id}][${QuoteElementDataAttribute.Container}]`))
-      return true
+  findQuoteWidget(parent: HTMLElement): HTMLElement | null {
+    if (parent.parentElement) {
+      return parent.parentElement
+        .querySelector(`[${this.idDataAttribute}=${this.id}][${QuoteWidgetDataAttribute.Container}]`)
+    }
 
-    return false
+    return null
   }
 
   createQuoteWidget(parent: HTMLElement): HTMLElement | undefined {
-    if (this.quoteElementExists(parent))
+    const hideOptionsLink = this.userConfig ? this.userConfig.HideQuoteWidgetOptionsLink === true : false
+
+    const widget = this.findQuoteWidget(parent)
+    if (widget) {
+      if (hideOptionsLink)
+        widget.setAttribute(QuoteWidgetDataAttribute.HideOptionsLink, '')
+      else
+        widget.removeAttribute(QuoteWidgetDataAttribute.HideOptionsLink)
+
       return undefined
+    }
 
     try {
       const bgColor = new Color(findBackgroundColor(parent))
       const isDark = bgColor.isDark()
-      let hideOptionsLink = false
-      if (this.userConfig)
-        hideOptionsLink = this.userConfig.HideQuoteWidgetOptionsLink === true
+      const widget = new WidgetService().createQuoteWidget({ isDark })
+      widget.setAttribute(this.idDataAttribute, this.id)
+      if (hideOptionsLink)
+        widget.setAttribute(QuoteWidgetDataAttribute.Container, '')
 
-      const quote = new WidgetService().createQuoteWidget({
-        isDark,
-        hideOptionsLink,
-      })
-      quote.setAttribute(this.idDataAttribute, this.id)
-      return quote
+      return widget
     }
     catch {
       return undefined

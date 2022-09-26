@@ -26,6 +26,7 @@ export default class Site {
         siteAction.removeInjectedElements()
         continue
       }
+
       siteAction.injectCss()
       siteAction.manipulateDom()
     }

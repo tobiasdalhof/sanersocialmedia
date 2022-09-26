@@ -2,7 +2,7 @@ import logoSvg from 'super-tiny-icons/images/svg/instagram.svg'
 import { mute, waitForElement } from '../helpers'
 import Site from '../lib/Site'
 import SiteAction from '../lib/SiteAction'
-import { QuoteElementDataAttribute } from '../services/WidgetService'
+import { QuoteWidgetDataAttribute } from '../services/WidgetService'
 import { UserConfigKey } from '../types'
 
 const instagram = new Site({
@@ -15,7 +15,7 @@ const instagram = new Site({
       validateUrl: () => true,
       requiredUserConfigKey: UserConfigKey.InstagramHideHomeFeed,
       injectCss: `
-        main > div > section > :not([${QuoteElementDataAttribute.Container}]) {
+        main > div > section > :not([${QuoteWidgetDataAttribute.Container}]) {
           display: none!important;
         }
       `,
