@@ -14,12 +14,12 @@ const twitter = new Site({
       validateUrl: () => true,
       requiredUserConfigKey: UserConfigKey.TwitterHideHomeFeed,
       injectCss: `
-        [data-testid="primaryColumn"] > div:last-child > div:nth-child(4) {
+        [data-testid="primaryColumn"] > div:last-child > div:nth-child(5) {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('[data-testid="primaryColumn"] > div:last-child > div:nth-child(4)')
+        const container = await waitForElement('[data-testid="primaryColumn"] > div:last-child > div:nth-child(5)')
         mute(container)
         const quote = siteAction.createQuoteWidget(container)
         if (!quote)
