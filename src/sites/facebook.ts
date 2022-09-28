@@ -14,18 +14,18 @@ const facebook = new Site({
       validateUrl: url => url.pathname === '/',
       requiredUserConfigKey: UserConfigKey.FacebookHideHomeFeed,
       injectCss: `
-        div[role="feed"] {
+        #ssrb_feed_start + div {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('div[role="feed"]')
+        const container = await waitForElement('#ssrb_feed_start + div')
         mute(container)
         setTimeout(() => {
           const quote = siteAction.createQuoteWidget(container)
           if (!quote)
             return
-          container.before(quote)
+          container.after(quote)
         }, 1000)
       },
     }),
