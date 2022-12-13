@@ -2,7 +2,7 @@ FROM node:17-slim
 
 RUN apt-get update && apt-get install -y git zsh wget zip curl
 
-RUN npm install -g npm pnpm
+RUN npm install --location=global pnpm
 
 USER node
 
