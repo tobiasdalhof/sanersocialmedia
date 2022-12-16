@@ -9,7 +9,7 @@ import type SiteAction from '../lib/SiteAction'
 import AppIcon from './components/AppIcon'
 
 const chromeWebStoreUrl = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
-const gitHubUrl = 'https://github.com/tobidalhof/sanersocialmedia'
+const gitHubUrl = 'https://github.com/tobiasdalhof/sanersocialmedia'
 
 const userConfig = ref<UserConfig>()
 async function getUserConfig() {

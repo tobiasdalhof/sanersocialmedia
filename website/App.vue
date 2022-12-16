@@ -9,7 +9,7 @@ import * as _sites from '../src/sites'
 import { AppIcon } from './components'
 
 const chromeWebStoreUrl = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
-const gitHubUrl = 'https://github.com/tobidalhof/sanersocialmedia'
+const gitHubUrl = 'https://github.com/tobiasdalhof/sanersocialmedia'
 
 const sites: Site[] = [
   _sites.youtube,

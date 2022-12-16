@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://github.com/tobidalhof/sanersocialmedia/raw/main/.github/logo64.png" alt="Saner Social Media"></a>
+  <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://github.com/tobiasdalhof/sanersocialmedia/raw/main/.github/logo64.png" alt="Saner Social Media"></a>
   <br/>
   Saner Social Media
 </h1>
@@ -44,7 +44,7 @@ Please consider to support this free and open source project.
 - Tell your friends
 - Visit the [Chrome Web Store](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk) and write a review
 - Star us on GitHub
-- Report bugs on [GitHub](https://github.com/tobidalhof/sanersocialmedia/issues)
+- Report bugs on [GitHub](https://github.com/tobiasdalhof/sanersocialmedia/issues)
 
 ## Installation
 
@@ -52,7 +52,7 @@ Please consider to support this free and open source project.
 
 **Option 2** – Install from GitHub release:
 
-- Navigate to [releases](https://github.com/tobidalhof/sanersocialmedia/releases)
+- Navigate to [releases](https://github.com/tobiasdalhof/sanersocialmedia/releases)
 - Download `extension.zip` of your preferred release
 - Unzip `extension.zip`
 - Open `chrome://extensions/` in Chrome
