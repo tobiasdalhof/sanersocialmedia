@@ -9,9 +9,9 @@ const github = new Site({
   validateUrl: url => url.host.replace('www.', '') === 'github.com',
   siteActions: [
     new SiteAction({
-      name: 'Hide feed on home page',
+      name: chrome.i18n.getMessage('blockHomeFeed'),
       validateUrl: url => url.pathname === '/',
-      requiredUserConfigKey: UserConfigKey.GitHubHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.GitHubHomeFeed,
       injectCss: `
         #dashboard, [aria-label="Explore"] {
           display: none!important;

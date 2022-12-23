@@ -9,9 +9,9 @@ const twitch = new Site({
   validateUrl: url => url.host.replace('www.', '') === 'twitch.tv',
   siteActions: [
     new SiteAction({
-      name: 'Hide feed on home page',
+      name: chrome.i18n.getMessage('blockHomeFeed'),
       validateUrl: url => url.pathname === '/',
-      requiredUserConfigKey: UserConfigKey.TwitchHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.TwitchHomeFeed,
       injectCss: `
         .root-scrollable {
           display: none!important;

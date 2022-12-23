@@ -100,7 +100,7 @@ export class SiteAction {
   }
 
   hideOptionsLink(): boolean {
-    return this.userConfig ? this.userConfig.HideQuoteWidgetOptionsLink === true : false
+    return this.userConfig ? this.userConfig.HideOptionsLink === true : false
   }
 
   createQuoteWidget(parent: HTMLElement): HTMLElement | undefined {

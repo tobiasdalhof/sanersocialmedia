@@ -9,9 +9,9 @@ const youtube = new Site({
   validateUrl: url => url.host.replace('www.', '') === 'youtube.com',
   siteActions: [
     new SiteAction({
-      name: 'Hide feed on home page',
+      name: chrome.i18n.getMessage('blockHomeFeed'),
       validateUrl: url => url.pathname === '/',
-      requiredUserConfigKey: UserConfigKey.YouTubeHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.YouTubeHomeFeed,
       injectCss: `
         ytd-browse #primary {
           display: none!important;
@@ -28,9 +28,9 @@ const youtube = new Site({
       },
     }),
     new SiteAction({
-      name: 'Hide related videos in sidebar on video page',
+      name: chrome.i18n.getMessage('blockSidebarVideoSuggestions'),
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.YouTubeHideVideoSidebarRelated,
+      requiredUserConfigKey: UserConfigKey.YouTubeVideoSidebarSuggestions,
       injectCss: `
         #secondary #related {
           display: none!important;
@@ -46,9 +46,9 @@ const youtube = new Site({
       },
     }),
     new SiteAction({
-      name: 'Hide comments on video page',
+      name: chrome.i18n.getMessage('blockVideoComments'),
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.YouTubeHideVideoComments,
+      requiredUserConfigKey: UserConfigKey.YouTubeVideoComments,
       injectCss: `
         #comments #contents {
           opacity: 0!important;

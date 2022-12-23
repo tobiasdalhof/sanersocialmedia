@@ -42,14 +42,14 @@ const reddit = new Site({
   validateUrl: url => url.host.replace('www.', '') === 'reddit.com',
   siteActions: [
     createHideRedditFeedAction({
-      name: 'Hide feed on home page',
+      name: chrome.i18n.getMessage('blockHomeFeed'),
       validateUrl: url => url.pathname === '/',
-      requiredUserConfigKey: UserConfigKey.RedditHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.RedditHomeFeed,
     }),
     createHideRedditFeedAction({
-      name: 'Hide feed on all subreddits',
+      name: chrome.i18n.getMessage('blockSubredditFeeds'),
       validateUrl: url => url.pathname.includes('/r/'),
-      requiredUserConfigKey: UserConfigKey.RedditHideSubredditsFeed,
+      requiredUserConfigKey: UserConfigKey.RedditSubFeed,
     }),
   ],
 })

@@ -9,9 +9,9 @@ const facebook = new Site({
   validateUrl: url => url.host.replace('www.', '') === 'facebook.com',
   siteActions: [
     new SiteAction({
-      name: 'Hide feed on home page',
+      name: chrome.i18n.getMessage('blockHomeFeed'),
       validateUrl: url => url.pathname === '/',
-      requiredUserConfigKey: UserConfigKey.FacebookHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.FacebookHomeFeed,
       injectCss: `
         #ssrb_feed_start + div {
           display: none!important;

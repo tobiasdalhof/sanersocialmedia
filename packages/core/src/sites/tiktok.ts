@@ -9,9 +9,9 @@ const tiktok = new Site({
   validateUrl: url => url.host.replace('www.', '') === 'tiktok.com',
   siteActions: [
     new SiteAction({
-      name: 'Hide feed on home page',
+      name: chrome.i18n.getMessage('blockHomeFeed'),
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.TikTokHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.TikTokHomeFeed,
       injectCss: `
         [data-e2e="recommend-list-item-container"] {
           display: none!important;

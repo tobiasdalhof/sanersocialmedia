@@ -10,9 +10,9 @@ const instagram = new Site({
   validateUrl: url => url.host.replace('www.', '') === 'instagram.com',
   siteActions: [
     new SiteAction({
-      name: 'Hide feed on home page',
+      name: chrome.i18n.getMessage('blockHomeFeed'),
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.InstagramHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.InstagramHomeFeed,
       injectCss: `
         main > div > section > :not([${QuoteWidgetDataAttribute.Container}]) {
           display: none!important;
