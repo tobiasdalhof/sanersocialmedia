@@ -1,7 +1,6 @@
 import logoSvg from 'super-tiny-icons/images/svg/twitter.svg'
-import { mute, waitForElement } from '../helpers'
-import Site from '../lib/Site'
-import SiteAction from '../lib/SiteAction'
+import { mute, waitForElement } from '../utils'
+import { Site, SiteAction } from '../site'
 import { UserConfigKey } from '../types'
 
 const twitter = new Site({
@@ -10,9 +9,9 @@ const twitter = new Site({
   validateUrl: url => url.host.replace('www.', '') === 'twitter.com',
   siteActions: [
     new SiteAction({
-      name: 'Hide feed on home page',
+      name: chrome.i18n.getMessage('blockHomeFeed'),
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.TwitterHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.TwitterHomeFeed,
       injectCss: `
         [data-testid="primaryColumn"] > div:last-child > div:nth-child(5) {
           display: none!important;
@@ -29,9 +28,9 @@ const twitter = new Site({
       },
     }),
     new SiteAction({
-      name: 'Hide trends in sidebar',
+      name: chrome.i18n.getMessage('blockSidebarTrends'),
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.TwitterHideSidebarTrends,
+      requiredUserConfigKey: UserConfigKey.TwitterSidebarTrends,
       injectCss: `
         [data-testid="sidebarColumn"] section {
           display: none!important;
@@ -47,9 +46,9 @@ const twitter = new Site({
       },
     }),
     new SiteAction({
-      name: 'Hide follow suggestions in sidebar',
+      name: chrome.i18n.getMessage('blockSidebarFollowSuggestions'),
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.TwitterHideSidebarFollowSuggestions,
+      requiredUserConfigKey: UserConfigKey.TwitterSidebarFollowSuggestions,
       injectCss: `
         [data-testid="sidebarColumn"] aside {
           display: none!important;

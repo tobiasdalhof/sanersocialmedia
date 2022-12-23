@@ -1,22 +1,49 @@
 import { paramCase } from 'change-case'
-import Color from 'color'
-import { findBackgroundColor } from '../helpers'
-import WidgetService, { QuoteWidgetDataAttribute } from '../services/WidgetService'
-import type { UserConfig, UserConfigKey } from '../types'
+import type { UserConfig, UserConfigKey } from './types'
+import { hasDarkBackground } from './utils'
+import WidgetService, { QuoteWidgetDataAttribute } from './services/WidgetService'
+
+interface SiteParams {
+  name: string
+  logoSvg: string
+  validateUrl(url: URL): boolean
+  siteActions: SiteAction[]
+}
+
+export class Site {
+  public params: SiteParams
+
+  constructor(params: SiteParams) {
+    this.params = params
+  }
+
+  isValidUrl(url: URL): boolean {
+    return this.params.validateUrl(url)
+  }
+
+  runSiteActions(url: URL, userConfig: UserConfig) {
+    for (const siteAction of this.params.siteActions) {
+      siteAction.setUserConfig(userConfig)
+      if (!siteAction.canRun(url)) {
+        siteAction.removeInjectedElements()
+        continue
+      }
+
+      siteAction.injectCss()
+      siteAction.manipulateDom()
+    }
+  }
+}
 
 interface SiteActionParams {
   name: string
   validateUrl(url: URL): boolean
   requiredUserConfigKey: UserConfigKey
   injectCss: string
-  manipulateDom(params: ManipulateDomParams): void
+  manipulateDom(params: { siteAction: SiteAction }): void
 }
 
-interface ManipulateDomParams {
-  siteAction: SiteAction
-}
-
-export default class SiteAction {
+export class SiteAction {
   public params: SiteActionParams
   private id: string
   private readonly idDataAttribute = 'data-site-action-id'
@@ -72,31 +99,28 @@ export default class SiteAction {
     return null
   }
 
+  hideOptionsLink(): boolean {
+    return this.userConfig ? this.userConfig.HideOptionsLink === true : false
+  }
+
   createQuoteWidget(parent: HTMLElement): HTMLElement | undefined {
-    const hideOptionsLink = this.userConfig ? this.userConfig.HideQuoteWidgetOptionsLink === true : false
-
-    const widget = this.findQuoteWidget(parent)
-    if (widget) {
-      if (hideOptionsLink)
-        widget.setAttribute(QuoteWidgetDataAttribute.HideOptionsLink, '')
+    const foundWidget = this.findQuoteWidget(parent)
+    if (foundWidget) {
+      if (this.hideOptionsLink())
+        foundWidget.setAttribute(QuoteWidgetDataAttribute.HideOptionsLink, '')
       else
-        widget.removeAttribute(QuoteWidgetDataAttribute.HideOptionsLink)
+        foundWidget.removeAttribute(QuoteWidgetDataAttribute.HideOptionsLink)
 
+      // widget already exists
       return undefined
     }
 
-    try {
-      const bgColor = new Color(findBackgroundColor(parent))
-      const isDark = bgColor.isDark()
-      const widget = new WidgetService().createQuoteWidget({ isDark })
-      widget.setAttribute(this.idDataAttribute, this.id)
-      if (hideOptionsLink)
-        widget.setAttribute(QuoteWidgetDataAttribute.HideOptionsLink, '')
+    const isDark = hasDarkBackground(parent)
+    const widget = new WidgetService().createQuoteWidget({ isDark })
+    widget.setAttribute(this.idDataAttribute, this.id)
+    if (this.hideOptionsLink())
+      widget.setAttribute(QuoteWidgetDataAttribute.HideOptionsLink, '')
 
-      return widget
-    }
-    catch {
-      return undefined
-    }
+    return widget
   }
 }

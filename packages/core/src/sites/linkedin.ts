@@ -1,7 +1,6 @@
 import logoSvg from 'super-tiny-icons/images/svg/linkedin.svg'
-import { mute, waitForElement } from '../helpers'
-import Site from '../lib/Site'
-import SiteAction from '../lib/SiteAction'
+import { mute, waitForElement } from '../utils'
+import { Site, SiteAction } from '../site'
 import { UserConfigKey } from '../types'
 
 const linkedin = new Site({
@@ -10,9 +9,9 @@ const linkedin = new Site({
   validateUrl: url => url.host.replace('www.', '') === 'linkedin.com',
   siteActions: [
     new SiteAction({
-      name: 'Hide feed on home page',
+      name: chrome.i18n.getMessage('blockHomeFeed'),
       validateUrl: url => ['/', '/feed', '/feed/'].includes(url.pathname),
-      requiredUserConfigKey: UserConfigKey.LinkedInHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.LinkedInHomeFeed,
       injectCss: `
         main.scaffold-layout__main > div:last-child {
           display: none!important;
@@ -29,9 +28,9 @@ const linkedin = new Site({
       },
     }),
     new SiteAction({
-      name: 'Hide trending news in sidebar',
+      name: chrome.i18n.getMessage('blockSidebarTrends'),
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.LinkedInHideSidebarTrendingNews,
+      requiredUserConfigKey: UserConfigKey.LinkedInSidebarTrends,
       injectCss: `
         aside.scaffold-layout__aside .news-module {
           display: none!important;

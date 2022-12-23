@@ -1,6 +1,4 @@
-export function getOptionsURL(): string {
-  return chrome.runtime.getURL('dist/options/index.html')
-}
+import Color from 'color'
 
 export function waitForElement(selector: string): Promise<HTMLElement> {
   return new Promise((resolve) => {
@@ -21,7 +19,18 @@ export function waitForElement(selector: string): Promise<HTMLElement> {
   })
 }
 
-export function findBackgroundColor(element: HTMLElement): string {
+export function hasDarkBackground(element: HTMLElement): boolean {
+  try {
+    const color = findBackgroundColor(element)
+    const colorObj = Color(color)
+    return colorObj.isDark()
+  }
+  catch {
+    return false
+  }
+}
+
+function findBackgroundColor(element: HTMLElement): string {
   const transparent = 'rgba(0, 0, 0, 0)'
   const color = window.getComputedStyle(element).backgroundColor
   if (color !== transparent)

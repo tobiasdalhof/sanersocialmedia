@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -15,9 +17,14 @@
     ],
     "types": [
       "@types/node"
-    ]
+    ],
+    "paths": {
+      "@sanersocialmedia/core/*": ["packages/core/src/*"],
+      "@sanersocialmedia/shared/*": ["packages/shared/src/*"],
+    }
   },
   "include": [
+    "packages/*/src",
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",

@@ -1,8 +1,9 @@
 {
   "name": "Saner Social Media - Feed Blocker",
-  "description": "Replace home feeds, recommendations and other social media distractions with inspirational quotes. News Feed Eradicator alternative.",
-  "version": "1.3.3",
+  "description": "__MSG_manifestDescription__",
+  "version": "1.4.0",
   "manifest_version": 3,
+  "default_locale": "en",
   "icons": {
     "16": "icon16.png",
     "24": "icon24.png",

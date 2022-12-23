@@ -1,7 +1,6 @@
 import logoSvg from 'super-tiny-icons/images/svg/twitch.svg'
-import { mute, waitForElement } from '../helpers'
-import Site from '../lib/Site'
-import SiteAction from '../lib/SiteAction'
+import { mute, waitForElement } from '../utils'
+import { Site, SiteAction } from '../site'
 import { UserConfigKey } from '../types'
 
 const twitch = new Site({
@@ -10,9 +9,9 @@ const twitch = new Site({
   validateUrl: url => url.host.replace('www.', '') === 'twitch.tv',
   siteActions: [
     new SiteAction({
-      name: 'Hide feed on home page',
+      name: chrome.i18n.getMessage('blockHomeFeed'),
       validateUrl: url => url.pathname === '/',
-      requiredUserConfigKey: UserConfigKey.TwitchHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.TwitchHomeFeed,
       injectCss: `
         .root-scrollable {
           display: none!important;

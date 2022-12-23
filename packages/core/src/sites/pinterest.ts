@@ -1,7 +1,6 @@
 import logoSvg from 'super-tiny-icons/images/svg/pinterest.svg'
-import { mute, waitForElement } from '../helpers'
-import Site from '../lib/Site'
-import SiteAction from '../lib/SiteAction'
+import { mute, waitForElement } from '../utils'
+import { Site, SiteAction } from '../site'
 import { UserConfigKey } from '../types'
 
 const pinterest = new Site({
@@ -10,9 +9,9 @@ const pinterest = new Site({
   validateUrl: url => url.host.replace('www.', '').includes('pinterest.'),
   siteActions: [
     new SiteAction({
-      name: 'Hide feed on home page',
+      name: chrome.i18n.getMessage('blockHomeFeed'),
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.PinterestHideHomeFeed,
+      requiredUserConfigKey: UserConfigKey.PinterestHomeFeed,
       injectCss: `
         [data-test-id="homefeed-feed"] {
           display: none!important;
@@ -31,9 +30,9 @@ const pinterest = new Site({
       },
     }),
     new SiteAction({
-      name: 'Hide related pins',
+      name: chrome.i18n.getMessage('blockRelatedPins'),
       validateUrl: url => url.pathname.includes('/pin/'),
-      requiredUserConfigKey: UserConfigKey.PinterestHideRelatedPins,
+      requiredUserConfigKey: UserConfigKey.PinterestRelatedPins,
       injectCss: `
         [data-test-id="relatedPins"] {
           display: none!important;

@@ -10,7 +10,9 @@
   <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://img.shields.io/chrome-web-store/users/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store Users"></a>
 </p>
 
-Saner Social Media was created for people who need to use social media for work but don't want to be exposed to it's addictive features like home feeds and recommendations.
+Saner Social Media is a feed blocker and a modern alternative to News Feed Eradicator.
+
+It was created for anyone who needs to use social media for work, but doesn't want to be exposed to addictive features like home feeds and recommendations.
 
 - [Currently supported sites and feature highlights](#currently-supported-sites-and-feature-highlights)
 - [Support this project](#support-this-project)
