@@ -4,6 +4,7 @@ import { defineConfig } from 'windicss/helpers'
 export default defineConfig({
   extract: {
     include: [
+      resolve(__dirname, 'packages/*/src/**/*.{vue,html}'),
       resolve(__dirname, 'src/**/*.{vue,html}'),
       resolve(__dirname, 'website/**/*.{vue,html}'),
     ],

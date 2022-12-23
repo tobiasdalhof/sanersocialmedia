@@ -4,9 +4,10 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import type Site from '../src/lib/Site'
-import * as _sites from '../src/sites'
-import { AppIcon } from './components'
+import SSMIcon from '@sanersocialmedia/shared/components/SSMIcon.vue'
+import logo from '@sanersocialmedia/shared/assets/logo.svg'
+import type { Site } from '@sanersocialmedia/core/site'
+import * as _sites from '@sanersocialmedia/core/sites'
 
 const chromeWebStoreUrl = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
 const gitHubUrl = 'https://github.com/tobiasdalhof/sanersocialmedia'
@@ -28,13 +29,13 @@ const sites: Site[] = [
 <template>
   <header class="flex items-center justify-between p-5 leading-none">
     <div class="flex items-center select-none">
-      <img class="w-8 h-8 mr-4" src="./assets/logo.svg" alt="Logo">
+      <img class="w-8 h-8 mr-4" :src="logo" alt="Logo">
       <div>
         <span class="text-lg">Saner Social Media</span>
       </div>
     </div>
     <a :href="gitHubUrl" class="inline-flex items-center select-none" target="_blank">
-      <AppIcon :value="mdiGithub" class="w-8 h-8" />
+      <SSMIcon :icon="mdiGithub" class="w-8 h-8" />
       <div class="ml-2 hidden sm:block">
         <span class="text-lg">Star us on GitHub</span>
       </div>
@@ -50,7 +51,7 @@ const sites: Site[] = [
       </p>
       <div class="text-center">
         <a :href="chromeWebStoreUrl" target="_blank" class="inline-flex items-center justify-center px-8 h-58px leading-none rounded-full from-yellow-300 to-yellow-500 hover:from-yellow-400 hover:to-yellow-600  bg-gradient-to-br text-lg font-semibold text-dark-900 select-none active:ring">
-          <AppIcon :value="mdiGoogleChrome" class="w-8 h-8 mr-2" />
+          <SSMIcon :icon="mdiGoogleChrome" class="w-8 h-8 mr-2" />
           <span>Add to Chrome - It's free</span>
         </a>
       </div>
@@ -113,7 +114,7 @@ const sites: Site[] = [
     <div class="mt-10 mx-auto max-w-3xl">
       <div class="grid grid-cols-1 sm:grid-cols-2 space-y-5 sm:space-y-0 space-x-0 sm:space-x-5 text-center">
         <div>
-          <AppIcon class="w-6 h-6 text-yellow-300" :value="mdiCommentQuoteOutline" />
+          <SSMIcon class="w-6 h-6 text-yellow-300" :icon="mdiCommentQuoteOutline" />
           <h3 class="mt-3 mb-1 font-semibold">
             1621 different inspirational quotes
           </h3>
@@ -122,7 +123,7 @@ const sites: Site[] = [
           </p>
         </div>
         <div>
-          <AppIcon class="w-6 h-6 text-blue-500" :value="mdiSync" />
+          <SSMIcon class="w-6 h-6 text-blue-500" :icon="mdiSync" />
           <h3 class="mt-3 mb-1 font-semibold">
             Use on multiple computers
           </h3>
@@ -136,7 +137,7 @@ const sites: Site[] = [
   <footer class="mt-15 p-10 border-t border-dark-500">
     <div class="text-center text-sm opacity-70">
       <a href="mailto:sanersocialmedia@gmail.com" class="inline-flex items-center leading-none">
-        <AppIcon :value="mdiEmail" class="w-4 h-4 mr-1" />Contact me at sanersocialmedia@gmail.com
+        <SSMIcon :icon="mdiEmail" class="w-4 h-4 mr-1" />Contact me at sanersocialmedia@gmail.com
       </a>
     </div>
     <div class="mt-1 text-center text-xs opacity-70">

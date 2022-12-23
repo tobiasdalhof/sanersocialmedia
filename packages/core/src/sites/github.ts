@@ -1,7 +1,6 @@
 import logoSvg from 'super-tiny-icons/images/svg/github.svg'
-import { waitForElement } from '../helpers'
-import Site from '../lib/Site'
-import SiteAction from '../lib/SiteAction'
+import { waitForElement } from '../utils'
+import { Site, SiteAction } from '../site'
 import { UserConfigKey } from '../types'
 
 const github = new Site({

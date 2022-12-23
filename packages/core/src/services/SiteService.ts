@@ -1,6 +1,6 @@
-import type Site from '../lib/Site'
+import type { Site } from '../site'
 
-export class SiteService {
+export default class SiteService {
   getSiteByUrl(sites: Site[], url: URL) {
     return sites.find(site => site.isValidUrl(url))
   }

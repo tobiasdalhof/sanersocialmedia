@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { mdiCheck, mdiClose } from '@mdi/js'
-import * as sites from '../sites'
-import { getStore, setUserConfig, toggleUserConfigKey } from '../store'
-import type { UserConfig } from '../types'
-import { UserConfigKey } from '../types'
-import type SiteAction from '../lib/SiteAction'
-import AppIcon from './components/AppIcon'
+import SSMIcon from '@sanersocialmedia/shared/components/SSMIcon.vue'
+import logo from '@sanersocialmedia/shared/assets/logo.svg'
+import * as sites from '@sanersocialmedia/core/sites'
+import { getStore, setUserConfig, toggleUserConfigKey } from '@sanersocialmedia/core/store'
+import type { UserConfig } from '@sanersocialmedia/core/types'
+import { UserConfigKey } from '@sanersocialmedia/core/types'
+import type { SiteAction } from '@sanersocialmedia/core/site'
 
 const chromeWebStoreUrl = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
 const gitHubUrl = 'https://github.com/tobiasdalhof/sanersocialmedia'
@@ -74,7 +75,7 @@ async function toggleHideOptionsLink() {
 <template>
   <div v-if="ready" class="container max-w-4xl mx-auto p-5">
     <header class="flex items-center pb-8">
-      <img src="./assets/logo.svg" alt="Saner Social Media" class="w-10 mr-4">
+      <img :src="logo" alt="Saner Social Media" class="w-10 mr-4">
       <div>
         <div class="text-2xl">
           <span>Saner Social Media</span>
@@ -137,8 +138,8 @@ async function toggleHideOptionsLink() {
                 </div>
               </div>
               <div class="ml-4">
-                <AppIcon v-if="isSiteEnabled(siteAction)" :value="mdiCheck" class="w-7 text-green-500" />
-                <AppIcon v-else :value="mdiClose" class="w-7 text-red-500" />
+                <SSMIcon v-if="isSiteEnabled(siteAction)" :icon="mdiCheck" class="w-7 text-green-500" />
+                <SSMIcon v-else :icon="mdiClose" class="w-7 text-red-500" />
               </div>
             </div>
           </div>

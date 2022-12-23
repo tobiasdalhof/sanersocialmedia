@@ -1,8 +1,9 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
+import viteConfigBase from './vite.config.base'
 
-// https://vitejs.dev/config/
 export default defineConfig({
+  ...viteConfigBase,
   build: {
     outDir: resolve(__dirname, 'extension/dist'),
     emptyOutDir: false,

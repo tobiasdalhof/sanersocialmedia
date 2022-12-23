@@ -1,7 +1,6 @@
 import logoSvg from 'super-tiny-icons/images/svg/pinterest.svg'
-import { mute, waitForElement } from '../helpers'
-import Site from '../lib/Site'
-import SiteAction from '../lib/SiteAction'
+import { mute, waitForElement } from '../utils'
+import { Site, SiteAction } from '../site'
 import { UserConfigKey } from '../types'
 
 const pinterest = new Site({
