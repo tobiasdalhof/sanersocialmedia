@@ -13,7 +13,7 @@ Block social media distractions and replace them with uplifting quotes to improv
 ## Supported sites
 
 | Site          | Blocked distractions                                  |
-| ------------- | ----------------------------------------------------- |
+| :------------ | :---------------------------------------------------- |
 | **YouTube**   | Home feed, sidebar video suggestions, video comments  |
 | **Twitter**   | Home feed, sidebar trends, sidebar follow suggestions |
 | **Instagram** | Home feed                                             |
