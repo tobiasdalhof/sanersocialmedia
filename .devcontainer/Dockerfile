@@ -1,6 +1,6 @@
 FROM node:18-slim
 
-RUN apt-get update && apt-get install -y git zsh wget zip curl
+RUN apt-get update && apt-get install -y git zsh wget zip p7zip p7zip-full curl
 
 RUN npm install --location=global pnpm
 
