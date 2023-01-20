@@ -15,23 +15,14 @@
       "esnext",
       "dom"
     ],
-    "types": [
-      "@types/node"
-    ],
+    "types": ["node", "chrome"],
     "paths": {
-      "@sanersocialmedia/core/*": ["packages/core/src/*"],
-      "@sanersocialmedia/shared/*": ["packages/shared/src/*"]
+      "@sanersocialmedia/*": ["packages/*/src"]
     }
   },
   "include": [
     "packages/*/src",
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "website/**/*.ts",
-    "website/**/*.d.ts",
-    "website/**/*.tsx",
-    "website/**/*.vue"
+    "extension/src",
+    "website/src"
   ]
 }

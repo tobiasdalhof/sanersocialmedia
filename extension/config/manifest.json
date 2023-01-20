@@ -40,18 +40,18 @@
       "all_frames": true,
       "run_at": "document_start",
       "js": [
-        "dist/content.js"
+        "content.js"
       ],
       "css": [
-        "dist/content.style.css"
+        "content.style.css"
       ]
     }
   ],
   "background": {
-    "service_worker": "dist/background.js"
+    "service_worker": "background.js"
   },
   "options_ui": {
-    "page": "dist/options/index.html",
+    "page": "options/index.html",
     "open_in_tab": true
   },
   "action": {},
@@ -61,7 +61,7 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "dist/options/index.html"
+        "options/index.html"
       ],
       "matches": [
         "<all_urls>"

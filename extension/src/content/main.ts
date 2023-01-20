@@ -1,7 +1,7 @@
 import './styles.scss'
-import SiteService from '@sanersocialmedia/core/services/SiteService'
-import * as sites from '@sanersocialmedia/core/sites'
-import type { Store } from '@sanersocialmedia/core/types'
+import SiteService from '@sanersocialmedia/core/src/services/SiteService'
+import * as sites from '@sanersocialmedia/core/src/sites'
+import type { Store } from '@sanersocialmedia/core/src/types'
 
 let waitInit = false
 async function init(url: URL) {
