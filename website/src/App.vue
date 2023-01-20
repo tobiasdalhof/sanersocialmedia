@@ -44,7 +44,7 @@ const sites: Site[] = [
     <div class="flex items-center select-none">
       <img class="w-8 h-8 mr-4" :src="logo" alt="Logo">
       <div>
-        <span class="text-lg">Saner Social Media</span>
+        <span class="text-lg">Saner Social Media Feed Blocker</span>
       </div>
     </div>
     <a :href="gitHubUrl" class="inline-flex items-center select-none" target="_blank">
@@ -56,13 +56,10 @@ const sites: Site[] = [
   </header>
   <main class="mt-5 p-5">
     <div class="mx-auto max-w-3xl">
-      <h1 class="text-3xl leading-snug text-center text-yellow-200">
-        Replace home feeds, recommendations and other social media distractions with inspirational quotes
+      <h1 class="text-4xl leading-snug text-center text-yellow-200">
+        Block social media distractions and replace them with uplifting quotes to improve your mental well-being.
       </h1>
-      <p class="mt-5 mb-10 max-w-xl mx-auto text-center text-lg">
-        Saner Social Media was created for anyone who needs to use social media for work, but doesn't want to be exposed to addictive features like home feeds and recommendations.
-      </p>
-      <div class="text-center">
+      <div class="text-center mt-10">
         <a :href="chromeWebStoreUrl" target="_blank" class="inline-flex items-center justify-center px-8 h-58px leading-none rounded-full from-yellow-300 to-yellow-500 hover:from-yellow-400 hover:to-yellow-600  bg-gradient-to-br text-lg font-semibold text-dark-900 select-none active:ring">
           <SSMIcon size="32px" :icon="mdiGoogleChrome" class="mr-2" />
           <span>Add to Chrome - It's free</span>
