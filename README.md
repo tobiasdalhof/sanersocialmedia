@@ -10,20 +10,25 @@ Block social media distractions and replace them with uplifting quotes to improv
 
 ![Twitter Home](./.github/twitter-home.png)
 
-## Supported sites and feature highlights
+## Supported sites
 
-- YouTube
-- Twitter
-- Instagram
-- Facebook
-- TikTok
-- Pinterest
-- LinkedIn
-- Twitch
-- Reddit
-- GitHub
-- 1600+ inspirational quotes
-- Works with dark and light themes
+| Site          | Blocked distractions                                  |
+| ------------- | ----------------------------------------------------- |
+| **YouTube**   | Home feed, sidebar video suggestions, video comments  |
+| **Twitter**   | Home feed, sidebar trends, sidebar follow suggestions |
+| **Instagram** | Home feed                                             |
+| **Facebook**  | Home feed                                             |
+| **TikTok**    | Home feed                                             |
+| **Pinterest** | Home feed, related pins                               |
+| **LinkedIn**  | Home feed, sidebar trends                             |
+| **Twitch**    | Home feed                                             |
+| **Reddit**    | Home feed, subreddit feeds                            |
+| **GitHub**    | Home feed                                             |
+
+## Other features
+
+- Shows over 1600 different inspiring and uplifting quotes
+- It works with dark modes
 
 ## Installation
 
