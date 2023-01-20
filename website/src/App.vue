@@ -41,13 +41,13 @@ const sites: Site[] = [
 
 <template>
   <header class="flex items-center justify-between p-5 leading-none">
-    <div class="flex items-center select-none">
-      <img class="w-8 h-8 mr-4" :src="logo" alt="Logo">
+    <div class="flex select-none items-center">
+      <img class="mr-4 h-8 w-8" :src="logo" alt="Logo">
       <div>
         <span class="text-lg">Saner Social Media Feed Blocker</span>
       </div>
     </div>
-    <a :href="gitHubUrl" class="inline-flex items-center select-none" target="_blank">
+    <a :href="gitHubUrl" class="inline-flex select-none items-center" target="_blank">
       <SSMIcon :icon="mdiGithub" size="32px" />
       <div class="ml-2 hidden sm:block">
         <span class="text-lg">Star us on GitHub</span>
@@ -56,22 +56,22 @@ const sites: Site[] = [
   </header>
   <main class="mt-5 p-5">
     <div class="mx-auto max-w-3xl">
-      <h1 class="text-4xl leading-snug text-center text-yellow-200">
+      <h1 class="text-center text-4xl leading-snug text-yellow-200">
         Block social media distractions and replace them with uplifting quotes to improve your mental well-being.
       </h1>
-      <div class="text-center mt-10">
-        <a :href="chromeWebStoreUrl" target="_blank" class="inline-flex items-center justify-center px-8 h-58px leading-none rounded-full from-yellow-300 to-yellow-500 hover:from-yellow-400 hover:to-yellow-600  bg-gradient-to-br text-lg font-semibold text-dark-900 select-none active:ring">
+      <div class="mt-10 text-center">
+        <a :href="chromeWebStoreUrl" target="_blank" class="h-58px text-dark-900 inline-flex select-none items-center justify-center rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 px-8  text-lg font-semibold leading-none hover:from-yellow-400 hover:to-yellow-600 active:ring">
           <SSMIcon size="32px" :icon="mdiGoogleChrome" class="mr-2" />
           <span>Add to Chrome - It's free</span>
         </a>
       </div>
       <div class="mt-10">
-        <h2 class="mb-5 text-yellow-200 text-center text-lg">
+        <h2 class="mb-5 text-center text-lg text-yellow-200">
           It works with
         </h2>
-        <div class="flex flex-wrap justify-center items-center space-x-2 max-w-2xl mx-auto -mb-2">
-          <div v-for="(site, index) in sites" :key="`site${index}`" class="flex items-center mb-2  pl-1 pr-3 py-1 rounded-full leading-none ring-1 ring-dark-200 select-none">
-            <div class="w-5 h-5 bg-center rounded-full" :style="{ backgroundImage: `url(${site.logo})` }" />
+        <div class="mx-auto -mb-2 flex max-w-2xl flex-wrap items-center justify-center space-x-2">
+          <div v-for="(site, index) in sites" :key="`site${index}`" class="ring-dark-200 mb-2 flex  select-none items-center rounded-full py-1 pl-1 pr-3 leading-none ring-1">
+            <div class="h-5 w-5 rounded-full bg-center" :style="{ backgroundImage: `url(${site.logo})` }" />
             <div class="ml-2">
               <span class="text-sm">{{ site.name }}</span>
             </div>
@@ -79,7 +79,7 @@ const sites: Site[] = [
         </div>
       </div>
     </div>
-    <div class="mt-10 mx-auto max-w-3xl">
+    <div class="mx-auto mt-10 max-w-3xl">
       <div />
       <Swiper
         :modules="[Navigation]"
@@ -121,8 +121,8 @@ const sites: Site[] = [
         </SwiperSlide>
       </Swiper>
     </div>
-    <div class="mt-10 mx-auto max-w-3xl">
-      <div class="grid grid-cols-1 sm:grid-cols-2 space-y-5 sm:space-y-0 space-x-0 sm:space-x-5 text-center">
+    <div class="mx-auto mt-10 max-w-3xl">
+      <div class="grid grid-cols-1 space-y-5 space-x-0 text-center sm:grid-cols-2 sm:space-y-0 sm:space-x-5">
         <div>
           <SSMIcon size="24px" class="text-yellow-300" :icon="mdiCommentQuoteOutline" />
           <h3 class="mt-3 mb-1 font-semibold">
@@ -144,7 +144,7 @@ const sites: Site[] = [
       </div>
     </div>
   </main>
-  <footer class="mt-15 p-10 border-t border-dark-500">
+  <footer class="mt-15 border-dark-500 border-t p-10">
     <div class="text-center text-sm opacity-70">
       <a href="mailto:sanersocialmedia@gmail.com" class="inline-flex items-center leading-none">
         <span>Email us at sanersocialmedia@gmail.com</span>

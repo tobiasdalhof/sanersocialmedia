@@ -80,8 +80,8 @@ function i18n(key: string): string {
 
 <template>
   <div v-if="ready" class="select-none">
-    <div class="container max-w-4xl mx-auto p-4">
-      <div class="flex justify-between items-center mb-4">
+    <div class="container mx-auto max-w-4xl p-4">
+      <div class="mb-4 flex items-center justify-between">
         <div class="flex items-center">
           <img :src="logo" alt="Saner Social Media" class="h-32px mr-4 rounded-full">
           <div class="font-semibold">
@@ -103,20 +103,20 @@ function i18n(key: string): string {
       <a
         :href="chromeWebStoreLink"
         target="_blank"
-        class="py-3 px-6 mb-6 block rounded-full text-center bg-green-900 hover:bg-opacity-50 bg-opacity-30 transition-all text-green-200 active:ring-2 ring-green-500"
+        class="mb-6 block rounded-full bg-green-900 bg-opacity-30 py-3 px-6 text-center text-green-200 ring-green-500 transition-all hover:bg-opacity-50 active:ring-2"
       >
         {{ i18n('rateUs') }}
       </a>
 
-      <div class="space-x-2 mb-4">
+      <div class="mb-4 space-x-2">
         <button
-          class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-500 transition-all active:ring-2 ring-blue-500 leading-none"
+          class="bg-dark-800 hover:bg-dark-500 rounded-full px-4 py-2 text-sm leading-none ring-blue-500 transition-all active:ring-2"
           @click.prevent="enableAllSiteActions()"
         >
           <span>{{ i18n('enableAll') }}</span>
         </button>
         <button
-          class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-500 transition-all active:ring-2 ring-blue-500 leading-none"
+          class="bg-dark-800 hover:bg-dark-500 rounded-full px-4 py-2 text-sm leading-none ring-blue-500 transition-all active:ring-2"
           @click.prevent="disableAllSiteActions()"
         >
           <span>{{ i18n('disableAll') }}</span>
@@ -128,7 +128,7 @@ function i18n(key: string): string {
           <div
             v-for="(siteAction, siteActionIndex) in site.params.siteActions"
             :key="`site-action-${siteActionIndex}`"
-            class="mb-2 transition-all flex justify-between items-center bg-opacity-80 bg-dark-800 hover:bg-dark-500 rounded-full px-3 py-2 cursor-pointer active:ring-2 ring-blue-500 leading-none"
+            class="bg-dark-800 hover:bg-dark-500 mb-2 flex cursor-pointer items-center justify-between rounded-full bg-opacity-80 px-3 py-2 leading-none ring-blue-500 transition-all active:ring-2"
             :class="{
               'opacity-40': !isSiteEnabled(siteAction),
             }"
@@ -136,7 +136,7 @@ function i18n(key: string): string {
           >
             <div class="flex items-center">
               <div
-                class="w-7 h-7 bg-center rounded-full"
+                class="h-7 w-7 rounded-full bg-center"
                 :style="{ backgroundImage: `url(${site.params.logoSvg})` }"
               />
               <div class="ml-4">
@@ -168,7 +168,7 @@ function i18n(key: string): string {
           id="hide-quote-widget-options-link"
           :checked="hideOptionsLink"
           type="checkbox"
-          class="w-4 h-4 cursor-pointer"
+          class="h-4 w-4 cursor-pointer"
           @input="toggleHideOptionsLink()"
         >
         <label
