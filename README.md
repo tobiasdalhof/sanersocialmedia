@@ -56,19 +56,17 @@ Please consider to support this free and open source project.
 
 - Navigate to [releases](https://github.com/tobiasdalhof/sanersocialmedia/releases)
 - Download `extension.zip` of your preferred release
-- Unzip `extension.zip`
-- Open `chrome://extensions/` in Chrome
-  - Enable `Developer mode`
-  - Click `Load unpacked` and select the unzipped `extension` directory
+- Open `chrome://extensions/` in Chrome and drag the downloaded `extension.zip` into the page
 
 ## Development
 
 - Clone this repo
-- Install dependencies with `pnpm install`
+- Install dependencies with `pnpm i -r`
+- `cd` into `extension` directory with `cd extension`
 - Start dev watchers with `pnpm dev`
 - Open `chrome://extensions/` in Chrome
   - Enable `Developer mode`
-  - Click `Load unpacked` and select the `extension` directory
+  - Click `Load unpacked` and select the `extension/dev` directory
 
 Note: HMR for the options page is [not possible yet](https://github.com/antfu/vitesse-webext/issues/59#issuecomment-1011008367). 
 
