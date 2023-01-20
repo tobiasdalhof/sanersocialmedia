@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
-import { mdiCheck, mdiChevronRight, mdiClose, mdiStar } from '@mdi/js'
+import { mdiCheck, mdiChevronRight, mdiClose, mdiGithub } from '@mdi/js'
 import SSMIcon from '@sanersocialmedia/shared/src/components/SSMIcon.vue'
 import logo from '@sanersocialmedia/shared/src/assets/logo.svg'
-import * as sites from '@sanersocialmedia/core/src/sites'
+import { facebook, github, instagram, linkedin, pinterest, reddit, tiktok, twitch, twitter, youtube } from '@sanersocialmedia/core/src/sites'
 import { getStore, setUserConfig, toggleUserConfigKey } from '@sanersocialmedia/core/src/store'
 import type { UserConfig } from '@sanersocialmedia/core/src/types'
 import { UserConfigKey } from '@sanersocialmedia/core/src/types'
@@ -11,6 +11,8 @@ import type { SiteAction } from '@sanersocialmedia/core/src/site'
 
 const chromeWebStoreLink = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
 const githubIssuesLink = 'https://github.com/tobiasdalhof/sanersocialmedia/issues'
+
+const sites = [youtube, twitter, instagram, facebook, tiktok, pinterest, linkedin, twitch, reddit, github]
 
 const userConfig = ref<UserConfig>()
 async function getUserConfig() {
@@ -42,11 +44,11 @@ async function toggleSiteAction(siteAction: SiteAction) {
 async function enableAllSiteActions() {
   const config: UserConfig = {}
 
-  for (const site of Object.values(sites)) {
+  sites.forEach((site) => {
     site.params.siteActions.forEach((siteAction) => {
       config[siteAction.params.requiredUserConfigKey] = true
     })
-  }
+  })
 
   await setUserConfig({ ...userConfig.value, ...config })
 }
@@ -78,51 +80,55 @@ function i18n(key: string): string {
 
 <template>
   <div v-if="ready" class="select-none">
-    <a :href="chromeWebStoreLink" target="_blank" class="py-2 flex items-center justify-center bg-green-500 bg-opacity-20 hover:bg-opacity-30 transition-all leading-none font- text-green-100">
-      <span>{{ i18n('rateUs') }}</span>
-      <div class="ml-3">
-        <SSMIcon :icon="mdiStar" size="18px" />
-        <SSMIcon :icon="mdiStar" size="18px" />
-        <SSMIcon :icon="mdiStar" size="18px" />
-        <SSMIcon :icon="mdiStar" size="18px" />
-        <SSMIcon :icon="mdiStar" size="18px" />
-      </div>
-    </a>
-    <div class="container max-w-4xl mx-auto p-5">
-      <div class="flex items-center pb-12">
-        <img :src="logo" alt="Saner Social Media" class="w-10 mr-4">
-        <div>
-          <div class="text-xl">
-            <span>Saner Social Media</span>
+    <div class="container max-w-4xl mx-auto p-4">
+      <div class="flex justify-between items-center mb-4">
+        <div class="flex items-center">
+          <img :src="logo" alt="Saner Social Media" class="h-32px mr-4 rounded-full">
+          <div class="font-semibold">
+            Saner Social Media Feed Blocker
           </div>
+        </div>
+        <div>
+          <a
+            :href="githubIssuesLink"
+            class="inline-flex items-center"
+            target="_blank"
+          >
+            <SSMIcon :icon="mdiGithub" size="24px" />
+            <span class="ml-2">{{ i18n('reportIssue') }}</span>
+          </a>
         </div>
       </div>
 
-      <div class="flex justify-between items-center mb-3">
-        <h2 class="text-lg leading-none font-medium">
-          {{ i18n('siteSettings') }}
-        </h2>
-        <div class="space-x-2">
-          <button
-            class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-500 transition-all active:ring-2 ring-blue-500 leading-none font-medium"
-            @click.prevent="enableAllSiteActions()"
-          >
-            <span>{{ i18n('enableAll') }}</span>
-          </button>
-          <button
-            class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-500 transition-all active:ring-2 ring-blue-500 leading-none font-medium"
-            @click.prevent="disableAllSiteActions()"
-          >
-            <span>{{ i18n('disableAll') }}</span>
-          </button>
-        </div>
+      <a
+        :href="chromeWebStoreLink"
+        target="_blank"
+        class="py-3 px-6 mb-6 block rounded-full text-center bg-green-900 hover:bg-opacity-50 bg-opacity-30 transition-all text-green-200 active:ring-2 ring-green-500"
+      >
+        {{ i18n('rateUs') }}
+      </a>
+
+      <div class="space-x-2 mb-4">
+        <button
+          class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-500 transition-all active:ring-2 ring-blue-500 leading-none"
+          @click.prevent="enableAllSiteActions()"
+        >
+          <span>{{ i18n('enableAll') }}</span>
+        </button>
+        <button
+          class="px-4 py-2 rounded-full text-sm bg-dark-800 hover:bg-dark-500 transition-all active:ring-2 ring-blue-500 leading-none"
+          @click.prevent="disableAllSiteActions()"
+        >
+          <span>{{ i18n('disableAll') }}</span>
+        </button>
       </div>
-      <div class="mt-2 mb-8">
+
+      <div class="mb-8">
         <div v-for="(site, siteIndex) in sites" :key="`site-${siteIndex}`">
           <div
             v-for="(siteAction, siteActionIndex) in site.params.siteActions"
             :key="`site-action-${siteActionIndex}`"
-            class="mb-2 transition-all flex justify-between items-center bg-dark-800 hover:bg-dark-500 rounded-full px-3 py-2 cursor-pointer active:ring-2 ring-blue-500 leading-none"
+            class="mb-2 transition-all flex justify-between items-center bg-opacity-80 bg-dark-800 hover:bg-dark-500 rounded-full px-3 py-2 cursor-pointer active:ring-2 ring-blue-500 leading-none"
             :class="{
               'opacity-40': !isSiteEnabled(siteAction),
             }"
@@ -171,10 +177,6 @@ function i18n(key: string): string {
         >
           {{ i18n('hideOptionsLink') }}
         </label>
-      </div>
-
-      <div class="mt-5 text-blue-500">
-        <a :href="githubIssuesLink" target="_blank">{{ i18n('reportBug') }}</a>
       </div>
     </div>
   </div>

@@ -3,10 +3,7 @@
     "message": "Replace home feeds, recommendations and other social media distractions with inspirational quotes. News Feed Eradicator alternative."
   },
   "rateUs": {
-    "message": "Please rate us on the Chrome Web Store"
-  },
-  "siteSettings": {
-    "message": "Site settings"
+    "message": "If you're enjoying Saner Social Media, please help us out by leaving a review on the Chrome Web Store. Your feedback helps us improve and grow."
   },
   "enableAll": {
     "message": "Enable all"
@@ -17,8 +14,8 @@
   "hideOptionsLink": {
     "message": "Hide options link"
   },
-  "reportBug": {
-    "message": "Report a bug on GitHub"
+  "reportIssue": {
+    "message": "Report issue"
   },
   "blockHomeFeed": {
     "message": "Block home feed"
