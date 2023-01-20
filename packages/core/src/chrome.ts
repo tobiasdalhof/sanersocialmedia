@@ -1,3 +1,3 @@
 export function getOptionsURL(): string {
-  return chrome.runtime.getURL('dist/options/index.html')
+  return chrome.runtime.getURL('options/index.html')
 }
