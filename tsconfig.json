@@ -20,7 +20,7 @@
     ],
     "paths": {
       "@sanersocialmedia/core/*": ["packages/core/src/*"],
-      "@sanersocialmedia/shared/*": ["packages/shared/src/*"],
+      "@sanersocialmedia/shared/*": ["packages/shared/src/*"]
     }
   },
   "include": [

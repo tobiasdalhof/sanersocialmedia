@@ -1,44 +1,44 @@
 {
-    "manifestDescription": {
-        "message": "Replace home feeds, recommendations and other social media distractions with inspirational quotes. News Feed Eradicator alternative."
-    },
-    "rateUs": {
-        "message": "Please rate us on the Chrome Web Store"
-    },
-    "siteSettings": {
-        "message": "Site settings"
-    },
-    "enableAll": {
-        "message": "Enable all"
-    },
-    "disableAll": {
-        "message": "Disable all"
-    },
-    "hideOptionsLink": {
-        "message": "Hide options link"
-    },
-    "reportBug": {
-        "message": "Report a bug on GitHub"
-    },
-    "blockHomeFeed": {
-        "message": "Block home feed"
-    },
-    "blockSidebarTrends": {
-        "message": "Block sidebar trends"
-    },
-    "blockRelatedPins": {
-        "message": "Block related pins"
-    },
-    "blockSubredditFeeds": {
-        "message": "Block subreddit feeds"
-    },
-    "blockSidebarFollowSuggestions": {
-        "message": "Block sidebar follow suggestions"
-    },
-    "blockSidebarVideoSuggestions": {
-        "message": "Block sidebar video suggestions"
-    },
-    "blockVideoComments": {
-        "message": "Block video comments"
-    }
+  "manifestDescription": {
+    "message": "Replace home feeds, recommendations and other social media distractions with inspirational quotes. News Feed Eradicator alternative."
+  },
+  "rateUs": {
+    "message": "Please rate us on the Chrome Web Store"
+  },
+  "siteSettings": {
+    "message": "Site settings"
+  },
+  "enableAll": {
+    "message": "Enable all"
+  },
+  "disableAll": {
+    "message": "Disable all"
+  },
+  "hideOptionsLink": {
+    "message": "Hide options link"
+  },
+  "reportBug": {
+    "message": "Report a bug on GitHub"
+  },
+  "blockHomeFeed": {
+    "message": "Block home feed"
+  },
+  "blockSidebarTrends": {
+    "message": "Block sidebar trends"
+  },
+  "blockRelatedPins": {
+    "message": "Block related pins"
+  },
+  "blockSubredditFeeds": {
+    "message": "Block subreddit feeds"
+  },
+  "blockSidebarFollowSuggestions": {
+    "message": "Block sidebar follow suggestions"
+  },
+  "blockSidebarVideoSuggestions": {
+    "message": "Block sidebar video suggestions"
+  },
+  "blockVideoComments": {
+    "message": "Block video comments"
+  }
 }
