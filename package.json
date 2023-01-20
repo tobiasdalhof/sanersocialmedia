@@ -8,6 +8,7 @@
     "@types/chrome": "^0.0.209",
     "@types/node": "^18.11.18",
     "eslint": "^8.32.0",
+    "eslint-plugin-tailwindcss": "^3.8.0",
     "typescript": "^4.9.4"
   }
 }

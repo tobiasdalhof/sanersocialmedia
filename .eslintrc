@@ -1,5 +1,9 @@
 {
   "extends": [
     "@antfu"
-  ]
+  ],
+  "plugins": ["tailwindcss"],
+  "rules": {
+    "tailwindcss/classnames-order": "warn"
+  }
 }
