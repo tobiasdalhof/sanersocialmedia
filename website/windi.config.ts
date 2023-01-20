@@ -6,6 +6,7 @@ export default defineConfig({
     include: [
       resolve(__dirname, 'index.html'),
       resolve(__dirname, 'src/**/*.{vue,html}'),
+      resolve(__dirname, 'node_modules/@sanersocialmedia/shared/src/**/*.vue'),
     ],
   },
   theme: {
