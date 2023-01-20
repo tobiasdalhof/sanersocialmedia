@@ -8,7 +8,8 @@
 
 Block social media distractions and replace them with uplifting quotes to improve your mental well-being.
 
-![Twitter Home](./.github/twitter-home.png)
+![Twitter](./.github/twitter.png)
+![Extension settings](./.github/settings.png)
 
 ## Supported sites
 
