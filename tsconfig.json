@@ -11,18 +11,19 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
+    "lib": ["esnext", "dom"],
+    "types": [
+      "node",
+      "chrome",
+      "vite/client"
     ],
-    "types": ["node", "chrome"],
     "paths": {
-      "@sanersocialmedia/*": ["packages/*/src"]
+      "@sanersocialmedia/core": ["./packages/core/src"],
+      "@sanersocialmedia/vue": ["packages/vue/src"]
     }
   },
-  "include": [
-    "packages/*/src",
-    "extension/src",
-    "website/src"
+  "exclude": [
+    "**/dist/**",
+    "**/node_modules/**"
   ]
 }

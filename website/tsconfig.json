@@ -1,0 +1,8 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "exclude": ["**/dist/**"],
+  "include": ["**/*.ts", "**/*.d.ts", "**/*.vue"]
+}

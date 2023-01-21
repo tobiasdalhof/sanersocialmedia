@@ -1,4 +1,5 @@
 {
+  "name": "extension",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -15,21 +16,5 @@
     "build:website": "vite build -c vite.config.website.ts",
     "build": "npm run clear && npm run build:options && npm run build:content && npm run build:background && npm run copy-config",
     "zip": "npm run build && 7z a extension.zip ./dist/*"
-  },
-  "devDependencies": {
-    "@fontsource/readex-pro": "^4.5.13",
-    "@mdi/js": "^7.1.96",
-    "@sanersocialmedia/core": "workspace:*",
-    "@sanersocialmedia/shared": "workspace:*",
-    "@vitejs/plugin-vue": "^4.0.0",
-    "npm-run-all": "^4.1.5",
-    "rimraf": "^4.1.1",
-    "sass": "^1.57.1",
-    "typescript": "^4.9.4",
-    "vite": "^4.0.4",
-    "vite-plugin-windicss": "^1.8.10",
-    "vue": "^3.2.45",
-    "vue-tsc": "^1.0.24",
-    "windicss": "^3.5.6"
   }
 }

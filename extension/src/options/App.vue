@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { mdiCheck, mdiChevronRight, mdiClose, mdiGithub } from '@mdi/js'
-import SSMIcon from '@sanersocialmedia/shared/src/components/SSMIcon.vue'
-import logo from '@sanersocialmedia/shared/src/assets/logo.svg'
-import { facebook, github, instagram, linkedin, pinterest, reddit, tiktok, twitch, twitter, youtube } from '@sanersocialmedia/core/src/sites'
-import { getStore, setUserConfig, toggleUserConfigKey } from '@sanersocialmedia/core/src/store'
-import type { UserConfig } from '@sanersocialmedia/core/src/types'
-import { UserConfigKey } from '@sanersocialmedia/core/src/types'
-import type { SiteAction } from '@sanersocialmedia/core/src/site'
+import { SSMIcon } from '@sanersocialmedia/vue'
+import { UserConfigKey, facebook, getStore, github, instagram, linkedin, pinterest, reddit, setUserConfig, tiktok, toggleUserConfigKey, twitch, twitter, youtube } from '@sanersocialmedia/core'
+import type { SiteAction, UserConfig } from '@sanersocialmedia/core'
+import logo from './assets/logo.svg'
 
 const chromeWebStoreLink = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
 const githubIssuesLink = 'https://github.com/tobiasdalhof/sanersocialmedia/issues'

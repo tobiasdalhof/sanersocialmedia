@@ -4,8 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import SSMIcon from '@sanersocialmedia/shared/src/components/SSMIcon.vue'
-import logo from '@sanersocialmedia/shared/src/assets/logo.svg'
+import { SSMIcon } from '@sanersocialmedia/vue'
 import youtube from 'super-tiny-icons/images/svg/youtube.svg'
 import twitter from 'super-tiny-icons/images/svg/twitter.svg'
 import instagram from 'super-tiny-icons/images/svg/instagram.svg'
@@ -16,6 +15,7 @@ import linkedin from 'super-tiny-icons/images/svg/linkedin.svg'
 import twitch from 'super-tiny-icons/images/svg/twitch.svg'
 import reddit from 'super-tiny-icons/images/svg/reddit.svg'
 import github from 'super-tiny-icons/images/svg/github.svg'
+import logo from './assets/logo.svg'
 
 const chromeWebStoreUrl = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
 const gitHubUrl = 'https://github.com/tobiasdalhof/sanersocialmedia'
@@ -60,7 +60,7 @@ const sites: Site[] = [
         Block social media distractions and replace them with uplifting quotes to improve your mental well-being.
       </h1>
       <div class="mt-10 text-center">
-        <a :href="chromeWebStoreUrl" target="_blank" class="h-58px text-dark-900 inline-flex select-none items-center justify-center rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 px-8  text-lg font-semibold leading-none hover:from-yellow-400 hover:to-yellow-600 active:ring">
+        <a :href="chromeWebStoreUrl" target="_blank" class="h-58px text-dark-900 inline-flex select-none items-center justify-center rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 px-8 text-lg font-semibold leading-none hover:from-yellow-400 hover:to-yellow-600 active:ring">
           <SSMIcon size="32px" :icon="mdiGoogleChrome" class="mr-2" />
           <span>Add to Chrome - It's free</span>
         </a>

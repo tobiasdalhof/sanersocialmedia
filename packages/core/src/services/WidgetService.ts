@@ -1,5 +1,5 @@
 import { getOptionsURL } from '../chrome'
-import { QuoteService } from './QuoteService'
+import QuoteService from './QuoteService'
 
 export enum QuoteWidgetDataAttribute {
   Container = 'data-sanersocialmedia-quote-container',

@@ -1,7 +1,9 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
+import { alias } from '../alias'
 
 export default defineConfig({
+  resolve: { alias },
   build: {
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: false,
