@@ -65,6 +65,28 @@ const youtube = new Site({
         container.after(quote)
       },
     }),
+    new SiteAction({
+      name: chrome.i18n.getMessage('blockShorts'),
+      validateUrl: url => url.pathname.includes('/shorts/'),
+      requiredUserConfigKey: UserConfigKey.YouTubeShorts,
+      injectCss: `
+        ytd-shorts {
+          opacity: 0!important;
+          height: 0px!important;
+          overflow: hidden!important;
+        }
+      `,
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('ytd-shorts')
+        mute(container)
+        const quote = siteAction.createQuoteWidget(container)
+        if (!quote)
+          return
+        quote.style.padding = '40px'
+        quote.style.width = '100%'
+        container.after(quote)
+      },
+    }),
   ],
 })
 

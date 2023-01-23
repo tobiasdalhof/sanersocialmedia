@@ -4,17 +4,16 @@
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "clear": "rimraf ./dist",
-    "copy-config": "cp -T -r ./config ./dist",
     "dev": "npm run clear && npm run copy-config && NODE_ENV=development run-p dev:options dev:content dev:background",
+    "build": "npm run clear && npm run build:options && npm run build:content && npm run build:background && npm run copy-config",
+    "zip": "npm run build && 7z a extension.zip ./dist/*",
     "dev:options": "npm run build:options -- -w",
     "dev:content": "npm run build:content -- -w",
     "dev:background": "npm run build:background -- -w",
     "build:options": "vite build -c vite.config.options.ts",
     "build:content": "vite build -c vite.config.content.ts",
     "build:background": "vite build -c vite.config.background.ts",
-    "build:website": "vite build -c vite.config.website.ts",
-    "build": "npm run clear && npm run build:options && npm run build:content && npm run build:background && npm run copy-config",
-    "zip": "npm run build && 7z a extension.zip ./dist/*"
+    "clear": "rimraf ./dist",
+    "copy-config": "cp -T -r ./config ./dist"
   }
 }

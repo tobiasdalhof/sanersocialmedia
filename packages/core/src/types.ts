@@ -6,6 +6,7 @@ export enum UserConfigKey {
   YouTubeHomeFeed = 'YouTubeHomeFeed',
   YouTubeVideoSidebarSuggestions = 'YouTubeVideoSidebarSuggestions',
   YouTubeVideoComments = 'YouTubeVideoComments',
+  YouTubeShorts = 'YouTubeShorts',
   TwitterHomeFeed = 'TwitterHomeFeed',
   TwitterSidebarTrends = 'TwitterSidebarTrends',
   TwitterSidebarFollowSuggestions = 'TwitterSidebarFollowSuggestions',
