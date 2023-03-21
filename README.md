@@ -6,7 +6,7 @@
 
 # Saner Social Media Feed Blocker for Chrome
 
-Block social media distractions and replace them with uplifting quotes to improve your mental well-being.
+Block social media distractions and replace them with uplifting quotes to improve your productivity.
 
 ![Twitter](./.github/twitter.png)
 ![Extension settings](./.github/settings.png)

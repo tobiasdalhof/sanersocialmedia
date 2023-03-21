@@ -57,7 +57,7 @@ const sites: Site[] = [
   <main class="mt-5 p-5">
     <div class="mx-auto max-w-3xl">
       <h1 class="text-center text-4xl leading-snug text-yellow-200">
-        Block social media distractions and replace them with uplifting quotes to improve your mental well-being.
+        Block social media distractions and replace them with uplifting quotes to improve your productivity.
       </h1>
       <div class="mt-10 text-center">
         <a :href="chromeWebStoreUrl" target="_blank" class="h-58px text-dark-900 inline-flex select-none items-center justify-center rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 px-8 text-lg font-semibold leading-none hover:from-yellow-400 hover:to-yellow-600 active:ring">
