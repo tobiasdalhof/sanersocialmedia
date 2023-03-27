@@ -33,7 +33,7 @@ Block social media distractions and replace them with uplifting quotes to improv
 
 ## Installation
 
-**Option 1 (recommended)** – Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk)
+**Option 1** – Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk) (recommended)
 
 **Option 2** – Install from GitHub release:
 
