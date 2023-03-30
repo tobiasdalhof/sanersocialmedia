@@ -4,7 +4,7 @@
   <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://img.shields.io/chrome-web-store/users/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store Users"></a>
 </p>
 
-# Saner Social Media Feed Blocker for Chrome
+# Saner Social Media - Feed Blocker for Chrome
 
 Block social media distractions and replace them with uplifting quotes to improve your productivity.
 
