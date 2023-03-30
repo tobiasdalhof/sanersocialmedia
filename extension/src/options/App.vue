@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
-import { mdiCheck, mdiChevronRight, mdiClose, mdiGithub } from '@mdi/js'
+import { mdiCheck, mdiChevronRight, mdiClose, mdiGithub, mdiGoogleChrome } from '@mdi/js'
 import { SSMIcon } from '@sanersocialmedia/vue'
 import { UserConfigKey, facebook, getStore, github, instagram, linkedin, pinterest, reddit, setUserConfig, tiktok, toggleUserConfigKey, twitch, twitter, youtube } from '@sanersocialmedia/core'
 import type { SiteAction, UserConfig } from '@sanersocialmedia/core'
 import logo from './assets/logo.svg'
 
 const chromeWebStoreLink = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
-const githubIssuesLink = 'https://github.com/tobiasdalhof/sanersocialmedia/issues'
+const githubLink = 'https://github.com/tobiasdalhof/sanersocialmedia'
 
 const sites = [youtube, twitter, instagram, facebook, tiktok, pinterest, linkedin, twitch, reddit, github]
 
@@ -77,43 +77,45 @@ function i18n(key: string): string {
 
 <template>
   <div v-if="ready" class="select-none">
-    <div class="container mx-auto max-w-4xl p-4">
-      <div class="mb-4 flex items-center justify-between">
+    <div class="bg-black bg-opacity-50 mb-6">
+      <div class="container mx-auto max-w-4xl px-4 py-3.5 flex items-center justify-between leading-none">
         <div class="flex items-center">
           <img :src="logo" alt="Saner Social Media" class="h-32px mr-4 rounded-full">
           <div class="font-semibold">
-            Saner Social Media Feed Blocker
+            Saner Social Media
           </div>
         </div>
-        <div>
+        <div class="space-x-6">
           <a
-            :href="githubIssuesLink"
+            :href="chromeWebStoreLink"
+            class="inline-flex items-center"
+            target="_blank"
+          >
+            <SSMIcon :icon="mdiGoogleChrome" size="24px" />
+            <span class="ml-2">{{ i18n('rateUs') }}</span>
+          </a>
+          <a
+            :href="githubLink"
             class="inline-flex items-center"
             target="_blank"
           >
             <SSMIcon :icon="mdiGithub" size="24px" />
-            <span class="ml-2">{{ i18n('reportIssue') }}</span>
+            <span class="ml-2">{{ i18n('sourceCode') }}</span>
           </a>
         </div>
       </div>
+    </div>
 
-      <a
-        :href="chromeWebStoreLink"
-        target="_blank"
-        class="mb-6 block rounded-full bg-green-900 bg-opacity-30 py-3 px-6 text-center text-green-200 ring-green-500 transition-all hover:bg-opacity-50 active:ring-2"
-      >
-        {{ i18n('rateUs') }}
-      </a>
-
-      <div class="mb-4 space-x-2">
+    <div class="container mx-auto max-w-4xl px-4">
+      <div class="mb-2 space-x-2 flex border-dark-200">
         <button
-          class="bg-dark-800 hover:bg-dark-500 rounded-full px-4 py-2 text-sm leading-none ring-blue-500 transition-all active:ring-2"
+          class="bg-dark-800 hover:bg-dark-500 rounded px-4 py-2.5 text-sm leading-none ring-blue-500 transition-all active:ring-2 w-full"
           @click.prevent="enableAllSiteActions()"
         >
           <span>{{ i18n('enableAll') }}</span>
         </button>
         <button
-          class="bg-dark-800 hover:bg-dark-500 rounded-full px-4 py-2 text-sm leading-none ring-blue-500 transition-all active:ring-2"
+          class="bg-dark-800 hover:bg-dark-500 rounded px-4 py-2.5 text-sm leading-none ring-blue-500 transition-all active:ring-2 w-full"
           @click.prevent="disableAllSiteActions()"
         >
           <span>{{ i18n('disableAll') }}</span>
@@ -125,7 +127,7 @@ function i18n(key: string): string {
           <div
             v-for="(siteAction, siteActionIndex) in site.params.siteActions"
             :key="`site-action-${siteActionIndex}`"
-            class="bg-dark-800 hover:bg-dark-500 mb-2 flex cursor-pointer items-center justify-between rounded-full bg-opacity-80 px-3 py-2 leading-none ring-blue-500 transition-all active:ring-2"
+            class="bg-dark-800 hover:bg-dark-500 mb-2 flex cursor-pointer items-center justify-between rounded bg-opacity-80 px-3 py-2 leading-none ring-blue-500 transition-all active:ring-2"
             :class="{
               'opacity-40': !isSiteEnabled(siteAction),
             }"
