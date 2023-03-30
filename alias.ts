@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 
-const r = (p: string) => resolve(__dirname, p)
+function r(p: string) { return resolve(__dirname, p) }
 
 export const alias: Record<string, string> = {
   '@sanersocialmedia/core': r('./packages/core/src/index.ts'),
