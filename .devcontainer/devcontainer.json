@@ -1,27 +1,30 @@
 {
     "name": "Chrome Extension",
     "build": {
-        "dockerfile": "Dockerfile",
+        "dockerfile": "Dockerfile"
     },
     "remoteUser": "node",
-    "settings": {
-        "terminal.integrated.defaultProfile.linux": "zsh", 
-        "terminal.integrated.profiles.linux": {
-            "zsh": {
-                "path": "/bin/zsh"
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.profiles.linux": {
+                    "zsh": {
+                        "path": "/bin/zsh"
+                    }
+                },
+                "files.eol": "\n"
             },
-        },
-        "files.eol": "\n",
-    },
-    // https://github.com/antfu/vitesse/blob/main/.vscode/extensions.json
-    "extensions": [
-        "2gua.rainbow-brackets",
-        "dbaeumer.vscode-eslint",
-        "GitHub.copilot",
-        "oderwat.indent-rainbow",
-        "sibiraj-s.vscode-scss-formatter",
-        "antfu.unocss",
-        "Vue.volar",
-        "yzhang.markdown-all-in-one"
-    ],
+            // https://github.com/antfu/vitesse/blob/main/.vscode/extensions.json
+            "extensions": [
+                "2gua.rainbow-brackets",
+                "dbaeumer.vscode-eslint",
+                "oderwat.indent-rainbow",
+                "sibiraj-s.vscode-scss-formatter",
+                "antfu.unocss",
+                "Vue.volar",
+                "yzhang.markdown-all-in-one"
+            ]
+        }
+    }
 }
