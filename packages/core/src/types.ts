@@ -22,6 +22,9 @@ export enum UserConfigKey {
   RedditSubFeed = 'RedditSubFeed',
   GitHubHomeFeed = 'GitHubHomeFeed',
   HideOptionsLink = 'HideOptionsLink',
+  HackerNewsHomeFeed = 'HackerNewsHomeFeed',
+  HackerNewsNewestFeed = 'HackerNewsNewestFeed',
+  HackerNewsFrontFeed = 'HackerNewsFrontFeed',
 }
 
 type PartialRecord<K extends keyof any, T> = {

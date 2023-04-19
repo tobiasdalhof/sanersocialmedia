@@ -19,7 +19,7 @@
     ],
     "paths": {
       "@sanersocialmedia/core": ["./packages/core/src"],
-      "@sanersocialmedia/vue": ["./packages/vue/src"]
+      "@sanersocialmedia/shared": ["./packages/shared/src"]
     }
   },
   "exclude": [

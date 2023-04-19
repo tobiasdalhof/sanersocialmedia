@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { mdiCheck, mdiChevronRight, mdiClose, mdiGithub, mdiGoogleChrome } from '@mdi/js'
-import { SSMIcon } from '@sanersocialmedia/vue'
-import { UserConfigKey, facebook, getStore, github, instagram, linkedin, pinterest, reddit, setUserConfig, tiktok, toggleUserConfigKey, twitch, twitter, youtube } from '@sanersocialmedia/core'
+import { SSMIcon } from '@sanersocialmedia/shared'
+import { UserConfigKey, facebook, getStore, github, hackernews, instagram, linkedin, pinterest, reddit, setUserConfig, tiktok, toggleUserConfigKey, twitch, twitter, youtube } from '@sanersocialmedia/core'
 import type { SiteAction, UserConfig } from '@sanersocialmedia/core'
 import logo from './assets/logo.svg'
 
 const chromeWebStoreLink = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
 const githubLink = 'https://github.com/tobiasdalhof/sanersocialmedia'
 
-const sites = [youtube, twitter, instagram, facebook, tiktok, pinterest, linkedin, twitch, reddit, github]
+const sites = [youtube, twitter, instagram, facebook, tiktok, pinterest, linkedin, twitch, reddit, github, hackernews]
 
 const userConfig = ref<UserConfig>()
 async function getUserConfig() {
