@@ -15,6 +15,7 @@ import linkedin from 'super-tiny-icons/images/svg/linkedin.svg'
 import twitch from 'super-tiny-icons/images/svg/twitch.svg'
 import reddit from 'super-tiny-icons/images/svg/reddit.svg'
 import github from 'super-tiny-icons/images/svg/github.svg'
+import hackernews from 'super-tiny-icons/images/svg/hackernews.svg'
 import logo from './assets/logo.svg'
 
 const chromeWebStoreUrl = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
@@ -36,6 +37,7 @@ const sites: Site[] = [
   { name: 'Twitch', logo: twitch },
   { name: 'Reddit', logo: reddit },
   { name: 'GitHub', logo: github },
+  { name: 'Hacker News', logo: hackernews },
 ]
 </script>
 

@@ -8,5 +8,6 @@ import linkedin from './linkedin'
 import twitch from './twitch'
 import reddit from './reddit'
 import github from './github'
+import hackernews from './hackernews'
 
-export { youtube, twitter, instagram, facebook, tiktok, pinterest, linkedin, twitch, reddit, github }
+export { youtube, twitter, instagram, facebook, tiktok, pinterest, linkedin, twitch, reddit, github, hackernews }

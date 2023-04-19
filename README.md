@@ -13,18 +13,19 @@ Block social media distractions and replace them with uplifting quotes to improv
 
 ## Supported sites
 
-| Site          | Blocked distractions                                         |
-| :------------ | :----------------------------------------------------------- |
-| **YouTube**   | Home feed, sidebar video suggestions, video comments, shorts |
-| **Twitter**   | Home feed, sidebar trends, sidebar follow suggestions        |
-| **Instagram** | Home feed                                                    |
-| **Facebook**  | Home feed                                                    |
-| **TikTok**    | Home feed                                                    |
-| **Pinterest** | Home feed, related pins                                      |
-| **LinkedIn**  | Home feed, sidebar trends                                    |
-| **Twitch**    | Home feed                                                    |
-| **Reddit**    | Home feed, subreddit feeds                                   |
-| **GitHub**    | Home feed                                                    |
+| Site            | Blocked distractions                                         |
+| :-------------- | :----------------------------------------------------------- |
+| **YouTube**     | Home feed, sidebar video suggestions, video comments, shorts |
+| **Twitter**     | Home feed, sidebar trends, sidebar follow suggestions        |
+| **Instagram**   | Home feed                                                    |
+| **Facebook**    | Home feed                                                    |
+| **TikTok**      | Home feed                                                    |
+| **Pinterest**   | Home feed, related pins                                      |
+| **LinkedIn**    | Home feed, sidebar trends                                    |
+| **Twitch**      | Home feed                                                    |
+| **Reddit**      | Home feed, subreddit feeds                                   |
+| **GitHub**      | Home feed                                                    |
+| **Hacker News** | Home feed, /newest feed, /front feed                         |
 
 ## Other features
 
