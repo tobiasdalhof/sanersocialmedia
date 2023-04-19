@@ -10,7 +10,7 @@
     "@antfu/eslint-config": "^0.38.5",
     "@mdi/js": "^7.2.96",
     "@sanersocialmedia/core": "workspace:*",
-    "@sanersocialmedia/vue": "workspace:*",
+    "@sanersocialmedia/shared": "workspace:*",
     "@types/chrome": "^0.0.233",
     "@types/color": "^3.0.3",
     "@types/node": "^18.15.11",

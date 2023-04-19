@@ -13,9 +13,9 @@ importers:
       '@sanersocialmedia/core':
         specifier: workspace:*
         version: link:packages/core
-      '@sanersocialmedia/vue':
+      '@sanersocialmedia/shared':
         specifier: workspace:*
-        version: link:packages/vue
+        version: link:packages/shared
       '@types/chrome':
         specifier: ^0.0.233
         version: 0.0.233
@@ -84,7 +84,7 @@ importers:
 
   packages/core: {}
 
-  packages/vue: {}
+  packages/shared: {}
 
   website: {}
 
