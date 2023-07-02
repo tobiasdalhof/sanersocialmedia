@@ -16,6 +16,7 @@
     "@types/chrome": "^0.0.239",
     "@types/color": "^3.0.3",
     "@types/node": "^18.16.19",
+    "@unocss/eslint-config": "^0.53.4",
     "@unocss/preset-attributify": "^0.53.4",
     "@unocss/preset-uno": "^0.53.4",
     "@unocss/preset-web-fonts": "^0.53.4",
