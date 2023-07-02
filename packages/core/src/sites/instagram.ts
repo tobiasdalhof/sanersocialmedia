@@ -47,6 +47,25 @@ const instagram = new Site({
         }
       },
     }),
+    new SiteAction({
+      name: 'Block /reels feed',
+      validateUrl: url => url.pathname.includes('/reels'),
+      requiredUserConfigKey: UserConfigKey.InstagramReels,
+      injectCss: `
+        main[role=main] > :not([${QuoteWidgetDataAttribute.Container}]) {
+          display: none!important;
+        }
+      `,
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('main[role=main]')
+        mute(container)
+        const quote = siteAction.createQuoteWidget(container)
+        if (quote) {
+          quote.style.padding = '25px 50px'
+          container.appendChild(quote)
+        }
+      },
+    }),
   ],
 })
 
