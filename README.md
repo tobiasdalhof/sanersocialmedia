@@ -17,7 +17,7 @@ Block social media distractions and replace them with uplifting quotes to improv
 | :-------------- | :----------------------------------------------------------- |
 | **YouTube**     | Home feed, sidebar video suggestions, video comments, shorts |
 | **Twitter**     | Home feed, sidebar trends, sidebar follow suggestions        |
-| **Instagram**   | Home feed                                                    |
+| **Instagram**   | Home feed, explore feed, reels feed                          |
 | **Facebook**    | Home feed                                                    |
 | **TikTok**      | Home feed                                                    |
 | **Pinterest**   | Home feed, related pins                                      |

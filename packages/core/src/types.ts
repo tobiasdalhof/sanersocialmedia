@@ -11,6 +11,8 @@ export enum UserConfigKey {
   TwitterSidebarTrends = 'TwitterSidebarTrends',
   TwitterSidebarFollowSuggestions = 'TwitterSidebarFollowSuggestions',
   InstagramHomeFeed = 'InstagramHomeFeed',
+  InstagramExplore = 'InstagramExplore',
+  InstagramReels = 'InstagramReels',
   FacebookHomeFeed = 'FacebookHomeFeed',
   TikTokHomeFeed = 'TikTokHomeFeed',
   PinterestHomeFeed = 'PinterestHomeFeed',

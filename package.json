@@ -1,36 +1,39 @@
 {
   "name": "@sanersocialmedia/monorepo",
-  "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.38.5",
+    "@antfu/eslint-config": "^0.39.6",
     "@mdi/js": "^7.2.96",
     "@sanersocialmedia/core": "workspace:*",
     "@sanersocialmedia/shared": "workspace:*",
-    "@types/chrome": "^0.0.233",
+    "@types/chrome": "^0.0.239",
     "@types/color": "^3.0.3",
-    "@types/node": "^18.15.11",
-    "@unocss/preset-attributify": "^0.51.5",
-    "@unocss/preset-uno": "^0.51.5",
-    "@unocss/preset-web-fonts": "^0.51.5",
-    "@unocss/reset": "^0.51.5",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@types/node": "^18.16.19",
+    "@unocss/eslint-config": "^0.53.4",
+    "@unocss/preset-attributify": "^0.53.4",
+    "@unocss/preset-uno": "^0.53.4",
+    "@unocss/preset-web-fonts": "^0.53.4",
+    "@unocss/reset": "^0.53.4",
+    "@vitejs/plugin-vue": "^4.2.3",
     "change-case": "^4.1.2",
     "color": "^4.2.3",
-    "eslint": "^8.38.0",
+    "eslint": "^8.44.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^4.4.1",
-    "sass": "^1.62.0",
+    "sass": "^1.63.6",
     "super-tiny-icons": "^0.5.0",
-    "swiper": "^9.2.3",
-    "typescript": "^5.0.4",
-    "unocss": "^0.51.5",
-    "vite": "^4.2.2",
-    "vue": "^3.2.47",
-    "vue-tsc": "^1.2.0"
+    "swiper": "^9.4.1",
+    "typescript": "^5.1.6",
+    "unocss": "^0.53.4",
+    "vite": "^4.3.9",
+    "vue": "^3.3.4",
+    "vue-tsc": "^1.8.3"
   }
 }

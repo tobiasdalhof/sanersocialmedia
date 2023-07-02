@@ -62,7 +62,7 @@ const sites: Site[] = [
         Block social media distractions and replace them with uplifting quotes to improve your productivity.
       </h1>
       <div class="mt-10 text-center">
-        <a :href="chromeWebStoreUrl" target="_blank" class="h-58px text-dark-900 inline-flex select-none items-center justify-center rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 px-8 text-lg font-semibold leading-none hover:from-yellow-400 hover:to-yellow-600 active:ring">
+        <a :href="chromeWebStoreUrl" target="_blank" class="h-58px inline-flex select-none items-center justify-center rounded-full from-yellow-300 to-yellow-500 bg-gradient-to-br px-8 text-lg font-semibold leading-none text-dark-900 hover:from-yellow-400 hover:to-yellow-600 active:ring">
           <SSMIcon size="32px" :icon="mdiGoogleChrome" class="mr-2" />
           <span>Add to Chrome - It's free</span>
         </a>
@@ -71,8 +71,8 @@ const sites: Site[] = [
         <h2 class="mb-5 text-center text-lg text-yellow-200">
           It works with
         </h2>
-        <div class="mx-auto -mb-2 flex max-w-2xl flex-wrap items-center justify-center space-x-2">
-          <div v-for="(site, index) in sites" :key="`site${index}`" class="ring-dark-200 mb-2 flex  select-none items-center rounded-full py-1 pl-1 pr-3 leading-none ring-1">
+        <div class="mx-auto max-w-2xl flex flex-wrap items-center justify-center -mb-2 space-x-2">
+          <div v-for="(site, index) in sites" :key="`site${index}`" class="mb-2 flex select-none items-center rounded-full py-1 pl-1 pr-3 leading-none ring-1 ring-dark-200">
             <div class="h-5 w-5 rounded-full bg-center" :style="{ backgroundImage: `url(${site.logo})` }" />
             <div class="ml-2">
               <span class="text-sm">{{ site.name }}</span>
@@ -124,10 +124,10 @@ const sites: Site[] = [
       </Swiper>
     </div>
     <div class="mx-auto mt-10 max-w-3xl">
-      <div class="grid grid-cols-1 space-y-5 space-x-0 text-center sm:grid-cols-2 sm:space-y-0 sm:space-x-5">
+      <div class="grid grid-cols-1 text-center sm:grid-cols-2 space-x-0 space-y-5 sm:space-x-5 sm:space-y-0">
         <div>
           <SSMIcon size="24px" class="text-yellow-300" :icon="mdiCommentQuoteOutline" />
-          <h3 class="mt-3 mb-1 font-semibold">
+          <h3 class="mb-1 mt-3 font-semibold">
             1621 different inspirational quotes
           </h3>
           <p class="opacity-80">
@@ -136,7 +136,7 @@ const sites: Site[] = [
         </div>
         <div>
           <SSMIcon size="24px" class="text-blue-500" :icon="mdiSync" />
-          <h3 class="mt-3 mb-1 font-semibold">
+          <h3 class="mb-1 mt-3 font-semibold">
             Use on multiple computers
           </h3>
           <p class="opacity-80">
@@ -146,7 +146,7 @@ const sites: Site[] = [
       </div>
     </div>
   </main>
-  <footer class="mt-15 border-dark-500 border-t p-10">
+  <footer class="mt-15 border-t border-dark-500 p-10">
     <div class="text-center text-sm opacity-70">
       <a href="mailto:sanersocialmedia@gmail.com" class="inline-flex items-center leading-none">
         <span>Email us at sanersocialmedia@gmail.com</span>
