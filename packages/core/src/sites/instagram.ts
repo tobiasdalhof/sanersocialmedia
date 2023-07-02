@@ -11,23 +11,21 @@ const instagram = new Site({
   siteActions: [
     new SiteAction({
       name: chrome.i18n.getMessage('blockHomeFeed'),
-      validateUrl: () => true,
+      validateUrl: url => ['/'].includes(url.pathname),
       requiredUserConfigKey: UserConfigKey.InstagramHomeFeed,
       injectCss: `
-        main > div > section > :not([${QuoteWidgetDataAttribute.Container}]) {
+        main[role=main] > :not([${QuoteWidgetDataAttribute.Container}]) {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('main > div > section')
+        const container = await waitForElement('main[role=main]')
         mute(container)
-        setTimeout(() => {
-          const quote = siteAction.createQuoteWidget(container)
-          if (!quote)
-            return
-          quote.style.paddingTop = '25px'
+        const quote = siteAction.createQuoteWidget(container)
+        if (quote) {
+          quote.style.padding = '25px 50px'
           container.appendChild(quote)
-        }, 1000)
+        }
       },
     }),
   ],
