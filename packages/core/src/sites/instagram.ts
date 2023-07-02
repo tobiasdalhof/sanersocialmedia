@@ -28,6 +28,25 @@ const instagram = new Site({
         }
       },
     }),
+    new SiteAction({
+      name: 'Block /explore feed',
+      validateUrl: url => ['/explore', '/explore/'].includes(url.pathname),
+      requiredUserConfigKey: UserConfigKey.InstagramExplore,
+      injectCss: `
+        main[role=main] > :not([${QuoteWidgetDataAttribute.Container}]) {
+          display: none!important;
+        }
+      `,
+      manipulateDom: async ({ siteAction }) => {
+        const container = await waitForElement('main[role=main]')
+        mute(container)
+        const quote = siteAction.createQuoteWidget(container)
+        if (quote) {
+          quote.style.padding = '25px 50px'
+          container.appendChild(quote)
+        }
+      },
+    }),
   ],
 })
 
