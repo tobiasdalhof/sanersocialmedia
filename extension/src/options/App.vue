@@ -77,10 +77,10 @@ function i18n(key: string): string {
 
 <template>
   <div v-if="ready" class="select-none">
-    <div class="bg-black bg-opacity-50 mb-6">
-      <div class="container mx-auto max-w-4xl px-4 py-3.5 flex items-center justify-between leading-none">
+    <div class="mb-6 bg-black bg-opacity-50">
+      <div class="mx-auto max-w-4xl flex items-center justify-between px-4 py-3.5 leading-none container">
         <div class="flex items-center">
-          <img :src="logo" alt="Saner Social Media" class="h-32px mr-4 rounded-full">
+          <img :src="logo" alt="Saner Social Media" class="mr-4 h-32px rounded-full">
           <div class="font-semibold">
             Saner Social Media
           </div>
@@ -106,16 +106,16 @@ function i18n(key: string): string {
       </div>
     </div>
 
-    <div class="container mx-auto max-w-4xl px-4">
-      <div class="mb-2 space-x-2 flex border-dark-200">
+    <div class="mx-auto max-w-4xl px-4 container">
+      <div class="mb-2 flex border-dark-200 space-x-2">
         <button
-          class="bg-dark-800 hover:bg-dark-500 rounded px-4 py-2.5 text-sm leading-none ring-blue-500 transition-all active:ring-2 w-full"
+          class="w-full rounded bg-dark-800 px-4 py-2.5 text-sm leading-none ring-blue-500 transition-all hover:bg-dark-500 active:ring-2"
           @click.prevent="enableAllSiteActions()"
         >
           <span>{{ i18n('enableAll') }}</span>
         </button>
         <button
-          class="bg-dark-800 hover:bg-dark-500 rounded px-4 py-2.5 text-sm leading-none ring-blue-500 transition-all active:ring-2 w-full"
+          class="w-full rounded bg-dark-800 px-4 py-2.5 text-sm leading-none ring-blue-500 transition-all hover:bg-dark-500 active:ring-2"
           @click.prevent="disableAllSiteActions()"
         >
           <span>{{ i18n('disableAll') }}</span>
@@ -127,7 +127,7 @@ function i18n(key: string): string {
           <div
             v-for="(siteAction, siteActionIndex) in site.params.siteActions"
             :key="`site-action-${siteActionIndex}`"
-            class="bg-dark-800 hover:bg-dark-500 mb-2 flex cursor-pointer items-center justify-between rounded bg-opacity-80 px-3 py-2 leading-none ring-blue-500 transition-all active:ring-2"
+            class="mb-2 flex cursor-pointer items-center justify-between rounded bg-dark-800 bg-opacity-80 px-3 py-2 leading-none ring-blue-500 transition-all hover:bg-dark-500 active:ring-2"
             :class="{
               'opacity-40': !isSiteEnabled(siteAction),
             }"
