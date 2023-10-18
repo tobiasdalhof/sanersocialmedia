@@ -92,7 +92,7 @@ export class SiteAction {
 
   findWidget(parent: HTMLElement): HTMLElement | null {
     if (parent.parentElement)
-      return parent.parentElement.querySelector(`[${this.idDataAttribute}=${this.id}]['data-sanersocialmedia-widget']`)
+      return parent.parentElement.querySelector(`[${this.idDataAttribute}=${this.id}][data-sanersocialmedia-widget]`)
 
     return null
   }
