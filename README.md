@@ -8,24 +8,23 @@
 
 Block social media distractions and replace them with uplifting quotes to improve your productivity.
 
-![Twitter](./.github/twitter.png)
-![Extension settings](./.github/settings.png)
+![X](./.github/x.png)
 
 ## Supported sites
 
-| Site            | Blocked distractions                                         |
-| :-------------- | :----------------------------------------------------------- |
-| **YouTube**     | Home feed, sidebar video suggestions, video comments, shorts |
-| **Twitter**     | Home feed, sidebar trends, sidebar follow suggestions        |
-| **Instagram**   | Home feed, explore feed, reels feed                          |
-| **Facebook**    | Home feed                                                    |
-| **TikTok**      | Home feed                                                    |
-| **Pinterest**   | Home feed, related pins                                      |
-| **LinkedIn**    | Home feed, sidebar trends                                    |
-| **Twitch**      | Home feed                                                    |
-| **Reddit**      | Home feed, subreddit feeds                                   |
-| **GitHub**      | Home feed                                                    |
-| **Hacker News** | Home feed, /newest feed, /front feed                         |
+| Site                     | Blocked distractions                                         |
+| :----------------------- | :----------------------------------------------------------- |
+| **YouTube**              | Home feed, sidebar video suggestions, video comments, shorts |
+| **X (formerly Twitter)** | Home feed, sidebar trends, sidebar follow suggestions        |
+| **Instagram**            | Home feed, explore feed, reels feed                          |
+| **Facebook**             | Home feed                                                    |
+| **TikTok**               | Home feed                                                    |
+| **Pinterest**            | Home feed, related pins                                      |
+| **LinkedIn**             | Home feed, sidebar trends                                    |
+| **Twitch**               | Home feed                                                    |
+| **Reddit**               | Home feed, subreddit feeds                                   |
+| **GitHub**               | Home feed                                                    |
+| **Hacker News**          | Home feed, /newest feed, /front feed                         |
 
 ## Other features
 
@@ -45,12 +44,11 @@ Block social media distractions and replace them with uplifting quotes to improv
 ## Development
 
 - Clone this repo
-- Install dependencies with `pnpm i -r`
-- `cd` into `extension` directory with `cd extension`
+- Install dependencies with `pnpm install`
 - Start dev watchers with `pnpm dev`
 - Open `chrome://extensions/` in Chrome
   - Enable `Developer mode`
-  - Click `Load unpacked` and select the `extension/dev` directory
+  - Click `Load unpacked` and select the `dist` directory
 
 Note: HMR for the options page is [not possible yet](https://github.com/antfu/vitesse-webext/issues/59#issuecomment-1011008367). 
 

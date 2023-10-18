@@ -1,29 +1,24 @@
 {
   "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "useDefineForClassFields": true,
     "baseUrl": ".",
     "rootDir": ".",
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
+    "paths": {
+      "~/*": ["./src/*"]
+    },
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
     "types": [
       "node",
       "chrome",
       "vite/client"
     ],
-    "paths": {
-      "@sanersocialmedia/core": ["./packages/core/src"],
-      "@sanersocialmedia/shared": ["./packages/shared/src"]
-    }
+    "strict": true,
+    "sourceMap": true,
+    "esModuleInterop": true
   },
-  "exclude": [
-    "**/dist/**",
-    "**/node_modules/**"
-  ]
+  "exclude": ["dist", "node_modules"]
 }

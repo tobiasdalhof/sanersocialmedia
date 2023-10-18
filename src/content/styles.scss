@@ -1,0 +1,41 @@
+[data-sanersocialmedia-widget] {
+  max-width: 100%;
+  &[data-is-dark] {
+    color: #fff;
+    [data-quote] {
+      border-left: solid 3px rgba(255, 255, 255, 0.5);
+    }
+  }
+  &[data-is-light] {
+    color: #000;
+    [data-quote] {
+      border-left: solid 3px rgba(0, 0, 0, 0.5);
+    }
+  }
+  [data-quote] {
+    padding: 12px 20px;
+    line-height: 1.2;
+    [data-quote-text] {
+      padding-bottom: 12px;
+      font-size: 20px;
+      opacity: 0.9;
+    }
+    [data-quote-author] {
+      font-size: 16px;
+      opacity: 0.8;
+    }
+  }
+  [data-footer] {
+    margin-top: 10px;
+    a {
+      font-size: 14px;
+      color: inherit;
+      opacity: 0.4;
+      text-decoration: none;
+      &:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "name": "website",
-  "private": true,
-  "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "dev": "vite --open",
-    "build": "vite build"
-  }
-}

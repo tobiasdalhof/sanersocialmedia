@@ -1,0 +1,73 @@
+{
+  "name": "Saner Social Media - Feed Blocker",
+  "description": "__MSG_manifestDescription__",
+  "version": "1.8.0",
+  "manifest_version": 3,
+  "default_locale": "en",
+  "icons": {
+    "16": "icon16.png",
+    "24": "icon24.png",
+    "32": "icon32.png",
+    "48": "logo48.png",
+    "64": "logo64.png",
+    "128": "logo128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.youtube.com/*",
+        "https://*.x.com/*",
+        "https://*.twitter.com/*",
+        "https://*.instagram.com/*",
+        "https://*.facebook.com/*",
+        "https://*.tiktok.com/*",
+        "https://*.pinterest.com/*",
+        "https://*.pinterest.com.mx/*",
+        "https://*.pinterest.de/*",
+        "https://*.pinterest.fr/*",
+        "https://*.pinterest.ca/*",
+        "https://*.pinterest.co.uk/*",
+        "https://*.pinterest.it/*",
+        "https://*.pinterest.es/*",
+        "https://*.pinterest.be/*",
+        "https://*.pinterest.pt/*",
+        "https://*.pinterest.se/*",
+        "https://*.pinterest.at/*",
+        "https://*.linkedin.com/*",
+        "https://*.twitch.tv/*",
+        "https://*.reddit.com/*",
+        "https://*.github.com/*",
+        "https://news.ycombinator.com/*"
+      ],
+      "all_frames": true,
+      "run_at": "document_start",
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.style.css"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_ui": {
+    "page": "options/index.html",
+    "open_in_tab": true
+  },
+  "action": {},
+  "permissions": [
+    "storage"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "options/index.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
