@@ -1,7 +1,7 @@
 import { paramCase } from 'change-case'
 import type { UserConfig, UserConfigKey } from './types'
 import { hasDarkBackground } from './utils'
-import WidgetService, { QuoteWidgetDataAttribute } from './services/WidgetService'
+import WidgetService, { WidgetDataAttribute } from './services/WidgetService'
 
 interface SiteParams {
   name: string
@@ -90,10 +90,10 @@ export class SiteAction {
     elements.forEach(element => element.remove())
   }
 
-  findQuoteWidget(parent: HTMLElement): HTMLElement | null {
+  findWidget(parent: HTMLElement): HTMLElement | null {
     if (parent.parentElement) {
       return parent.parentElement
-        .querySelector(`[${this.idDataAttribute}=${this.id}][${QuoteWidgetDataAttribute.Container}]`)
+        .querySelector(`[${this.idDataAttribute}=${this.id}][${WidgetDataAttribute.Container}]`)
     }
 
     return null
@@ -103,23 +103,23 @@ export class SiteAction {
     return this.userConfig ? this.userConfig.HideOptionsLink === true : false
   }
 
-  createQuoteWidget(parent: HTMLElement): HTMLElement | undefined {
-    const foundWidget = this.findQuoteWidget(parent)
+  createWidget(parent: HTMLElement): HTMLElement | undefined {
+    const foundWidget = this.findWidget(parent)
     if (foundWidget) {
       if (this.hideOptionsLink())
-        foundWidget.setAttribute(QuoteWidgetDataAttribute.HideOptionsLink, '')
+        foundWidget.setAttribute(WidgetDataAttribute.HideOptionsLink, '')
       else
-        foundWidget.removeAttribute(QuoteWidgetDataAttribute.HideOptionsLink)
+        foundWidget.removeAttribute(WidgetDataAttribute.HideOptionsLink)
 
       // widget already exists
       return undefined
     }
 
     const isDark = hasDarkBackground(parent)
-    const widget = new WidgetService().createQuoteWidget({ isDark })
+    const widget = new WidgetService().createWidget({ isDark })
     widget.setAttribute(this.idDataAttribute, this.id)
     if (this.hideOptionsLink())
-      widget.setAttribute(QuoteWidgetDataAttribute.HideOptionsLink, '')
+      widget.setAttribute(WidgetDataAttribute.HideOptionsLink, '')
 
     return widget
   }

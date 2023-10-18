@@ -21,11 +21,11 @@ const twitch = new Site({
         const container = await waitForElement('.root-scrollable')
         mute(container)
         setTimeout(() => {
-          const quote = siteAction.createQuoteWidget(container)
-          if (!quote)
+          const widget = siteAction.createWidget(container)
+          if (!widget)
             return
-          quote.style.padding = '30px'
-          container.before(quote)
+          widget.style.padding = '30px'
+          container.before(widget)
         }, 1000)
       },
     }),

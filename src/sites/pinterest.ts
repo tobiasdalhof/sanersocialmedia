@@ -21,11 +21,11 @@ const pinterest = new Site({
         const container = await waitForElement('[data-test-id="homefeed-feed"]')
         mute(container)
         setTimeout(() => {
-          const quote = siteAction.createQuoteWidget(container)
-          if (!quote)
+          const widget = siteAction.createWidget(container)
+          if (!widget)
             return
-          quote.style.padding = '24px'
-          container.after(quote)
+          widget.style.padding = '24px'
+          container.after(widget)
         }, 1000)
       },
     }),
@@ -42,11 +42,11 @@ const pinterest = new Site({
         const container = await waitForElement('[data-test-id="relatedPins"]')
         mute(container)
         setTimeout(() => {
-          const quote = siteAction.createQuoteWidget(container)
-          if (!quote)
+          const widget = siteAction.createWidget(container)
+          if (!widget)
             return
-          quote.style.padding = '24px'
-          container.after(quote)
+          widget.style.padding = '24px'
+          container.after(widget)
         }, 1000)
       },
     }),

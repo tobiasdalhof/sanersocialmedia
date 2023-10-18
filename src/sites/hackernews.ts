@@ -1,5 +1,5 @@
 import logoSvg from 'super-tiny-icons/images/svg/hackernews.svg'
-import { QuoteWidgetDataAttribute } from '~/services/WidgetService'
+import { WidgetDataAttribute } from '~/services/WidgetService'
 import { UserConfigKey } from '~/types'
 import { waitForElement } from '~/utils'
 import { Site, SiteAction } from '~/site'
@@ -20,11 +20,11 @@ const hackernews = new Site({
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('#hnmain > tbody > tr:nth-child(3) > td')
-        const quote = siteAction.createQuoteWidget(container)
-        if (!quote)
+        const widget = siteAction.createWidget(container)
+        if (!widget)
           return
-        quote.style.padding = '25px'
-        container.appendChild(quote)
+        widget.style.padding = '25px'
+        container.appendChild(widget)
       },
     }),
     new SiteAction({
@@ -32,17 +32,17 @@ const hackernews = new Site({
       validateUrl: url => url.pathname === '/newest',
       requiredUserConfigKey: UserConfigKey.HackerNewsNewestFeed,
       injectCss: `
-        #hnmain > tbody > tr:nth-child(3) > td > :not([${QuoteWidgetDataAttribute.Container}]) {
+        #hnmain > tbody > tr:nth-child(3) > td > :not([${WidgetDataAttribute.Container}]) {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('#hnmain > tbody > tr:nth-child(3) > td')
-        const quote = siteAction.createQuoteWidget(container)
-        if (!quote)
+        const widget = siteAction.createWidget(container)
+        if (!widget)
           return
-        quote.style.padding = '25px'
-        container.appendChild(quote)
+        widget.style.padding = '25px'
+        container.appendChild(widget)
       },
     }),
     new SiteAction({
@@ -50,17 +50,17 @@ const hackernews = new Site({
       validateUrl: url => url.pathname === '/front',
       requiredUserConfigKey: UserConfigKey.HackerNewsFrontFeed,
       injectCss: `
-        #hnmain > tbody > tr:nth-child(3) > td > :not([${QuoteWidgetDataAttribute.Container}]) {
+        #hnmain > tbody > tr:nth-child(3) > td > :not([${WidgetDataAttribute.Container}]) {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('#hnmain > tbody > tr:nth-child(3) > td')
-        const quote = siteAction.createQuoteWidget(container)
-        if (!quote)
+        const widget = siteAction.createWidget(container)
+        if (!widget)
           return
-        quote.style.padding = '25px'
-        container.appendChild(quote)
+        widget.style.padding = '25px'
+        container.appendChild(widget)
       },
     }),
   ],

@@ -1,8 +1,8 @@
 import { getOptionsURL } from '~/chrome'
 import { getRandomQuote } from '~/quotes'
 
-export enum QuoteWidgetDataAttribute {
-  Container = 'data-sanersocialmedia-quote-container',
+export enum WidgetDataAttribute {
+  Container = 'data-sanersocialmedia-widget-container',
   IsDark = 'data-is-dark',
   IsLight = 'data-is-light',
   HideOptionsLink = 'data-hide-options-link',
@@ -13,42 +13,42 @@ export enum QuoteWidgetDataAttribute {
   OptionsLink = 'data-options-link',
 }
 
-interface CreateQuoteWidgetOptions {
+interface createWidgetOptions {
   isDark: boolean
 }
 
 export default class WidgetService {
-  createQuoteWidget(options: CreateQuoteWidgetOptions): HTMLElement {
+  createWidget(options: createWidgetOptions): HTMLElement {
     const randomQuote = getRandomQuote()
 
     const quoteContainer = document.createElement('div')
-    quoteContainer.setAttribute(QuoteWidgetDataAttribute.Container, '')
+    quoteContainer.setAttribute(WidgetDataAttribute.Container, '')
     if (options.isDark)
-      quoteContainer.setAttribute(QuoteWidgetDataAttribute.IsDark, '')
-    else quoteContainer.setAttribute(QuoteWidgetDataAttribute.IsLight, '')
+      quoteContainer.setAttribute(WidgetDataAttribute.IsDark, '')
+    else quoteContainer.setAttribute(WidgetDataAttribute.IsLight, '')
 
     const quote = document.createElement('div')
-    quote.setAttribute(QuoteWidgetDataAttribute.Quote, '')
+    quote.setAttribute(WidgetDataAttribute.Quote, '')
 
     const quoteText = document.createElement('div')
-    quoteText.setAttribute(QuoteWidgetDataAttribute.QuoteText, '')
+    quoteText.setAttribute(WidgetDataAttribute.QuoteText, '')
     quoteText.textContent = randomQuote.text
 
     const quoteAuthor = document.createElement('div')
-    quoteAuthor.setAttribute(QuoteWidgetDataAttribute.QuoteAuthor, '')
+    quoteAuthor.setAttribute(WidgetDataAttribute.QuoteAuthor, '')
     quoteAuthor.textContent = `— ${randomQuote.author}`
 
     quote.appendChild(quoteText)
     quote.appendChild(quoteAuthor)
 
     const footer = document.createElement('div')
-    footer.setAttribute(QuoteWidgetDataAttribute.Footer, '')
+    footer.setAttribute(WidgetDataAttribute.Footer, '')
 
     const optionsLink = document.createElement('a')
     optionsLink.textContent = 'Saner Social Media Extension'
     optionsLink.href = getOptionsURL()
     optionsLink.target = '_blank'
-    optionsLink.setAttribute(QuoteWidgetDataAttribute.OptionsLink, '')
+    optionsLink.setAttribute(WidgetDataAttribute.OptionsLink, '')
 
     footer.appendChild(optionsLink)
 

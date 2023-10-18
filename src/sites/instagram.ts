@@ -1,5 +1,5 @@
 import logoSvg from 'super-tiny-icons/images/svg/instagram.svg'
-import { QuoteWidgetDataAttribute } from '~/services/WidgetService'
+import { WidgetDataAttribute } from '~/services/WidgetService'
 import { UserConfigKey } from '~/types'
 import { mute, waitForElement } from '~/utils'
 import { Site, SiteAction } from '~/site'
@@ -14,17 +14,17 @@ const instagram = new Site({
       validateUrl: url => ['/'].includes(url.pathname),
       requiredUserConfigKey: UserConfigKey.InstagramHomeFeed,
       injectCss: `
-        main[role=main] > :not([${QuoteWidgetDataAttribute.Container}]) {
+        main[role=main] > :not([${WidgetDataAttribute.Container}]) {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('main[role=main]')
         mute(container)
-        const quote = siteAction.createQuoteWidget(container)
-        if (quote) {
-          quote.style.padding = '25px 50px'
-          container.appendChild(quote)
+        const widget = siteAction.createWidget(container)
+        if (widget) {
+          widget.style.padding = '25px 50px'
+          container.appendChild(widget)
         }
       },
     }),
@@ -33,17 +33,17 @@ const instagram = new Site({
       validateUrl: url => ['/explore', '/explore/'].includes(url.pathname),
       requiredUserConfigKey: UserConfigKey.InstagramExplore,
       injectCss: `
-        main[role=main] > :not([${QuoteWidgetDataAttribute.Container}]) {
+        main[role=main] > :not([${WidgetDataAttribute.Container}]) {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('main[role=main]')
         mute(container)
-        const quote = siteAction.createQuoteWidget(container)
-        if (quote) {
-          quote.style.padding = '25px 50px'
-          container.appendChild(quote)
+        const widget = siteAction.createWidget(container)
+        if (widget) {
+          widget.style.padding = '25px 50px'
+          container.appendChild(widget)
         }
       },
     }),
@@ -52,17 +52,17 @@ const instagram = new Site({
       validateUrl: url => url.pathname.includes('/reels'),
       requiredUserConfigKey: UserConfigKey.InstagramReels,
       injectCss: `
-        main[role=main] > :not([${QuoteWidgetDataAttribute.Container}]) {
+        main[role=main] > :not([${WidgetDataAttribute.Container}]) {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('main[role=main]')
         mute(container)
-        const quote = siteAction.createQuoteWidget(container)
-        if (quote) {
-          quote.style.padding = '25px 50px'
-          container.appendChild(quote)
+        const widget = siteAction.createWidget(container)
+        if (widget) {
+          widget.style.padding = '25px 50px'
+          container.appendChild(widget)
         }
       },
     }),

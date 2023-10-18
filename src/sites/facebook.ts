@@ -21,10 +21,10 @@ const facebook = new Site({
         const container = await waitForElement('#ssrb_feed_start + div')
         mute(container)
         setTimeout(() => {
-          const quote = siteAction.createQuoteWidget(container)
-          if (!quote)
+          const widget = siteAction.createWidget(container)
+          if (!widget)
             return
-          container.after(quote)
+          container.after(widget)
         }, 1000)
       },
     }),

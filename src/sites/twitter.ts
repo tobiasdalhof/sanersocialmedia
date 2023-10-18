@@ -20,11 +20,11 @@ const twitter = new Site({
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('[data-testid="primaryColumn"] > div:last-child > div:nth-child(5)')
         mute(container)
-        const quote = siteAction.createQuoteWidget(container)
-        if (!quote)
+        const widget = siteAction.createWidget(container)
+        if (!widget)
           return
-        quote.style.padding = '40px'
-        container.after(quote)
+        widget.style.padding = '40px'
+        container.after(widget)
       },
     }),
     new SiteAction({
@@ -38,11 +38,11 @@ const twitter = new Site({
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('[data-testid="sidebarColumn"] section')
-        const quote = siteAction.createQuoteWidget(container)
-        if (!quote)
+        const widget = siteAction.createWidget(container)
+        if (!widget)
           return
-        quote.style.padding = '20px'
-        container.after(quote)
+        widget.style.padding = '20px'
+        container.after(widget)
       },
     }),
     new SiteAction({
@@ -56,11 +56,11 @@ const twitter = new Site({
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('[data-testid="sidebarColumn"] aside')
-        const quote = siteAction.createQuoteWidget(container)
-        if (!quote)
+        const widget = siteAction.createWidget(container)
+        if (!widget)
           return
-        quote.style.padding = '20px'
-        container.after(quote)
+        widget.style.padding = '20px'
+        container.after(widget)
       },
     }),
   ],

@@ -20,11 +20,11 @@ const youtube = new Site({
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('ytd-browse #primary')
         mute(container)
-        const quote = siteAction.createQuoteWidget(container)
-        if (!quote)
+        const widget = siteAction.createWidget(container)
+        if (!widget)
           return
-        quote.style.padding = '40px'
-        container.after(quote)
+        widget.style.padding = '40px'
+        container.after(widget)
       },
     }),
     new SiteAction({
@@ -38,11 +38,11 @@ const youtube = new Site({
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('#secondary #related')
-        const quote = siteAction.createQuoteWidget(container)
-        if (!quote)
+        const widget = siteAction.createWidget(container)
+        if (!widget)
           return
-        quote.style.paddingBottom = '40px'
-        container.after(quote)
+        widget.style.paddingBottom = '40px'
+        container.after(widget)
       },
     }),
     new SiteAction({
@@ -58,11 +58,11 @@ const youtube = new Site({
       `,
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('#comments #contents')
-        const quote = siteAction.createQuoteWidget(container)
-        if (!quote)
+        const widget = siteAction.createWidget(container)
+        if (!widget)
           return
-        quote.style.paddingBottom = '40px'
-        container.after(quote)
+        widget.style.paddingBottom = '40px'
+        container.after(widget)
       },
     }),
     new SiteAction({
@@ -79,12 +79,12 @@ const youtube = new Site({
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('ytd-shorts')
         mute(container)
-        const quote = siteAction.createQuoteWidget(container)
-        if (!quote)
+        const widget = siteAction.createWidget(container)
+        if (!widget)
           return
-        quote.style.padding = '40px'
-        quote.style.width = '100%'
-        container.after(quote)
+        widget.style.padding = '40px'
+        widget.style.width = '100%'
+        container.after(widget)
       },
     }),
   ],
