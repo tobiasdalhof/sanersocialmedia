@@ -6,7 +6,10 @@ import { UserConfigKey } from '~/types'
 const twitter = new Site({
   logoSvg,
   name: 'Twitter',
-  validateUrl: url => url.host.replace('www.', '') === 'twitter.com',
+  validateUrl: (url) => {
+    const host = url.host.replace('www.', '')
+    return ['twitter.com', 'x.com'].includes(host)
+  },
   siteActions: [
     new SiteAction({
       name: chrome.i18n.getMessage('blockHomeFeed'),

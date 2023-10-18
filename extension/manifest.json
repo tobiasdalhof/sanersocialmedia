@@ -16,6 +16,7 @@
     {
       "matches": [
         "https://*.youtube.com/*",
+        "https://*.x.com/*",
         "https://*.twitter.com/*",
         "https://*.instagram.com/*",
         "https://*.facebook.com/*",

@@ -8,24 +8,23 @@
 
 Block social media distractions and replace them with uplifting quotes to improve your productivity.
 
-![Twitter](./.github/twitter.png)
-![Extension settings](./.github/settings.png)
+![X](./.github/x.png)
 
 ## Supported sites
 
-| Site            | Blocked distractions                                         |
-| :-------------- | :----------------------------------------------------------- |
-| **YouTube**     | Home feed, sidebar video suggestions, video comments, shorts |
-| **Twitter**     | Home feed, sidebar trends, sidebar follow suggestions        |
-| **Instagram**   | Home feed, explore feed, reels feed                          |
-| **Facebook**    | Home feed                                                    |
-| **TikTok**      | Home feed                                                    |
-| **Pinterest**   | Home feed, related pins                                      |
-| **LinkedIn**    | Home feed, sidebar trends                                    |
-| **Twitch**      | Home feed                                                    |
-| **Reddit**      | Home feed, subreddit feeds                                   |
-| **GitHub**      | Home feed                                                    |
-| **Hacker News** | Home feed, /newest feed, /front feed                         |
+| Site                     | Blocked distractions                                         |
+| :----------------------- | :----------------------------------------------------------- |
+| **YouTube**              | Home feed, sidebar video suggestions, video comments, shorts |
+| **X (formerly Twitter)** | Home feed, sidebar trends, sidebar follow suggestions        |
+| **Instagram**            | Home feed, explore feed, reels feed                          |
+| **Facebook**             | Home feed                                                    |
+| **TikTok**               | Home feed                                                    |
+| **Pinterest**            | Home feed, related pins                                      |
+| **LinkedIn**             | Home feed, sidebar trends                                    |
+| **Twitch**               | Home feed                                                    |
+| **Reddit**               | Home feed, subreddit feeds                                   |
+| **GitHub**               | Home feed                                                    |
+| **Hacker News**          | Home feed, /newest feed, /front feed                         |
 
 ## Other features
 
