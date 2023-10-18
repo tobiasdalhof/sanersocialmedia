@@ -1,8 +1,6 @@
 {
+  "type": "module",
   "private": true,
-  "engines": {
-    "node": "18"
-  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint .",
@@ -24,9 +22,6 @@
     "@types/chrome": "^0.0.248",
     "@types/color": "^3.0.5",
     "@types/node": "^20.8.6",
-    "@unocss/eslint-config": "^0.56.5",
-    "@unocss/preset-uno": "^0.56.5",
-    "@unocss/preset-web-fonts": "^0.56.5",
     "@unocss/reset": "^0.56.5",
     "@vitejs/plugin-vue": "^4.4.0",
     "color": "^4.2.3",
