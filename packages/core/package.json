@@ -1,7 +1,0 @@
-{
-  "name": "@sanersocialmedia/core",
-  "private": true,
-  "scripts": {
-    "preinstall": "npx only-allow pnpm"
-  }
-}

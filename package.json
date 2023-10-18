@@ -6,7 +6,18 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "dev": "npm run clear && npm run copy-extension-dir && NODE_ENV=development run-p dev:options dev:content dev:background",
+    "build": "npm run clear && npm run build:options && npm run build:content && npm run build:background && npm run copy-extension-dir",
+    "zip": "npm run build && 7z a extension.zip ./dist/*",
+    "dev:options": "npm run build:options -- -w",
+    "dev:content": "npm run build:content -- -w",
+    "dev:background": "npm run build:background -- -w",
+    "build:options": "vite build -c vite.config.options.ts",
+    "build:content": "vite build -c vite.config.content.ts",
+    "build:background": "vite build -c vite.config.background.ts",
+    "clear": "rimraf ./dist",
+    "copy-extension-dir": "cp -T -r ./extension ./dist"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.8",
