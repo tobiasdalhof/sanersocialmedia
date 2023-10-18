@@ -1,4 +1,3 @@
-import { paramCase } from 'change-case'
 import type { UserConfig, UserConfigKey } from './types'
 import { hasDarkBackground } from './utils'
 import { getRandomQuote } from './quotes'
@@ -51,7 +50,7 @@ export class SiteAction {
 
   constructor(params: SiteActionParams) {
     this.params = params
-    this.id = paramCase(params.name)
+    this.id = params.name
   }
 
   setUserConfig(userConfig?: UserConfig) {
