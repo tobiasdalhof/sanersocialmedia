@@ -50,7 +50,7 @@ export class SiteAction {
 
   constructor(params: SiteActionParams) {
     this.params = params
-    this.id = params.name
+    this.id = window.btoa(params.name)
   }
 
   setUserConfig(userConfig?: UserConfig) {
