@@ -44,12 +44,11 @@ Block social media distractions and replace them with uplifting quotes to improv
 ## Development
 
 - Clone this repo
-- Install dependencies with `pnpm i -r`
-- `cd` into `extension` directory with `cd extension`
+- Install dependencies with `pnpm install`
 - Start dev watchers with `pnpm dev`
 - Open `chrome://extensions/` in Chrome
   - Enable `Developer mode`
-  - Click `Load unpacked` and select the `extension/dev` directory
+  - Click `Load unpacked` and select the `dist` directory
 
 Note: HMR for the options page is [not possible yet](https://github.com/antfu/vitesse-webext/issues/59#issuecomment-1011008367). 
 
