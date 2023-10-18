@@ -1,24 +1,24 @@
 {
   "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "useDefineForClassFields": true,
     "baseUrl": ".",
     "rootDir": ".",
-    "target": "ESNext",
-    "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "node",
-    "strict": true,
-    "sourceMap": true,
+    "paths": {
+      "~/*": ["./src/*"]
+    },
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
     "types": [
       "node",
       "chrome",
       "vite/client"
     ],
-    "paths": {
-      "~/*": ["./src/*"],
-    }
+    "strict": true,
+    "sourceMap": true,
+    "esModuleInterop": true
   },
   "exclude": ["dist", "node_modules"]
 }
