@@ -1,7 +1,7 @@
 import { paramCase } from 'change-case'
 import type { UserConfig, UserConfigKey } from './types'
 import { hasDarkBackground } from './utils'
-import WidgetService, { WidgetDataAttribute } from './services/WidgetService'
+import { getRandomQuote } from './quotes'
 
 interface SiteParams {
   name: string
@@ -91,10 +91,8 @@ export class SiteAction {
   }
 
   findWidget(parent: HTMLElement): HTMLElement | null {
-    if (parent.parentElement) {
-      return parent.parentElement
-        .querySelector(`[${this.idDataAttribute}=${this.id}][${WidgetDataAttribute.Container}]`)
-    }
+    if (parent.parentElement)
+      return parent.parentElement.querySelector(`[${this.idDataAttribute}=${this.id}]['data-sanersocialmedia-widget']`)
 
     return null
   }
@@ -106,9 +104,28 @@ export class SiteAction {
       return undefined
     }
 
-    const isDark = hasDarkBackground(parent)
-    const widget = new WidgetService().createWidget({ isDark })
+    const randomQuote = getRandomQuote()
+    const widget = document.createElement('div')
     widget.setAttribute(this.idDataAttribute, this.id)
+    widget.setAttribute('data-sanersocialmedia-widget', '')
+    if (hasDarkBackground(parent))
+      widget.setAttribute('data-is-dark', '')
+    else widget.setAttribute('data-is-light', '')
+
+    const quote = document.createElement('div')
+    quote.setAttribute('data-quote', '')
+
+    const quoteText = document.createElement('div')
+    quoteText.setAttribute('data-quote-text', '')
+    quoteText.textContent = randomQuote.text
+
+    const quoteAuthor = document.createElement('div')
+    quoteAuthor.setAttribute('data-quote-author', '')
+    quoteAuthor.textContent = `— ${randomQuote.author}`
+
+    quote.appendChild(quoteText)
+    quote.appendChild(quoteAuthor)
+    widget.appendChild(quote)
 
     return widget
   }

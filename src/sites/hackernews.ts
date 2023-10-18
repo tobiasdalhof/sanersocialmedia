@@ -1,5 +1,4 @@
 import logoSvg from 'super-tiny-icons/images/svg/hackernews.svg'
-import { WidgetDataAttribute } from '~/services/WidgetService'
 import { UserConfigKey } from '~/types'
 import { waitForElement } from '~/utils'
 import { Site, SiteAction } from '~/site'
@@ -32,7 +31,7 @@ const hackernews = new Site({
       validateUrl: url => url.pathname === '/newest',
       requiredUserConfigKey: UserConfigKey.HackerNewsNewestFeed,
       injectCss: `
-        #hnmain > tbody > tr:nth-child(3) > td > :not([${WidgetDataAttribute.Container}]) {
+        #hnmain > tbody > tr:nth-child(3) > td > :not([data-sanersocialmedia-widget]) {
           display: none!important;
         }
       `,
@@ -50,7 +49,7 @@ const hackernews = new Site({
       validateUrl: url => url.pathname === '/front',
       requiredUserConfigKey: UserConfigKey.HackerNewsFrontFeed,
       injectCss: `
-        #hnmain > tbody > tr:nth-child(3) > td > :not([${WidgetDataAttribute.Container}]) {
+        #hnmain > tbody > tr:nth-child(3) > td > :not([data-sanersocialmedia-widget]) {
           display: none!important;
         }
       `,

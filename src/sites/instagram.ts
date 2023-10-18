@@ -1,5 +1,4 @@
 import logoSvg from 'super-tiny-icons/images/svg/instagram.svg'
-import { WidgetDataAttribute } from '~/services/WidgetService'
 import { UserConfigKey } from '~/types'
 import { mute, waitForElement } from '~/utils'
 import { Site, SiteAction } from '~/site'
@@ -14,7 +13,7 @@ const instagram = new Site({
       validateUrl: url => ['/'].includes(url.pathname),
       requiredUserConfigKey: UserConfigKey.InstagramHomeFeed,
       injectCss: `
-        main[role=main] > :not([${WidgetDataAttribute.Container}]) {
+        main[role=main] > :not([data-sanersocialmedia-widget]) {
           display: none!important;
         }
       `,
@@ -33,7 +32,7 @@ const instagram = new Site({
       validateUrl: url => ['/explore', '/explore/'].includes(url.pathname),
       requiredUserConfigKey: UserConfigKey.InstagramExplore,
       injectCss: `
-        main[role=main] > :not([${WidgetDataAttribute.Container}]) {
+        main[role=main] > :not([data-sanersocialmedia-widget]) {
           display: none!important;
         }
       `,
@@ -52,7 +51,7 @@ const instagram = new Site({
       validateUrl: url => url.pathname.includes('/reels'),
       requiredUserConfigKey: UserConfigKey.InstagramReels,
       injectCss: `
-        main[role=main] > :not([${WidgetDataAttribute.Container}]) {
+        main[role=main] > :not([data-sanersocialmedia-widget]) {
           display: none!important;
         }
       `,
