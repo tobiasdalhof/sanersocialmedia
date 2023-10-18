@@ -13,12 +13,12 @@ const facebook = new Site({
       validateUrl: url => url.pathname === '/',
       requiredUserConfigKey: UserConfigKey.FacebookHomeFeed,
       injectCss: `
-        #ssrb_feed_start + div {
+        div[role="feed"], #ssrb_feed_start + div {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('#ssrb_feed_start + div')
+        const container = await waitForElement('div[role="feed"], #ssrb_feed_start + div')
         mute(container)
         setTimeout(() => {
           const widget = siteAction.createWidget(container)
