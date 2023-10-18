@@ -99,18 +99,9 @@ export class SiteAction {
     return null
   }
 
-  hideOptionsLink(): boolean {
-    return this.userConfig ? this.userConfig.HideOptionsLink === true : false
-  }
-
   createWidget(parent: HTMLElement): HTMLElement | undefined {
     const foundWidget = this.findWidget(parent)
     if (foundWidget) {
-      if (this.hideOptionsLink())
-        foundWidget.setAttribute(WidgetDataAttribute.HideOptionsLink, '')
-      else
-        foundWidget.removeAttribute(WidgetDataAttribute.HideOptionsLink)
-
       // widget already exists
       return undefined
     }
@@ -118,8 +109,6 @@ export class SiteAction {
     const isDark = hasDarkBackground(parent)
     const widget = new WidgetService().createWidget({ isDark })
     widget.setAttribute(this.idDataAttribute, this.id)
-    if (this.hideOptionsLink())
-      widget.setAttribute(WidgetDataAttribute.HideOptionsLink, '')
 
     return widget
   }

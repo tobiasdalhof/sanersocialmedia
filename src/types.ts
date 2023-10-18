@@ -23,7 +23,6 @@ export enum UserConfigKey {
   RedditHomeFeed = 'RedditHomeFeed',
   RedditSubFeed = 'RedditSubFeed',
   GitHubHomeFeed = 'GitHubHomeFeed',
-  HideOptionsLink = 'HideOptionsLink',
   HackerNewsHomeFeed = 'HackerNewsHomeFeed',
   HackerNewsNewestFeed = 'HackerNewsNewestFeed',
   HackerNewsFrontFeed = 'HackerNewsFrontFeed',
