@@ -6487,4 +6487,6 @@ const quotes: Quote[] = [
   },
 ]
 
-export default quotes
+export function getRandomQuote(): Quote {
+  return quotes[Math.floor(Math.random() * quotes.length)]
+}

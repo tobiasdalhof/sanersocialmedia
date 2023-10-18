@@ -1,5 +1,5 @@
-import QuoteService from './QuoteService'
 import { getOptionsURL } from '~/chrome'
+import { getRandomQuote } from '~/quotes'
 
 export enum QuoteWidgetDataAttribute {
   Container = 'data-sanersocialmedia-quote-container',
@@ -19,7 +19,7 @@ interface CreateQuoteWidgetOptions {
 
 export default class WidgetService {
   createQuoteWidget(options: CreateQuoteWidgetOptions): HTMLElement {
-    const randomQuote = new QuoteService().getRandomQuote()
+    const randomQuote = getRandomQuote()
 
     const quoteContainer = document.createElement('div')
     quoteContainer.setAttribute(QuoteWidgetDataAttribute.Container, '')
