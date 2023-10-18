@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { mdiCheck, mdiChevronRight, mdiClose, mdiGithub, mdiGoogleChrome } from '@mdi/js'
 import SvgIcon from './components/SvgIcon.vue'
 import logo from './assets/logo.svg'
-import { type UserConfig, UserConfigKey } from '~/types'
+import { type UserConfig } from '~/types'
 import { facebook, github, hackernews, instagram, linkedin, pinterest, reddit, tiktok, twitch, twitter, youtube } from '~/sites'
 import { getStore, setUserConfig, toggleUserConfigKey } from '~/chrome'
 import type { SiteAction } from '~/site'
@@ -62,14 +62,6 @@ async function disableAllSiteActions() {
   }
 
   await setUserConfig({ ...userConfig.value, ...config })
-}
-
-const hideOptionsLink = computed(() => {
-  return userConfig.value?.HideOptionsLink === true
-})
-
-async function toggleHideOptionsLink() {
-  await toggleUserConfigKey(UserConfigKey.HideOptionsLink)
 }
 
 function i18n(key: string): string {
@@ -162,22 +154,6 @@ function i18n(key: string): string {
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="flex items-center">
-        <input
-          id="hide-quote-widget-options-link"
-          :checked="hideOptionsLink"
-          type="checkbox"
-          class="h-4 w-4 cursor-pointer"
-          @input="toggleHideOptionsLink()"
-        >
-        <label
-          class="ml-2 cursor-pointer"
-          for="hide-quote-widget-options-link"
-        >
-          {{ i18n('hideOptionsLink') }}
-        </label>
       </div>
     </div>
   </div>

@@ -5,7 +5,6 @@ export enum WidgetDataAttribute {
   Container = 'data-sanersocialmedia-widget-container',
   IsDark = 'data-is-dark',
   IsLight = 'data-is-light',
-  HideOptionsLink = 'data-hide-options-link',
   Quote = 'data-quote',
   QuoteText = 'data-quote-text',
   QuoteAuthor = 'data-quote-author',
