@@ -68,7 +68,7 @@ export class SiteAction {
   }
 
   injectCss(): HTMLStyleElement {
-    const foundStyle = <HTMLStyleElement>document.querySelector(`style[${this.idDataAttribute}=${this.id}]`)
+    const foundStyle = <HTMLStyleElement>document.querySelector(`style[${this.idDataAttribute}="${this.id}"]`)
     if (foundStyle)
       return foundStyle
 
@@ -91,7 +91,7 @@ export class SiteAction {
 
   findWidget(parent: HTMLElement): HTMLElement | null {
     if (parent.parentElement)
-      return parent.parentElement.querySelector(`[${this.idDataAttribute}=${this.id}][data-sanersocialmedia-widget]`)
+      return parent.parentElement.querySelector(`[${this.idDataAttribute}="${this.id}"][data-sanersocialmedia-widget]`)
 
     return null
   }
