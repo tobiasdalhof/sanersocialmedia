@@ -1,6 +1,6 @@
+import { getSiteByUrl } from '~/site'
 import './styles.scss'
 import * as sites from '~/sites'
-import SiteService from '~/services/SiteService'
 import type { Store } from '~/types'
 
 let waitInit = false
@@ -8,7 +8,7 @@ async function init(url: URL) {
   if (waitInit)
     return
   waitInit = true
-  const site = new SiteService().getSiteByUrl(Object.values(sites), url)
+  const site = getSiteByUrl(Object.values(sites), url)
   if (!site)
     return
 

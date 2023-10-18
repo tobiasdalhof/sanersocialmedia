@@ -124,3 +124,7 @@ export class SiteAction {
     return widget
   }
 }
+
+export function getSiteByUrl(sites: Site[], url: URL) {
+  return sites.find(site => site.isValidUrl(url))
+}
