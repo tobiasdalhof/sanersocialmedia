@@ -50,7 +50,7 @@ Block social media distractions and replace them with uplifting quotes to improv
   - Enable `Developer mode`
   - Click `Load unpacked` and select the `dist` directory
 
-Note: HMR for the options page is [not possible yet](https://github.com/antfu/vitesse-webext/issues/59#issuecomment-1011008367). 
+Note: HMR for the options page is [not possible yet](https://github.com/antfu/vitesse-webext/issues/59#issuecomment-1011008367).
 
 ## Acknowledgements
 
