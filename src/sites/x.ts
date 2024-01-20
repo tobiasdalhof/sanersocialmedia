@@ -17,7 +17,9 @@ const x = new Site({
       requiredUserConfigKey: UserConfigKey.XHomeFeed,
       injectCss: `
         [data-testid="primaryColumn"] > div:last-child > div:nth-child(5) {
-          display: none!important;
+          width: 0px!important;
+          height: 0px!important;
+          overflow: hidden!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
