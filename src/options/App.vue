@@ -7,6 +7,7 @@ import type { UserConfig } from '~/types'
 import { facebook, github, hackernews, instagram, linkedin, pinterest, reddit, tiktok, twitch, twitter, youtube } from '~/sites'
 import { getStore, setUserConfig, toggleUserConfigKey } from '~/chrome'
 import type { SiteAction } from '~/site'
+import facebookLogo from 'super-tiny-icons/images/svg/facebook.svg'
 
 const chromeWebStoreLink = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
 const githubLink = 'https://github.com/tobiasdalhof/sanersocialmedia'
