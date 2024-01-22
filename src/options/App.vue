@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
-import { mdiCheck, mdiChevronRight, mdiClose, mdiGithub, mdiGoogleChrome } from '@mdi/js'
-import SvgIcon from './components/SvgIcon.vue'
-import logo from './assets/logo.svg'
+import logo from '~/assets/logo.svg'
 import type { UserConfig } from '~/types'
 import { facebook, github, hackernews, instagram, linkedin, pinterest, reddit, tiktok, twitch, x, youtube } from '~/sites'
 import { getStore, setUserConfig, toggleUserConfigKey } from '~/chrome'
@@ -85,7 +83,7 @@ function i18n(key: string): string {
             class="inline-flex items-center"
             target="_blank"
           >
-            <SvgIcon :icon="mdiGoogleChrome" size="24px" />
+            <span class="i-mdi:google-chrome inline-block text-24px" />
             <span class="ml-2">{{ i18n('rateUs') }}</span>
           </a>
           <a
@@ -93,7 +91,7 @@ function i18n(key: string): string {
             class="inline-flex items-center"
             target="_blank"
           >
-            <SvgIcon :icon="mdiGithub" size="24px" />
+            <span class="i-mdi:github inline-block text-24px" />
             <span class="ml-2">{{ i18n('sourceCode') }}</span>
           </a>
         </div>
@@ -129,28 +127,16 @@ function i18n(key: string): string {
           >
             <div class="flex items-center">
               <div
-                class="h-7 w-7 rounded-full bg-center"
+                class="mr-4 h-7 w-7 rounded-full bg-center"
                 :style="{ backgroundImage: `url(${site.params.logoSvg})` }"
               />
-              <div class="ml-4">
-                <span>{{ site.params.name }}</span>
-                <SvgIcon :icon="mdiChevronRight" size="24px" class="mx-1" />
-                <span>{{ siteAction.params.name }}</span>
-              </div>
+              <div>{{ site.params.name }}</div>
+              <div class="i-mdi:chevron-right mx-1 text-24px" />
+              <div>{{ siteAction.params.name }}</div>
             </div>
             <div class="ml-4">
-              <SvgIcon
-                v-if="isSiteEnabled(siteAction)"
-                :icon="mdiCheck"
-                size="28px"
-                class="text-green-500"
-              />
-              <SvgIcon
-                v-else
-                :icon="mdiClose"
-                size="28px"
-                class="text-red-500"
-              />
+              <div v-if="isSiteEnabled(siteAction)" class="i-mdi:check text-28px text-green-500" />
+              <div v-else class="i-mdi:close text-28px text-red-500" />
             </div>
           </div>
         </div>

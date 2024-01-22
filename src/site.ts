@@ -1,6 +1,7 @@
 import type { UserConfig, UserConfigKey } from './types'
 import { hasDarkBackground } from './utils'
 import { getRandomQuote } from './quotes'
+import { checkSnoozed } from './chrome'
 
 interface SiteParams {
   name: string
@@ -20,10 +21,11 @@ export class Site {
     return this.params.validateUrl(url)
   }
 
-  runSiteActions(url: URL, userConfig: UserConfig) {
+  async runSiteActions(url: URL, userConfig: UserConfig) {
     for (const siteAction of this.params.siteActions) {
       siteAction.setUserConfig(userConfig)
-      if (!siteAction.canRun(url)) {
+      const snoozed = await checkSnoozed()
+      if (snoozed || !siteAction.canRun(url)) {
         siteAction.removeInjectedElements()
         continue
       }

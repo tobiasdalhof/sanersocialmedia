@@ -28,6 +28,7 @@ Block social media distractions and replace them with uplifting quotes to improv
 
 ## Other features
 
+- Temporarily unblock sites for a set amount of time
 - Shows over 1600 different inspiring and uplifting quotes
 - It works with dark modes
 
