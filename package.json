@@ -19,24 +19,24 @@
     "copy-extension-dir": "cp -T -r ./extension ./dist"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.6.3",
+    "@antfu/eslint-config": "^2.8.0",
     "@iconify-json/mdi": "^1.1.64",
-    "@types/chrome": "^0.0.258",
+    "@types/chrome": "^0.0.262",
     "@types/color": "^3.0.6",
-    "@types/node": "^20.11.5",
-    "@unocss/eslint-config": "^0.58.3",
-    "@unocss/reset": "^0.58.3",
-    "@vitejs/plugin-vue": "^5.0.3",
+    "@types/node": "^20.11.25",
+    "@unocss/eslint-config": "^0.58.5",
+    "@unocss/reset": "^0.58.5",
+    "@vitejs/plugin-vue": "^5.0.4",
     "color": "^4.2.3",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^5.0.5",
-    "sass": "^1.70.0",
+    "sass": "^1.71.1",
     "super-tiny-icons": "^0.6.0",
-    "typescript": "^5.3.3",
-    "unocss": "^0.58.3",
-    "vite": "^5.0.12",
-    "vue": "^3.4.15",
-    "vue-tsc": "^1.8.27"
+    "typescript": "^5.4.2",
+    "unocss": "^0.58.5",
+    "vite": "^5.1.5",
+    "vue": "^3.4.21",
+    "vue-tsc": "^2.0.6"
   }
 }

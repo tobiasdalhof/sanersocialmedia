@@ -4,58 +4,53 @@ import { checkSnoozed, getSnoozeMinutes, getSnoozedUntilTimestamp, openOptionsPa
 import logo from '~/assets/logo.svg'
 
 const ready = ref(false)
-
 const snoozed = ref(false)
-chrome.storage.onChanged.addListener(async () => {
-  snoozed.value = await checkSnoozed()
-})
+chrome.storage.onChanged.addListener(async () => snoozed.value = await checkSnoozed())
 
-const snoozeMinutes = ref(0)
-watch(snoozeMinutes, async (value) => {
-  await setSnoozeMinutes(value)
-})
-
-const remainingTime = ref({ minutes: 0, seconds: 0 })
-
-const snoozedUntilTimestamp = ref(0)
-chrome.storage.onChanged.addListener(async () => {
-  snoozedUntilTimestamp.value = await getSnoozedUntilTimestamp()
-})
-
-function setRemainingTime(timestamp: number) {
-  const now = new Date()
-  const diff = timestamp - now.getTime()
-  if (diff <= 0) {
-    remainingTime.value = { minutes: 0, seconds: 0 }
-    return
-  }
-
-  remainingTime.value = {
-    minutes: Math.floor(diff / 1000 / 60),
-    seconds: Math.floor((diff / 1000) % 60),
-  }
-}
+const minutes = ref(0)
+watch(minutes, async value => await setSnoozeMinutes(value))
 
 onMounted(async () => {
   snoozed.value = await checkSnoozed()
-  snoozeMinutes.value = await getSnoozeMinutes()
-  snoozedUntilTimestamp.value = await getSnoozedUntilTimestamp()
-  setRemainingTime(snoozedUntilTimestamp.value)
-  setInterval(() => setRemainingTime(snoozedUntilTimestamp.value), 1000)
+  minutes.value = await getSnoozeMinutes()
   ready.value = true
 })
 
 async function snooze() {
-  const ms = snoozeMinutes.value * 60 * 1000
+  const ms = minutes.value * 60 * 1000
   const now = new Date()
   const timestamp = now.getTime() + ms
   await setSnoozedUntilTimestamp(timestamp)
-  setRemainingTime(timestamp)
 }
 
 async function unsnooze() {
   await setSnoozedUntilTimestamp(0)
 }
+
+const timer = ref({ minutes: 0, seconds: 0 })
+let timerInterval: NodeJS.Timeout
+
+async function updateTimer() {
+  const now = new Date()
+  const until = await getSnoozedUntilTimestamp()
+  const diff = until - now.getTime()
+
+  timer.value = {
+    minutes: Math.floor(diff / 1000 / 60),
+    seconds: Math.floor((diff / 1000) % 60),
+  }
+}
+
+function setupTimer() {
+  clearInterval(timerInterval)
+  if (!snoozed.value)
+    return
+
+  updateTimer()
+  timerInterval = setInterval(() => updateTimer(), 1000)
+}
+
+watch(snoozed, setupTimer)
 
 function withLeadingZero(value: number) {
   return value < 10 ? `0${value}` : value
@@ -77,16 +72,16 @@ function withLeadingZero(value: number) {
           Snooze mode
         </h2>
         <div class="mb-3">
-          <label for="snooze-minutes">Temporarly unblock all sites for</label>
+          <label for="minutes">Temporarly unblock all sites for</label>
           <input
-            id="snooze-minutes"
-            v-model="snoozeMinutes"
+            id="minutes"
+            v-model="minutes"
             class="mx-2 my-2 inline-block w-40px rounded p-0.5 text-center text-dark-500"
             type="number"
             min="1"
             step="1"
           >
-          <label for="snooze-minutes">minutes.</label>
+          <label for="minutes">minutes.</label>
         </div>
         <button class="block w-full rounded bg-red-500 px-3 py-2 text-center text-red-50 font-semibold leading-none active:bg-red-700 hover:bg-red-600" @click="snooze()">
           Unblock sites
@@ -97,7 +92,7 @@ function withLeadingZero(value: number) {
           Sites are temporarly unblocked
         </h2>
         <div class="mb-4 text-3xl text-blue-500 font-light">
-          {{ withLeadingZero(remainingTime.minutes) }}:{{ withLeadingZero(remainingTime.seconds) }}
+          {{ withLeadingZero(timer.minutes) }}:{{ withLeadingZero(timer.seconds) }}
         </div>
         <div>
           <button class="block w-full rounded bg-blue-500 px-3 py-2 text-center text-blue-50 font-semibold leading-none active:bg-blue-700 hover:bg-blue-600" @click="unsnooze()">

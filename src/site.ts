@@ -6,7 +6,7 @@ import { checkSnoozed } from './chrome'
 interface SiteParams {
   name: string
   logoSvg: string
-  validateUrl(url: URL): boolean
+  validateUrl: (url: URL) => boolean
   siteActions: SiteAction[]
 }
 
@@ -38,10 +38,10 @@ export class Site {
 
 interface SiteActionParams {
   name: string
-  validateUrl(url: URL): boolean
+  validateUrl: (url: URL) => boolean
   requiredUserConfigKey: UserConfigKey
   injectCss: string
-  manipulateDom(params: { siteAction: SiteAction }): void
+  manipulateDom: (params: { siteAction: SiteAction }) => void
 }
 
 export class SiteAction {
