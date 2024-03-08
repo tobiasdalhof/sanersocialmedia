@@ -1,4 +1,4 @@
-import { getSnoozedUntilTimestamp, openOptionsPage, setSnoozedUntilTimestamp } from '~/chrome'
+import { checkSnoozed, getSnoozedUntilTimestamp, openOptionsPage, setSnoozedUntilTimestamp } from '~/chrome'
 
 chrome.runtime.onInstalled.addListener((details) => {
   const installed = details.reason === chrome.runtime.OnInstalledReason.INSTALL
@@ -8,8 +8,9 @@ chrome.runtime.onInstalled.addListener((details) => {
 
 let snoozeInterval: NodeJS.Timeout
 
-async function snoozeTick(until: number) {
+async function snoozeTick() {
   const now = Date.now()
+  const until = await getSnoozedUntilTimestamp()
   const diff = until - now
 
   if (diff <= 0) {
@@ -30,9 +31,12 @@ async function snoozeTick(until: number) {
 
 async function setupSnooze() {
   clearInterval(snoozeInterval)
-  const until = await getSnoozedUntilTimestamp()
-  await snoozeTick(until)
-  snoozeInterval = setInterval(() => snoozeTick(until), 1000)
+  const snoozed = await checkSnoozed()
+  if (!snoozed)
+    return
+
+  await snoozeTick()
+  snoozeInterval = setInterval(() => snoozeTick(), 1000)
 }
 
 chrome.runtime.onInstalled.addListener(() => setupSnooze())
