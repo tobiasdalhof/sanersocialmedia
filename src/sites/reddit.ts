@@ -15,23 +15,18 @@ function createHideRedditFeedAction(params: CreateHideRedditFeedActionParams): S
     validateUrl: params.validateUrl,
     requiredUserConfigKey: params.requiredUserConfigKey,
     injectCss: `
-      .scrollerItem,
-      .FohHGMokxXLkon1aacMoi {
-        opacity: 0!important;
-        pointer-events: none!important;
-        width: 0px!important;
-        height: 0px!important;
+      #main-content > :not([data-sanersocialmedia-widget]) {
+        display: none!important;
       }
     `,
     manipulateDom: async ({ siteAction }) => {
-      const container = await waitForElement('.scrollerItem')
+      const container = await waitForElement('#main-content')
       mute(container)
-      setTimeout(() => {
-        const widget = siteAction.createWidget(container)
-        if (!widget)
-          return
-        container.before(widget)
-      }, 1000)
+      const widget = siteAction.createWidget(container)
+      if (widget) {
+        widget.style.paddingTop = '25px'
+        container.appendChild(widget)
+      }
     },
   })
 }
@@ -48,7 +43,7 @@ const reddit = new Site({
     }),
     createHideRedditFeedAction({
       name: chrome.i18n.getMessage('blockSubredditFeeds'),
-      validateUrl: url => url.pathname.includes('/r/'),
+      validateUrl: url => url.pathname.includes('/r/') && !url.pathname.includes('/comments/'),
       requiredUserConfigKey: UserConfigKey.RedditSubFeed,
     }),
   ],
