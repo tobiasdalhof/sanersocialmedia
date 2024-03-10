@@ -14,26 +14,24 @@ async function snoozeTick() {
   const diff = until - now
 
   if (diff <= 0) {
-    clearInterval(snoozeInterval)
-    await chrome.action.setBadgeText({ text: '' })
     await setSnoozedUntilTimestamp(0)
     return
   }
 
   const seconds = Math.floor(diff / 1000)
-
-  await chrome.action.setBadgeBackgroundColor({ color: '#666666' })
-  await chrome.action.setBadgeTextColor({ color: '#EEEEEE' })
-
   const minutes = Math.floor(seconds / 60)
   await chrome.action.setBadgeText({ text: minutes.toString() })
+  await chrome.action.setBadgeBackgroundColor({ color: '#666666' })
+  await chrome.action.setBadgeTextColor({ color: '#EEEEEE' })
 }
 
 async function setupSnooze() {
   clearInterval(snoozeInterval)
   const snoozed = await checkSnoozed()
-  if (!snoozed)
+  if (!snoozed) {
+    await chrome.action.setBadgeText({ text: '' })
     return
+  }
 
   await snoozeTick()
   snoozeInterval = setInterval(() => snoozeTick(), 1000)
