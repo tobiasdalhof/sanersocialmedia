@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
-import JSConfetti from 'js-confetti'
 import { checkSnoozed, getSnoozeMinutes, getSnoozedUntilTimestamp, openOptionsPage, setSnoozeMinutes, setSnoozedUntilTimestamp } from '~/chrome'
 import logo from '~/assets/logo.svg'
 
@@ -17,25 +16,15 @@ onMounted(async () => {
   ready.value = true
 })
 
-const confetti = new JSConfetti()
-
 async function snooze() {
   const ms = minutes.value * 60 * 1000
   const now = new Date()
   const timestamp = now.getTime() + ms
   await setSnoozedUntilTimestamp(timestamp)
-  confetti.addConfetti({
-    emojis: ['😡', '🤬', '😤', '🤯', '😠'],
-    emojiSize: 28,
-  })
 }
 
 async function unsnooze() {
   await setSnoozedUntilTimestamp(0)
-  confetti.addConfetti({
-    emojis: ['😄', '😃', '😊', '😁', '😆'],
-    emojiSize: 28,
-  })
 }
 
 const timer = ref({ minutes: 0, seconds: 0 })
