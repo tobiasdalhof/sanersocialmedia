@@ -6,10 +6,10 @@
     "message": "Write a review"
   },
   "enableAll": {
-    "message": "Enable all"
+    "message": "Enable all blocking"
   },
   "disableAll": {
-    "message": "Disable all"
+    "message": "Disable all blocking"
   },
   "sourceCode": {
     "message": "Source code"
