@@ -6,7 +6,7 @@ import { facebook, github, hackernews, instagram, linkedin, pinterest, reddit, t
 import { getStore, setUserConfig, toggleUserConfigKey } from '~/chrome'
 import type { SiteAction } from '~/site'
 
-const chromeWebStoreLink = 'https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk'
+const chromeWebStoreLink = 'https://chromewebstore.google.com/detail/saner-social-media-feed-b/opnoobcmpioggidgaejfkbopdphbfkkk'
 const githubLink = 'https://github.com/tobiasdalhof/sanersocialmedia'
 
 const sites = [youtube, youtubeMobile, x, instagram, facebook, tiktok, pinterest, linkedin, twitch, reddit, github, hackernews]
