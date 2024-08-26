@@ -1,7 +1,7 @@
 {
   "name": "Saner Social Media - Feed Blocker",
   "description": "__MSG_manifestDescription__",
-  "version": "1.9.6",
+  "version": "1.10.0",
   "manifest_version": 3,
   "default_locale": "en",
   "icons": {
@@ -17,7 +17,6 @@
       "matches": [
         "https://*.youtube.com/*",
         "https://*.x.com/*",
-        "https://*.twitter.com/*",
         "https://*.instagram.com/*",
         "https://*.facebook.com/*",
         "https://*.tiktok.com/*",

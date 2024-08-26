@@ -1,7 +1,7 @@
 <p>
-  <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://img.shields.io/chrome-web-store/v/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store"></a>
-  <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://img.shields.io/chrome-web-store/rating/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store Rating"></a>
-  <a href="https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://img.shields.io/chrome-web-store/users/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store Users"></a>
+  <a href="https://chromewebstore.google.com/detail/saner-social-media-feed-b/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://img.shields.io/chrome-web-store/v/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store"></a>
+  <a href="https://chromewebstore.google.com/detail/saner-social-media-feed-b/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://img.shields.io/chrome-web-store/rating/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store Rating"></a>
+  <a href="https://chromewebstore.google.com/detail/saner-social-media-feed-b/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://img.shields.io/chrome-web-store/users/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store Users"></a>
 </p>
 
 # Saner Social Media - Feed Blocker for Chrome
@@ -12,19 +12,20 @@ Block social media distractions and replace them with uplifting quotes to improv
 
 ## Supported sites
 
-| Site                     | Blocked distractions                                         |
-| :----------------------- | :----------------------------------------------------------- |
-| **YouTube**              | Home feed, sidebar video suggestions, video comments, shorts |
-| **X (formerly Twitter)** | Home feed, sidebar trends, sidebar follow suggestions        |
-| **Instagram**            | Home feed, explore feed, reels feed                          |
-| **Facebook**             | Home feed                                                    |
-| **TikTok**               | Home feed                                                    |
-| **Pinterest**            | Home feed, related pins                                      |
-| **LinkedIn**             | Home feed, sidebar trends                                    |
-| **Twitch**               | Home feed                                                    |
-| **Reddit**               | Home feed, subreddit feeds                                   |
-| **GitHub**               | Home feed                                                    |
-| **Hacker News**          | Home feed, /newest feed, /front feed                         |
+| Site               | Blocked distractions                                               |
+| :----------------- | :----------------------------------------------------------------- |
+| **YouTube**        | Home feed, /watch sidebar recommendations, /watch comments, shorts |
+| **YouTube Mobile** | Home feed, /watch recommendations below video, shorts              |
+| **X**              | Home feed, sidebar trends, sidebar follow suggestions              |
+| **Instagram**      | Home feed, explore feed, reels feed                                |
+| **Facebook**       | Home feed                                                          |
+| **TikTok**         | Home feed                                                          |
+| **Pinterest**      | Home feed, related pins                                            |
+| **LinkedIn**       | Home feed, sidebar trends                                          |
+| **Twitch**         | Home feed                                                          |
+| **Reddit**         | Home feed, subreddit feeds                                         |
+| **GitHub**         | Home feed                                                          |
+| **Hacker News**    | Home feed, /newest feed, /front feed                               |
 
 ## Other features
 
@@ -34,7 +35,7 @@ Block social media distractions and replace them with uplifting quotes to improv
 
 ## Installation
 
-**Option 1** – Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/saner-social-media/opnoobcmpioggidgaejfkbopdphbfkkk) (recommended)
+**Option 1** – Install from [Chrome Web Store](https://chromewebstore.google.com/detail/saner-social-media-feed-b/opnoobcmpioggidgaejfkbopdphbfkkk) (recommended)
 
 **Option 2** – Install from GitHub release:
 
