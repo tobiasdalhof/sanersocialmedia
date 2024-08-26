@@ -8,7 +8,6 @@ export enum UserConfigKey {
   YouTubeVideoComments = 'YouTubeVideoComments',
   YouTubeShorts = 'YouTubeShorts',
   YouTubeMobileHomeFeed = 'YouTubeMobileHomeFeed',
-  YouTubeMobileVideoComments = 'YouTubeMobileVideoComments',
   YouTubeMobileVideoSuggestions = 'YouTubeMobileVideoSuggestions',
   YouTubeMobileShorts = 'YouTubeMobileShorts',
   XHomeFeed = 'XHomeFeed',
