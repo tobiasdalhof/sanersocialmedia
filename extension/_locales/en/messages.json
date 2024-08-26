@@ -30,12 +30,15 @@
     "message": "Block sidebar follow suggestions"
   },
   "blockSidebarVideoSuggestions": {
-    "message": "Block sidebar video suggestions"
+    "message": "Block sidebar recommendations on /watch"
+  },
+  "blockVideoSuggestions": {
+    "message": "Block recommendations below video on /watch"
   },
   "blockVideoComments": {
-    "message": "Block video comments"
+    "message": "Block comments on /watch"
   },
   "blockShorts": {
-    "message": "Block all shorts"
+    "message": "Block shorts"
   }
 }
