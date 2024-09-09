@@ -1,7 +1,7 @@
-import type { UserConfig, UserConfigKey } from './types'
-import { hasDarkBackground } from './utils'
-import { getRandomQuote } from './quotes'
 import { checkSnoozed } from './chrome'
+import { getRandomQuote } from './quotes'
+import { hasDarkBackground } from './utils'
+import type { UserConfig, UserConfigKey } from './types'
 
 interface SiteParams {
   name: string

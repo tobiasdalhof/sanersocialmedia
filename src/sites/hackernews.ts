@@ -1,7 +1,7 @@
 import logoSvg from 'super-tiny-icons/images/svg/hackernews.svg'
+import { Site, SiteAction } from '~/site'
 import { UserConfigKey } from '~/types'
 import { waitForElement } from '~/utils'
-import { Site, SiteAction } from '~/site'
 
 const hackernews = new Site({
   logoSvg,

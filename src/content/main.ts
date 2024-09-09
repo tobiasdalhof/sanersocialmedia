@@ -1,7 +1,7 @@
 import { getSiteByUrl } from '~/site'
-import './styles.scss'
 import * as sites from '~/sites'
 import type { Store } from '~/types'
+import './styles.scss'
 
 let waitInit = false
 async function init(url: URL) {

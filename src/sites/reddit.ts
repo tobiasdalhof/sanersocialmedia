@@ -1,7 +1,7 @@
 import logoSvg from 'super-tiny-icons/images/svg/reddit.svg'
-import { mute, waitForElement } from '~/utils'
 import { Site, SiteAction } from '~/site'
 import { UserConfigKey } from '~/types'
+import { mute, waitForElement } from '~/utils'
 
 interface CreateHideRedditFeedActionParams {
   name: string

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 import logo from '~/assets/logo.svg'
-import type { UserConfig } from '~/types'
-import { facebook, github, hackernews, instagram, linkedin, pinterest, reddit, tiktok, twitch, x, youtube, youtubeMobile } from '~/sites'
 import { getStore, setUserConfig, toggleUserConfigKey } from '~/chrome'
 import type { SiteAction } from '~/site'
+import { facebook, github, hackernews, instagram, linkedin, pinterest, reddit, tiktok, twitch, x, youtube, youtubeMobile } from '~/sites'
+import type { UserConfig } from '~/types'
 
 const chromeWebStoreLink = 'https://chromewebstore.google.com/detail/saner-social-media-feed-b/opnoobcmpioggidgaejfkbopdphbfkkk'
 const githubLink = 'https://github.com/tobiasdalhof/sanersocialmedia'

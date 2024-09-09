@@ -1,7 +1,7 @@
 import logoSvg from 'super-tiny-icons/images/svg/instagram.svg'
+import { Site, SiteAction } from '~/site'
 import { UserConfigKey } from '~/types'
 import { mute, waitForElement } from '~/utils'
-import { Site, SiteAction } from '~/site'
 
 const instagram = new Site({
   logoSvg,

@@ -1,7 +1,7 @@
 import logoSvg from 'super-tiny-icons/images/svg/tiktok.svg'
-import { mute, waitForElement } from '~/utils'
 import { Site, SiteAction } from '~/site'
 import { UserConfigKey } from '~/types'
+import { mute, waitForElement } from '~/utils'
 
 const tiktok = new Site({
   logoSvg,

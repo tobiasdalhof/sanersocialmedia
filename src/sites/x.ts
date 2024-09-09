@@ -1,7 +1,7 @@
 import logoSvg from 'super-tiny-icons/images/svg/x.svg'
-import { mute, waitForElement } from '~/utils'
 import { Site, SiteAction } from '~/site'
 import { UserConfigKey } from '~/types'
+import { mute, waitForElement } from '~/utils'
 
 const x = new Site({
   logoSvg,

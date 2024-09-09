@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
-import { checkSnoozed, getSnoozeMinutes, getSnoozedUntilTimestamp, openOptionsPage, setSnoozeMinutes, setSnoozedUntilTimestamp } from '~/chrome'
 import logo from '~/assets/logo.svg'
+import { checkSnoozed, getSnoozedUntilTimestamp, getSnoozeMinutes, openOptionsPage, setSnoozedUntilTimestamp, setSnoozeMinutes } from '~/chrome'
 
 const ready = ref(false)
 const snoozed = ref(false)
