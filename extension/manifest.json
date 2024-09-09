@@ -1,7 +1,7 @@
 {
-  "name": "Saner Social Media - Feed Blocker",
+  "name": "Saner Social Media - Block Distractions, Reduce Stress, and Boost Focus",
   "description": "__MSG_manifestDescription__",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "manifest_version": 3,
   "default_locale": "en",
   "icons": {
