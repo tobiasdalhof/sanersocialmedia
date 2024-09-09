@@ -4,9 +4,9 @@
   <a href="https://chromewebstore.google.com/detail/saner-social-media-feed-b/opnoobcmpioggidgaejfkbopdphbfkkk"><img src="https://img.shields.io/chrome-web-store/users/opnoobcmpioggidgaejfkbopdphbfkkk?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Web Store Users"></a>
 </p>
 
-# Saner Social Media - Feed Blocker for Chrome
+# Saner Social Media
 
-Block social media distractions and replace them with uplifting quotes to improve your productivity.
+Tired of social media draining your time and energy? Saner Social Media helps you regain control by blocking distracting feeds while keeping the essential features of each platform accessible. Whether you're using social media for work or personal tasks, this extension helps you stay productive and focused by replacing distractions with uplifting quotes.
 
 ![X](./.github/x.png)
 
