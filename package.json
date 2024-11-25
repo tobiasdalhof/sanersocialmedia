@@ -16,7 +16,7 @@
     "build:content": "vite build -c vite.config.content.ts",
     "build:background": "vite build -c vite.config.background.ts",
     "clear": "rimraf ./dist",
-    "copy-extension-dir": "cp -r ./extension ./dist"
+    "copy-extension-dir": "cp -r ./extension/. ./dist"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.9.2",
