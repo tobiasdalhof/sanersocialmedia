@@ -21,7 +21,7 @@ export enum UserConfigKey {
   PinterestHomeFeed = 'PinterestHomeFeed',
   PinterestRelatedPins = 'PinterestRelatedPins',
   LinkedInHomeFeed = 'LinkedInHomeFeed',
-  LinkedInSidebarTrends = 'LinkedInSidebarTrends',
+  LinkedInSidebarFeed = 'LinkedInSidebarFeed',
   TwitchHomeFeed = 'TwitchHomeFeed',
   RedditHomeFeed = 'RedditHomeFeed',
   RedditSubFeed = 'RedditSubFeed',

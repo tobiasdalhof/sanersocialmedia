@@ -20,6 +20,9 @@
   "blockSidebarTrends": {
     "message": "Block sidebar trends"
   },
+  "blockSidebarFeed": {
+    "message": "Block sidebar feed"
+  },
   "blockRelatedPins": {
     "message": "Block related pins"
   },

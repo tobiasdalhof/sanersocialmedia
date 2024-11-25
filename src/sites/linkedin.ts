@@ -13,12 +13,13 @@ const linkedin = new Site({
       validateUrl: url => ['/', '/feed', '/feed/'].includes(url.pathname),
       requiredUserConfigKey: UserConfigKey.LinkedInHomeFeed,
       injectCss: `
-        main.scaffold-layout__main > div:last-child {
+        .scaffold-finite-scroll,
+        .feed-sort-toggle-dsa__wrapper {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('main.scaffold-layout__main > div:last-child')
+        const container = await waitForElement('.scaffold-finite-scroll')
         mute(container)
         const widget = siteAction.createWidget(container)
         if (!widget)
@@ -28,16 +29,16 @@ const linkedin = new Site({
       },
     }),
     new SiteAction({
-      name: chrome.i18n.getMessage('blockSidebarTrends'),
+      name: chrome.i18n.getMessage('blockSidebarFeed'),
       validateUrl: () => true,
-      requiredUserConfigKey: UserConfigKey.LinkedInSidebarTrends,
+      requiredUserConfigKey: UserConfigKey.LinkedInSidebarFeed,
       injectCss: `
-        aside.scaffold-layout__aside .news-module {
+        .scaffold-layout__aside .feed-follows-module {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('aside.scaffold-layout__aside .news-module')
+        const container = await waitForElement('.scaffold-layout__aside .feed-follows-module')
         const widget = siteAction.createWidget(container)
         if (!widget)
           return
