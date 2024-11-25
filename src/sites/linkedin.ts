@@ -13,12 +13,13 @@ const linkedin = new Site({
       validateUrl: url => ['/', '/feed', '/feed/'].includes(url.pathname),
       requiredUserConfigKey: UserConfigKey.LinkedInHomeFeed,
       injectCss: `
-        main.scaffold-layout__main > div:last-child {
+        .scaffold-finite-scroll,
+        .feed-sort-toggle-dsa__wrapper {
           display: none!important;
         }
       `,
       manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('main.scaffold-layout__main > div:last-child')
+        const container = await waitForElement('.scaffold-finite-scroll')
         mute(container)
         const widget = siteAction.createWidget(container)
         if (!widget)
