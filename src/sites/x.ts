@@ -6,10 +6,7 @@ import { mute, waitForElement } from '~/utils'
 const x = new Site({
   logoSvg,
   name: 'X',
-  validateUrl: (url) => {
-    const host = url.host.replace('www.', '')
-    return ['twitter.com', 'x.com'].includes(host)
-  },
+  validateUrl: url => url.host.replace('www.', '') === 'x.com',
   siteActions: [
     new SiteAction({
       name: chrome.i18n.getMessage('blockHomeFeed'),
