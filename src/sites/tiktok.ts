@@ -20,12 +20,12 @@ const tiktok = new Site({
       manipulateDom: async ({ siteAction }) => {
         const container = await waitForElement('[data-e2e="recommend-list-item-container"]')
         mute(container)
-        setTimeout(() => {
-          const widget = siteAction.createWidget(container)
-          if (!widget)
-            return
+
+        const widget = siteAction.createWidget(container)
+        if (widget) {
+          widget.style.padding = '40px'
           container.before(widget)
-        }, 1000)
+        }
       },
     }),
   ],
