@@ -17,16 +17,18 @@ const tiktok = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('[data-e2e="recommend-list-item-container"]')
-        mute(container)
 
+      manipulateDom: ({ siteAction }) => waitForElement('[data-e2e="recommend-list-item-container"]').then((container) => {
+        if (!container) {
+          return
+        }
+        mute(container)
         const widget = siteAction.createWidget(container)
         if (widget) {
           widget.style.padding = '40px'
           container.before(widget)
         }
-      },
+      }),
     }),
   ],
 })

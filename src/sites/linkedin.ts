@@ -18,15 +18,20 @@ const linkedin = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('.scaffold-finite-scroll')
-        mute(container)
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('.scaffold-finite-scroll').then((container) => {
+        if (!container) {
           return
+        }
+        mute(container)
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.paddingTop = '10px'
         container.before(widget)
-      },
+      }),
     }),
     new SiteAction({
       name: chrome.i18n.getMessage('blockSidebarFeed'),
@@ -37,14 +42,19 @@ const linkedin = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('.scaffold-layout__aside .feed-follows-module')
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('.scaffold-layout__aside .feed-follows-module').then((container) => {
+        if (!container) {
           return
+        }
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.padding = '20px'
         container.after(widget)
-      },
+      }),
     }),
   ],
 })

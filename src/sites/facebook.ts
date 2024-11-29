@@ -19,16 +19,19 @@ const facebook = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement(selectors)
+      manipulateDom: ({ siteAction }) => waitForElement(selectors).then((container) => {
+        if (!container) {
+          return
+        }
         mute(container)
-        setTimeout(() => {
-          const widget = siteAction.createWidget(container)
-          if (!widget)
-            return
-          container.after(widget)
-        }, 1000)
-      },
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        container.after(widget)
+      }),
     }),
   ],
 })

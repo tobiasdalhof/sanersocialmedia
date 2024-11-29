@@ -17,17 +17,20 @@ const twitch = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('.root-scrollable')
+      manipulateDom: ({ siteAction }) => waitForElement('.root-scrollable').then((container) => {
+        if (!container) {
+          return
+        }
         mute(container)
-        setTimeout(() => {
-          const widget = siteAction.createWidget(container)
-          if (!widget)
-            return
-          widget.style.padding = '30px'
-          container.before(widget)
-        }, 1000)
-      },
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        widget.style.padding = '30px'
+        container.before(widget)
+      }),
     }),
   ],
 })

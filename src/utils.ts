@@ -1,21 +1,43 @@
 import Color from 'color'
 
-export function waitForElement(selector: string): Promise<HTMLElement> {
-  return new Promise((resolve) => {
-    if (document.querySelector(selector))
-      return resolve(<HTMLElement>document.querySelector(selector)!)
+export function waitForElement(
+  selector: string,
+  options: {
+    timeoutMs?: number
+  } = {},
+): Promise<HTMLElement | null> {
+  const { timeoutMs = 1000 } = options
 
-    const observer = new MutationObserver(() => {
-      if (document.querySelector(selector)) {
-        resolve(<HTMLElement>document.querySelector(selector)!)
-        observer.disconnect()
+  return new Promise((resolve) => {
+    let timeoutId: number
+
+    // Check if the element already exists
+    const element = document.querySelector(selector)
+    if (element) {
+      return resolve(element as HTMLElement)
+    }
+
+    const observer = new MutationObserver((mutations, obs) => {
+      const element = document.querySelector(selector)
+      if (element) {
+        clearTimeout(timeoutId)
+        obs.disconnect()
+        resolve(element as HTMLElement)
       }
     })
 
+    // Start observing the DOM
     observer.observe(document.documentElement, {
       childList: true,
       subtree: true,
+      attributes: true,
     })
+
+    // Add timeout to resolve with null if the element isn't found
+    timeoutId = window.setTimeout(() => {
+      observer.disconnect()
+      resolve(null)
+    }, timeoutMs)
   })
 }
 

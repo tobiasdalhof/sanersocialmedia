@@ -17,17 +17,20 @@ const pinterest = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('[data-test-id="homefeed-feed"]')
+      manipulateDom: ({ siteAction }) => waitForElement('[data-test-id="homefeed-feed"]').then((container) => {
+        if (!container) {
+          return
+        }
         mute(container)
-        setTimeout(() => {
-          const widget = siteAction.createWidget(container)
-          if (!widget)
-            return
-          widget.style.padding = '24px'
-          container.after(widget)
-        }, 1000)
-      },
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        widget.style.padding = '24px'
+        container.after(widget)
+      }),
     }),
     new SiteAction({
       name: chrome.i18n.getMessage('blockRelatedPins'),
@@ -38,17 +41,20 @@ const pinterest = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('[data-test-id="relatedPins"]')
+      manipulateDom: ({ siteAction }) => waitForElement('[data-test-id="relatedPins"]').then((container) => {
+        if (!container) {
+          return
+        }
         mute(container)
-        setTimeout(() => {
-          const widget = siteAction.createWidget(container)
-          if (!widget)
-            return
-          widget.style.padding = '24px'
-          container.after(widget)
-        }, 1000)
-      },
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        widget.style.padding = '24px'
+        container.after(widget)
+      }),
     }),
   ],
 })

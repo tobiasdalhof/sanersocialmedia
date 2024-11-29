@@ -19,15 +19,20 @@ const x = new Site({
           overflow: hidden!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('[data-testid="primaryColumn"] > div:last-child > div:nth-child(5)')
-        mute(container)
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('[data-testid="primaryColumn"] > div:last-child > div:nth-child(5)').then((container) => {
+        if (!container) {
           return
+        }
+        mute(container)
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.padding = '40px'
         container.after(widget)
-      },
+      }),
     }),
     new SiteAction({
       name: chrome.i18n.getMessage('blockSidebarTrends'),
@@ -38,14 +43,19 @@ const x = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('[data-testid="sidebarColumn"] section')
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('[data-testid="sidebarColumn"] section').then((container) => {
+        if (!container) {
           return
+        }
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.padding = '20px'
         container.after(widget)
-      },
+      }),
     }),
     new SiteAction({
       name: chrome.i18n.getMessage('blockSidebarFollowSuggestions'),
@@ -56,14 +66,19 @@ const x = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('[data-testid="sidebarColumn"] aside')
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('[data-testid="sidebarColumn"] aside').then((container) => {
+        if (!container) {
           return
+        }
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.padding = '20px'
         container.after(widget)
-      },
+      }),
     }),
   ],
 })

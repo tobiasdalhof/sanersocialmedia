@@ -17,15 +17,20 @@ const instagram = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('main[role=main]')
-        mute(container)
-        const widget = siteAction.createWidget(container)
-        if (widget) {
-          widget.style.padding = '25px 50px'
-          container.appendChild(widget)
+      manipulateDom: ({ siteAction }) => waitForElement('main[role=main]').then((container) => {
+        if (!container) {
+          return
         }
-      },
+        mute(container)
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        widget.style.padding = '25px 50px'
+        container.appendChild(widget)
+      }),
     }),
     new SiteAction({
       name: 'Block /explore feed',
@@ -36,15 +41,20 @@ const instagram = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('main[role=main]')
-        mute(container)
-        const widget = siteAction.createWidget(container)
-        if (widget) {
-          widget.style.padding = '25px 50px'
-          container.appendChild(widget)
+      manipulateDom: ({ siteAction }) => waitForElement('main[role=main]').then((container) => {
+        if (!container) {
+          return
         }
-      },
+        mute(container)
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        widget.style.padding = '25px 50px'
+        container.appendChild(widget)
+      }),
     }),
     new SiteAction({
       name: 'Block /reels feed',
@@ -55,15 +65,20 @@ const instagram = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('main[role=main]')
-        mute(container)
-        const widget = siteAction.createWidget(container)
-        if (widget) {
-          widget.style.padding = '25px 50px'
-          container.appendChild(widget)
+      manipulateDom: ({ siteAction }) => waitForElement('main[role=main]').then((container) => {
+        if (!container) {
+          return
         }
-      },
+        mute(container)
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        widget.style.padding = '25px 50px'
+        container.appendChild(widget)
+      }),
     }),
   ],
 })

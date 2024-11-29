@@ -17,14 +17,19 @@ const hackernews = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('#hnmain > tbody > tr:nth-child(3) > td')
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('#hnmain > tbody > tr:nth-child(3) > td').then((container) => {
+        if (!container) {
           return
+        }
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.padding = '25px'
         container.appendChild(widget)
-      },
+      }),
     }),
     new SiteAction({
       name: 'Block /newest feed',
@@ -35,14 +40,19 @@ const hackernews = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('#hnmain > tbody > tr:nth-child(3) > td')
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('#hnmain > tbody > tr:nth-child(3) > td').then((container) => {
+        if (!container) {
           return
+        }
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.padding = '25px'
         container.appendChild(widget)
-      },
+      }),
     }),
     new SiteAction({
       name: 'Block /front feed',
@@ -53,14 +63,18 @@ const hackernews = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('#hnmain > tbody > tr:nth-child(3) > td')
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('#hnmain > tbody > tr:nth-child(3) > td').then((container) => {
+        if (!container) {
           return
+        }
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
         widget.style.padding = '25px'
         container.appendChild(widget)
-      },
+      }),
     }),
   ],
 })
