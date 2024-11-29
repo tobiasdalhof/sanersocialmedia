@@ -30,6 +30,34 @@ const tiktok = new Site({
         }
       }),
     }),
+
+    new SiteAction({
+      name: chrome.i18n.getMessage('blockVideoComments'),
+      validateUrl: url => url.pathname.includes('/video/'),
+      requiredUserConfigKey: UserConfigKey.TikTokVideoComments,
+      injectCss: `
+        .css-1ngaos4-DivCommentMain,
+        .css-13wx63w-DivCommentObjectWrapper {
+          display: none!important;
+        }
+      `,
+      manipulateDom: ({ siteAction }) => Promise.any([
+        waitForElement('.css-1ngaos4-DivCommentMain'),
+        waitForElement('.css-7whb78-DivCommentListContainer'),
+      ]).then((container) => {
+        if (!container) {
+          return
+        }
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        widget.style.paddingTop = '20px'
+        container.before(widget)
+      }),
+    }),
   ],
 })
 

@@ -19,9 +19,9 @@ Tired of social media draining your time and energy? Saner Social Media helps yo
 | **X**              | Home feed, sidebar trends, sidebar follow suggestions              |
 | **Instagram**      | Home feed, explore feed, reels feed                                |
 | **Facebook**       | Home feed                                                          |
-| **TikTok**         | Home feed                                                          |
+| **TikTok**         | Home feed, video comments                                          |
 | **Pinterest**      | Home feed, related pins                                            |
-| **LinkedIn**       | Home feed, sidebar trends                                          |
+| **LinkedIn**       | Home feed, sidebar feed                                            |
 | **Twitch**         | Home feed                                                          |
 | **Reddit**         | Home feed, subreddit feeds                                         |
 | **GitHub**         | Home feed                                                          |
