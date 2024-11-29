@@ -19,15 +19,20 @@ function createHideRedditFeedAction(params: CreateHideRedditFeedActionParams): S
         display: none!important;
       }
     `,
-    manipulateDom: async ({ siteAction }) => {
-      const container = await waitForElement('#main-content')
-      mute(container)
-      const widget = siteAction.createWidget(container)
-      if (widget) {
-        widget.style.paddingTop = '25px'
-        container.appendChild(widget)
+    manipulateDom: ({ siteAction }) => waitForElement('#main-content').then((container) => {
+      if (!container) {
+        return
       }
-    },
+      mute(container)
+
+      const widget = siteAction.createWidget(container)
+      if (!widget) {
+        return
+      }
+
+      widget.style.paddingTop = '25px'
+      container.appendChild(widget)
+    }),
   })
 }
 

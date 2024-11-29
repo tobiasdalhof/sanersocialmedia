@@ -18,6 +18,7 @@ export enum UserConfigKey {
   InstagramReels = 'InstagramReels',
   FacebookHomeFeed = 'FacebookHomeFeed',
   TikTokHomeFeed = 'TikTokHomeFeed',
+  TikTokVideoComments = 'TikTokVideoComments',
   PinterestHomeFeed = 'PinterestHomeFeed',
   PinterestRelatedPins = 'PinterestRelatedPins',
   LinkedInHomeFeed = 'LinkedInHomeFeed',

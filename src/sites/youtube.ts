@@ -17,15 +17,21 @@ const youtube = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('ytd-browse #primary')
+      manipulateDom: ({ siteAction }) => waitForElement('ytd-browse #primary').then((container) => {
+        if (!container) {
+          return container
+        }
+
         mute(container)
+
         const widget = siteAction.createWidget(container)
-        if (!widget)
+        if (!widget) {
           return
+        }
+
         widget.style.padding = '40px'
         container.after(widget)
-      },
+      }),
     }),
     new SiteAction({
       name: chrome.i18n.getMessage('blockSidebarVideoSuggestions'),
@@ -36,17 +42,22 @@ const youtube = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('#secondary #related')
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('#secondary #related').then((container) => {
+        if (!container) {
           return
+        }
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.paddingBottom = '40px'
         container.after(widget)
-      },
+      }),
     }),
     new SiteAction({
-      name: chrome.i18n.getMessage('blockVideoComments'),
+      name: chrome.i18n.getMessage('blockCommentsOnWatch'),
       validateUrl: () => true,
       requiredUserConfigKey: UserConfigKey.YouTubeVideoComments,
       injectCss: `
@@ -56,14 +67,19 @@ const youtube = new Site({
           overflow: hidden!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('#comments #contents')
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('#comments #contents').then((container) => {
+        if (!container) {
           return
+        }
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.paddingBottom = '40px'
         container.after(widget)
-      },
+      }),
     }),
     new SiteAction({
       name: chrome.i18n.getMessage('blockShorts'),
@@ -76,16 +92,21 @@ const youtube = new Site({
           overflow: hidden!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('ytd-shorts')
-        mute(container)
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('ytd-shorts').then((container) => {
+        if (!container) {
           return
+        }
+        mute(container)
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.padding = '40px'
         widget.style.width = '100%'
         container.after(widget)
-      },
+      }),
     }),
   ],
 })

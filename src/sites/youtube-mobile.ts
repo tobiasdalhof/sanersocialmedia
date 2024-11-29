@@ -17,15 +17,20 @@ const youtubeMobile = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('.page-container')
-        mute(container)
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('.page-container').then((container) => {
+        if (!container) {
           return
+        }
+        mute(container)
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.padding = '20px'
         container.after(widget)
-      },
+      }),
     }),
     new SiteAction({
       name: chrome.i18n.getMessage('blockVideoSuggestions'),
@@ -36,14 +41,19 @@ const youtubeMobile = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('.related-items-container')
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('.related-items-container').then((container) => {
+        if (!container) {
           return
+        }
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.padding = '20px'
         container.after(widget)
-      },
+      }),
     }),
     new SiteAction({
       name: chrome.i18n.getMessage('blockShorts'),
@@ -54,15 +64,20 @@ const youtubeMobile = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('shorts-video')
-        mute(container)
-        const widget = siteAction.createWidget(container)
-        if (!widget)
+      manipulateDom: ({ siteAction }) => waitForElement('shorts-video').then((container) => {
+        if (!container) {
           return
+        }
+        mute(container)
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
         widget.style.padding = '80px 20px'
         container.after(widget)
-      },
+      }),
     }),
   ],
 })

@@ -17,16 +17,46 @@ const tiktok = new Site({
           display: none!important;
         }
       `,
-      manipulateDom: async ({ siteAction }) => {
-        const container = await waitForElement('[data-e2e="recommend-list-item-container"]')
+
+      manipulateDom: ({ siteAction }) => waitForElement('[data-e2e="recommend-list-item-container"]').then((container) => {
+        if (!container) {
+          return
+        }
         mute(container)
-        setTimeout(() => {
-          const widget = siteAction.createWidget(container)
-          if (!widget)
-            return
+        const widget = siteAction.createWidget(container)
+        if (widget) {
+          widget.style.padding = '40px'
           container.before(widget)
-        }, 1000)
-      },
+        }
+      }),
+    }),
+
+    new SiteAction({
+      name: chrome.i18n.getMessage('blockVideoComments'),
+      validateUrl: url => url.pathname.includes('/video/'),
+      requiredUserConfigKey: UserConfigKey.TikTokVideoComments,
+      injectCss: `
+        .css-1ngaos4-DivCommentMain,
+        .css-13wx63w-DivCommentObjectWrapper {
+          display: none!important;
+        }
+      `,
+      manipulateDom: ({ siteAction }) => Promise.any([
+        waitForElement('.css-1ngaos4-DivCommentMain'),
+        waitForElement('.css-7whb78-DivCommentListContainer'),
+      ]).then((container) => {
+        if (!container) {
+          return
+        }
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        widget.style.paddingTop = '20px'
+        container.before(widget)
+      }),
     }),
   ],
 })

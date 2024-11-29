@@ -38,8 +38,11 @@
   "blockVideoSuggestions": {
     "message": "Block recommendations below video on /watch"
   },
-  "blockVideoComments": {
+  "blockCommentsOnWatch": {
     "message": "Block comments on /watch"
+  },
+  "blockVideoComments": {
+    "message": "Block video comments"
   },
   "blockShorts": {
     "message": "Block shorts"
