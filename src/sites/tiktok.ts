@@ -37,26 +37,52 @@ const tiktok = new Site({
       requiredUserConfigKey: UserConfigKey.TikTokVideoComments,
       injectCss: `
         .css-1ngaos4-DivCommentMain,
-        .css-13wx63w-DivCommentObjectWrapper {
+        .css-13wx63w-DivCommentObjectWrapper,
+        .css-1qp5gj2-DivCommentListContainer {
           display: none!important;
         }
       `,
       manipulateDom: ({ siteAction }) => Promise.any([
-        waitForElement('.css-1ngaos4-DivCommentMain'),
-        waitForElement('.css-7whb78-DivCommentListContainer'),
-      ]).then((container) => {
-        if (!container) {
-          return
-        }
+        waitForElement('.css-1ngaos4-DivCommentMain').then((container) => {
+          if (!container) {
+            return
+          }
 
-        const widget = siteAction.createWidget(container)
-        if (!widget) {
-          return
-        }
+          const widget = siteAction.createWidget(container)
+          if (!widget) {
+            return
+          }
 
-        widget.style.paddingTop = '20px'
-        container.before(widget)
-      }),
+          widget.style.paddingTop = '20px'
+          container.before(widget)
+        }),
+        waitForElement('.css-7whb78-DivCommentListContainer').then((container) => {
+          if (!container) {
+            return
+          }
+
+          const widget = siteAction.createWidget(container)
+          if (!widget) {
+            return
+          }
+
+          widget.style.paddingTop = '20px'
+          container.before(widget)
+        }),
+        waitForElement('.css-1qp5gj2-DivCommentListContainer').then((container) => {
+          if (!container) {
+            return
+          }
+
+          const widget = siteAction.createWidget(container)
+          if (!widget) {
+            return
+          }
+
+          widget.style.padding = '20px'
+          container.before(widget)
+        }),
+      ]),
     }),
   ],
 })
