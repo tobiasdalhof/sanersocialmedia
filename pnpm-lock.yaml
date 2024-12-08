@@ -44,9 +44,6 @@ importers:
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
-      sass:
-        specifier: ^1.82.0
-        version: 1.82.0
       super-tiny-icons:
         specifier: ^0.6.0
         version: 0.6.0
@@ -3907,6 +3904,7 @@ snapshots:
   chokidar@4.0.1:
     dependencies:
       readdirp: 4.0.2
+    optional: true
 
   ci-info@4.1.0: {}
 
@@ -4653,7 +4651,8 @@ snapshots:
 
   ignore@5.3.2: {}
 
-  immutable@5.0.3: {}
+  immutable@5.0.3:
+    optional: true
 
   import-fresh@3.3.0:
     dependencies:
@@ -5411,7 +5410,8 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-  readdirp@4.0.2: {}
+  readdirp@4.0.2:
+    optional: true
 
   refa@0.12.1:
     dependencies:
@@ -5514,6 +5514,7 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.0
+    optional: true
 
   scslre@0.3.0:
     dependencies:
