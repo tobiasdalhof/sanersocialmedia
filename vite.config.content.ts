@@ -13,11 +13,7 @@ export default defineConfig({
       name: 'content',
       fileName: () => 'content.js',
       formats: ['iife'],
-    },
-    rollupOptions: {
-      output: {
-        assetFileNames: 'content.[name].[ext]',
-      },
+      cssFileName: 'content',
     },
   },
 })
