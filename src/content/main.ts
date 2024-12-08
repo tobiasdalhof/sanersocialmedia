@@ -1,6 +1,6 @@
+import type { Store } from '~/types'
 import { getSiteByUrl } from '~/site'
 import * as sites from '~/sites'
-import type { Store } from '~/types'
 import './styles.scss'
 
 let waitInit = false
