@@ -15,11 +15,11 @@ function createHideRedditFeedAction(params: CreateHideRedditFeedActionParams): S
     validateUrl: params.validateUrl,
     requiredUserConfigKey: params.requiredUserConfigKey,
     injectCss: `
-      #main-content > :not([data-sanersocialmedia-widget]) {
+      main > :not([data-sanersocialmedia-widget]) {
         display: none!important;
       }
     `,
-    manipulateDom: ({ siteAction }) => waitForElement('#main-content').then((container) => {
+    manipulateDom: ({ siteAction }) => waitForElement('main').then((container) => {
       if (!container) {
         return
       }
