@@ -1,7 +1,7 @@
 {
   "name": "Saner Social Media (SSM)",
   "description": "__MSG_manifestDescription__",
-  "version": "1.11.2",
+  "version": "1.12.0",
   "manifest_version": 3,
   "default_locale": "en",
   "icons": {
