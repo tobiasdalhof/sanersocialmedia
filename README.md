@@ -12,20 +12,20 @@ Tired of social media draining your time and energy? Saner Social Media helps yo
 
 ## Supported sites
 
-| Site               | Blocked distractions                                               |
-| :----------------- | :----------------------------------------------------------------- |
-| **YouTube**        | Home feed, /watch sidebar recommendations, /watch comments, shorts |
-| **YouTube Mobile** | Home feed, /watch recommendations below video, shorts              |
-| **X**              | Home feed, sidebar trends, sidebar follow suggestions              |
-| **Instagram**      | Home feed, explore feed, reels feed                                |
-| **Facebook**       | Home feed                                                          |
-| **TikTok**         | Home feed, video comments                                          |
-| **Pinterest**      | Home feed, related pins                                            |
-| **LinkedIn**       | Home feed, sidebar feed                                            |
-| **Twitch**         | Home feed                                                          |
-| **Reddit**         | Home feed, subreddit feeds                                         |
-| **GitHub**         | Home feed                                                          |
-| **Hacker News**    | Home feed, /newest feed, /front feed                               |
+| Site               | Blocked distractions                                                                         |
+| :----------------- | :------------------------------------------------------------------------------------------- |
+| **YouTube**        | Home feed, /watch sidebar recommendations, /watch comments, shorts, /feed/subscriptions feed |
+| **YouTube Mobile** | Home feed, /watch recommendations below video, shorts, /feed/subscriptions feed              |
+| **X**              | Home feed, sidebar trends, sidebar follow suggestions                                        |
+| **Instagram**      | Home feed, explore feed, reels feed                                                          |
+| **Facebook**       | Home feed                                                                                    |
+| **TikTok**         | Home feed, video comments                                                                    |
+| **Pinterest**      | Home feed, related pins                                                                      |
+| **LinkedIn**       | Home feed, sidebar feed                                                                      |
+| **Twitch**         | Home feed                                                                                    |
+| **Reddit**         | Home feed, subreddit feeds                                                                   |
+| **GitHub**         | Home feed                                                                                    |
+| **Hacker News**    | Home feed, /newest feed, /front feed                                                         |
 
 ## Other features
 

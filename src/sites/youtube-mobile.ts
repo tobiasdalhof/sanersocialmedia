@@ -79,6 +79,30 @@ const youtubeMobile = new Site({
         container.after(widget)
       }),
     }),
+    new SiteAction({
+      name: chrome.i18n.getMessage('blockSubscriptionsFeed'),
+      validateUrl: url => url.pathname === '/feed/subscriptions',
+      requiredUserConfigKey: UserConfigKey.YouTubeMobileSubscriptionsFeed,
+      injectCss: `
+        .page-container {
+          display: none!important;
+        }
+      `,
+      manipulateDom: ({ siteAction }) => waitForElement('.page-container').then((container) => {
+        if (!container) {
+          return
+        }
+        mute(container)
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        widget.style.padding = '20px'
+        container.after(widget)
+      }),
+    }),
   ],
 })
 

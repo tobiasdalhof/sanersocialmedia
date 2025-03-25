@@ -13,13 +13,13 @@ const youtube = new Site({
       validateUrl: url => url.pathname === '/',
       requiredUserConfigKey: UserConfigKey.YouTubeHomeFeed,
       injectCss: `
-        ytd-browse #primary {
+        ytd-browse[page-subtype="home"] #primary {
           display: none!important;
         }
       `,
-      manipulateDom: ({ siteAction }) => waitForElement('ytd-browse #primary').then((container) => {
+      manipulateDom: ({ siteAction }) => waitForElement('ytd-browse[page-subtype="home"] #primary').then((container) => {
         if (!container) {
-          return container
+          return
         }
 
         mute(container)
@@ -105,6 +105,31 @@ const youtube = new Site({
 
         widget.style.padding = '40px'
         widget.style.width = '100%'
+        container.after(widget)
+      }),
+    }),
+    new SiteAction({
+      name: chrome.i18n.getMessage('blockSubscriptionsFeed'),
+      validateUrl: url => url.pathname === '/feed/subscriptions',
+      requiredUserConfigKey: UserConfigKey.YouTubeSubscriptionsFeed,
+      injectCss: `
+        ytd-browse[page-subtype="subscriptions"] #primary {
+          display: none!important;
+        }
+      `,
+      manipulateDom: ({ siteAction }) => waitForElement('ytd-browse[page-subtype="subscriptions"] #primary').then((container) => {
+        if (!container) {
+          return
+        }
+
+        mute(container)
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        widget.style.padding = '40px'
         container.after(widget)
       }),
     }),
