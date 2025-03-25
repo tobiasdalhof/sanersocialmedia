@@ -1,5 +1,35 @@
 import Color from 'color'
 
+export function onRouteChange(handler: () => void): void {
+  function getCurrentPath() {
+    return window.location.pathname
+  }
+
+  let previousPath = getCurrentPath()
+
+  // Handle popstate events (browser back/forward)
+  function handlePopState() {
+    const currentPath = getCurrentPath()
+    if (currentPath !== previousPath) {
+      handler()
+      previousPath = currentPath
+    }
+  }
+
+  // Polling function to detect changes not caught by popstate
+  function pollForChanges() {
+    const currentPath = getCurrentPath()
+    if (currentPath !== previousPath) {
+      handler()
+      previousPath = currentPath
+    }
+  }
+
+  // Start listeners
+  window.addEventListener('popstate', handlePopState)
+  window.setInterval(pollForChanges, 100)
+}
+
 export function waitForElement(
   selector: string,
   options: {
