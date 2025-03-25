@@ -13,7 +13,7 @@ const youtubeMobile = new Site({
       validateUrl: url => url.pathname === '/',
       requiredUserConfigKey: UserConfigKey.YouTubeMobileHomeFeed,
       injectCss: `
-        .page-container > :not([data-sanersocialmedia-widget]) {
+        .page-container {
           display: none!important;
         }
       `,
@@ -29,7 +29,7 @@ const youtubeMobile = new Site({
         }
 
         widget.style.padding = '20px'
-        container.appendChild(widget)
+        container.after(widget)
       }),
     }),
     new SiteAction({
