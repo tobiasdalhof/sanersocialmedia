@@ -13,7 +13,7 @@ const youtubeMobile = new Site({
       validateUrl: url => url.pathname === '/',
       requiredUserConfigKey: UserConfigKey.YouTubeMobileHomeFeed,
       injectCss: `
-        .page-container {
+        .page-container > :not([data-sanersocialmedia-widget]) {
           display: none!important;
         }
       `,
@@ -29,7 +29,7 @@ const youtubeMobile = new Site({
         }
 
         widget.style.padding = '20px'
-        container.after(widget)
+        container.appendChild(widget)
       }),
     }),
     new SiteAction({
@@ -76,6 +76,30 @@ const youtubeMobile = new Site({
         }
 
         widget.style.padding = '80px 20px'
+        container.after(widget)
+      }),
+    }),
+    new SiteAction({
+      name: chrome.i18n.getMessage('blockSubscriptionsFeed'),
+      validateUrl: url => url.pathname === '/feed/subscriptions',
+      requiredUserConfigKey: UserConfigKey.YouTubeMobileSubscriptionsFeed,
+      injectCss: `
+        .page-container {
+          display: none!important;
+        }
+      `,
+      manipulateDom: ({ siteAction }) => waitForElement('.page-container').then((container) => {
+        if (!container) {
+          return
+        }
+        mute(container)
+
+        const widget = siteAction.createWidget(container)
+        if (!widget) {
+          return
+        }
+
+        widget.style.padding = '20px'
         container.after(widget)
       }),
     }),
