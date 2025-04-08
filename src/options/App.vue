@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { SiteAction } from '~/site'
+import type { UserConfig } from '~/types'
+
 import { UserConfigKey } from '~/types'
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 import logo from '~/assets/logo.svg'
 import { getStore, setUserConfig, toggleUserConfigKey } from '~/chrome'
 import { facebook, github, hackernews, instagram, linkedin, pinterest, reddit, tiktok, twitch, x, youtube, youtubeMobile } from '~/sites'
