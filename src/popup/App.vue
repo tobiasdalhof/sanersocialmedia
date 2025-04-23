@@ -28,7 +28,7 @@ async function unsnooze() {
 }
 
 const timer = ref({ minutes: 0, seconds: 0 })
-let timerInterval: NodeJS.Timeout
+const timerInterval = ref<NodeJS.Timeout>()
 
 async function updateTimer() {
   const now = new Date()
@@ -42,12 +42,13 @@ async function updateTimer() {
 }
 
 function setupTimer() {
-  clearInterval(timerInterval)
-  if (!snoozed.value)
+  clearInterval(timerInterval.value)
+  if (!snoozed.value) {
     return
+  }
 
   updateTimer()
-  timerInterval = setInterval(() => updateTimer(), 1000)
+  timerInterval.value = setInterval(() => updateTimer(), 1000)
 }
 
 watch(snoozed, setupTimer)
@@ -63,7 +64,7 @@ function withLeadingZero(value: number) {
       <img :src="logo" alt="Saner Social Media" class="mr-2 h-28px rounded-full">
       <button class="flex items-center rounded bg-dark-800 px-3 py-2 font-semibold leading-none ring-blue-500 hover:bg-dark-500 active:ring-2" @click="openOptionsPage()">
         <span class="i-mdi:cog mr-1.5" />
-        <span>Site settings</span>
+        <span>Settings</span>
       </button>
     </header>
     <section class="rounded-xl bg-dark-800 p-4 text-center">

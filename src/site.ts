@@ -60,19 +60,22 @@ export class SiteAction {
   }
 
   canRun(url: URL): boolean {
-    if (!this.userConfig)
+    if (!this.userConfig) {
       return false
+    }
 
-    if (!this.userConfig[this.params.requiredUserConfigKey])
+    if (!this.userConfig[this.params.requiredUserConfigKey]) {
       return false
+    }
 
     return this.params.validateUrl(url)
   }
 
   injectCss(): HTMLStyleElement {
     const foundStyle = <HTMLStyleElement>document.querySelector(`style[${this.idDataAttribute}="${this.id}"]`)
-    if (foundStyle)
+    if (foundStyle) {
       return foundStyle
+    }
 
     const style = document.createElement('style')
     style.appendChild(document.createTextNode(this.params.injectCss))
@@ -92,8 +95,9 @@ export class SiteAction {
   }
 
   findWidget(parent: HTMLElement): HTMLElement | null {
-    if (parent.parentElement)
+    if (parent.parentElement) {
       return parent.parentElement.querySelector(`[${this.idDataAttribute}="${this.id}"][data-sanersocialmedia-widget]`)
+    }
 
     return null
   }
@@ -109,9 +113,12 @@ export class SiteAction {
     const widget = document.createElement('div')
     widget.setAttribute(this.idDataAttribute, this.id)
     widget.setAttribute('data-sanersocialmedia-widget', '')
-    if (hasDarkBackground(parent))
+    if (hasDarkBackground(parent)) {
       widget.setAttribute('data-is-dark', '')
-    else widget.setAttribute('data-is-light', '')
+    }
+    else {
+      widget.setAttribute('data-is-light', '')
+    }
 
     const quote = document.createElement('div')
     quote.setAttribute('data-quote', '')

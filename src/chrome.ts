@@ -19,12 +19,15 @@ export async function setUserConfig(userConfig: UserConfig) {
 export async function toggleUserConfigKey(key: UserConfigKey) {
   const store = await getStore()
   let value: boolean
-  if (!store.userConfig)
+  if (!store.userConfig) {
     value = true
-  else if (store.userConfig[key] === undefined)
+  }
+  else if (store.userConfig[key] === undefined) {
     value = true
-  else value = !store.userConfig[key]
-
+  }
+  else {
+    value = !store.userConfig[key]
+  }
   const userConfig: UserConfig = { ...store.userConfig, [key]: value }
   await setUserConfig(userConfig)
 }

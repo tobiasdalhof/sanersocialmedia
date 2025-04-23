@@ -1,9 +1,9 @@
 import { checkSnoozed, getSnoozedUntilTimestamp, openOptionsPage, setSnoozedUntilTimestamp } from '~/chrome'
 
 chrome.runtime.onInstalled.addListener((details) => {
-  const installed = details.reason === chrome.runtime.OnInstalledReason.INSTALL
-  if (installed)
+  if (details.reason === 'install') {
     openOptionsPage()
+  }
 })
 
 let snoozeInterval: NodeJS.Timeout
