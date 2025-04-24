@@ -74,7 +74,7 @@ function withLeadingZero(value: number) {
         <span>Settings</span>
       </button>
     </header>
-    <section class="rounded-xl bg-dark-800 p-4 text-center">
+    <section class="border border-dark-300 rounded-lg bg-dark-500 p-4 text-center">
       <div v-if="screen === 'blocked'">
         <h2 class="mb-2 font-bold">
           Extension is active
