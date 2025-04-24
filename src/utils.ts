@@ -112,3 +112,15 @@ export function mute(parent: HTMLElement) {
     element.pause()
   })
 }
+
+export function generateRandomCode(length: number): string {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  let result = ''
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length)
+    result += characters[randomIndex]
+  }
+
+  return result
+}

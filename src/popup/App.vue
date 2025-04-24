@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref, shallowRef, watch } from 'vue'
 import logo from '~/assets/logo.svg'
 import { checkSnoozed, getSnoozedUntilTimestamp, getSnoozeMinutes, openOptionsPage, setSnoozedUntilTimestamp, setSnoozeMinutes } from '~/chrome'
+import EnterCode from './EnterCode.vue'
 
+const screen = ref<'blocked' | 'unblocked' | 'enter_code'>()
 const ready = ref(false)
 const snoozed = ref(false)
 chrome.storage.onChanged.addListener(async () => snoozed.value = await checkSnoozed())
@@ -10,13 +12,17 @@ chrome.storage.onChanged.addListener(async () => snoozed.value = await checkSnoo
 const minutes = ref(0)
 watch(minutes, async value => await setSnoozeMinutes(value))
 
-onMounted(async () => {
+async function init() {
   snoozed.value = await checkSnoozed()
   minutes.value = await getSnoozeMinutes()
+  screen.value = snoozed.value ? 'unblocked' : 'blocked'
   ready.value = true
-})
+}
+
+onMounted(init)
 
 async function snooze() {
+  screen.value = 'unblocked'
   const ms = minutes.value * 60 * 1000
   const now = new Date()
   const timestamp = now.getTime() + ms
@@ -24,11 +30,12 @@ async function snooze() {
 }
 
 async function unsnooze() {
+  screen.value = 'blocked'
   await setSnoozedUntilTimestamp(0)
 }
 
-const timer = ref({ minutes: 0, seconds: 0 })
-const timerInterval = ref<NodeJS.Timeout>()
+const timer = shallowRef({ minutes: 0, seconds: 0 })
+const timerInterval = shallowRef<NodeJS.Timeout>()
 
 async function updateTimer() {
   const now = new Date()
@@ -68,9 +75,9 @@ function withLeadingZero(value: number) {
       </button>
     </header>
     <section class="rounded-xl bg-dark-800 p-4 text-center">
-      <div v-if="!snoozed">
+      <div v-if="screen === 'blocked'">
         <h2 class="mb-2 font-bold">
-          Snooze mode
+          Extension is active
         </h2>
         <div class="mb-3">
           <label for="minutes">Temporarly unblock all sites for</label>
@@ -84,13 +91,13 @@ function withLeadingZero(value: number) {
           >
           <label for="minutes">minutes.</label>
         </div>
-        <button class="block w-full rounded bg-red-500 px-3 py-2 text-center text-red-50 font-semibold leading-none active:bg-red-700 hover:bg-red-600" @click="snooze()">
+        <button class="block w-full rounded bg-red-500 px-3 py-2 text-center text-red-50 font-semibold leading-none active:bg-red-700 hover:bg-red-600" @click="screen = 'enter_code'">
           Unblock sites
         </button>
       </div>
-      <div v-else>
+      <div v-else-if="screen === 'unblocked'">
         <h2 class="mb-2 font-bold">
-          Sites are temporarly unblocked
+          Extension is temporarily deactivated
         </h2>
         <div class="mb-4 text-3xl text-blue-500 font-light">
           {{ withLeadingZero(timer.minutes) }}:{{ withLeadingZero(timer.seconds) }}
@@ -101,12 +108,17 @@ function withLeadingZero(value: number) {
           </button>
         </div>
       </div>
+      <EnterCode
+        v-else-if="screen === 'enter_code'"
+        @confirmed="snooze()"
+        @cancel="screen = 'blocked'"
+      />
     </section>
   </div>
 </template>
 
 <style scoped>
 input[type=number]::-webkit-inner-spin-button {
-    opacity: 1
+    opacity: 1;
 }
 </style>

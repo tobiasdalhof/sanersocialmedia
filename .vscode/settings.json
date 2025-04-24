@@ -1,8 +1,4 @@
 {
-  "files.associations": {
-    "*.css": "postcss"
-  },
-
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
   "editor.formatOnSave": false,
