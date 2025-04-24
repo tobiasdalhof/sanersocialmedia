@@ -2,11 +2,9 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["ESNext", "DOM"],
-    "useDefineForClassFields": true,
     "baseUrl": ".",
-    "rootDir": ".",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "paths": {
       "~/*": ["./src/*"]
     },
@@ -17,7 +15,6 @@
       "vite/client"
     ],
     "strict": true,
-    "sourceMap": true,
     "esModuleInterop": true
   },
   "exclude": ["dist", "node_modules"]

@@ -29,8 +29,9 @@ onUnmounted(() => {
 })
 
 function isSiteEnabled(siteAction: SiteAction): boolean {
-  if (!userConfig.value)
+  if (!userConfig.value) {
     return false
+  }
   return userConfig.value[siteAction.params.requiredUserConfigKey] === true
 }
 

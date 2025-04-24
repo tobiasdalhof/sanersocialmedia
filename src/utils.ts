@@ -85,21 +85,24 @@ export function hasDarkBackground(element: HTMLElement): boolean {
 function findBackgroundColor(element: HTMLElement): string {
   const transparent = 'rgba(0, 0, 0, 0)'
   const color = window.getComputedStyle(element).backgroundColor
-  if (color !== transparent)
+  if (color !== transparent) {
     return color
+  }
 
   let parent = element.parentElement
   while (parent) {
     const parentColor = window.getComputedStyle(parent).backgroundColor
-    if (parentColor !== transparent)
+    if (parentColor !== transparent) {
       return parentColor
+    }
     parent = parent.parentElement
   }
 
   const body = document.querySelector('body')!
   const bodyBgColor = window.getComputedStyle(body).backgroundColor
-  if (bodyBgColor === transparent)
+  if (bodyBgColor === transparent) {
     return 'rgba(255, 255, 255, 1)'
+  }
   return bodyBgColor
 }
 
@@ -108,4 +111,16 @@ export function mute(parent: HTMLElement) {
     element.muted = true
     element.pause()
   })
+}
+
+export function generateRandomCode(length: number): string {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  let result = ''
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length)
+    result += characters[randomIndex]
+  }
+
+  return result
 }
