@@ -66,7 +66,7 @@ function withLeadingZero(value: number) {
 </script>
 
 <template>
-  <div v-if="ready" class="w-260px select-none p-3">
+  <div v-if="ready" class="w-64 select-none p-3">
     <header class="mb-3 flex items-center justify-between">
       <img :src="logo" alt="Saner Social Media" class="mr-2 h-28px rounded-full">
       <button class="flex items-center rounded bg-dark-800 px-3 py-2 font-semibold leading-none ring-blue-500 hover:bg-dark-500 active:ring-2" @click="openOptionsPage()">
@@ -74,12 +74,12 @@ function withLeadingZero(value: number) {
         <span>Settings</span>
       </button>
     </header>
-    <section class="border border-dark-300 rounded-lg bg-dark-500 p-4 text-center">
+    <section class="min-h-42 flex flex-col justify-center border border-dark-300 rounded-lg bg-dark-500 p-4 text-center">
       <div v-if="screen === 'blocked'">
         <h2 class="mb-2 font-bold">
           Extension is active
         </h2>
-        <div class="mb-3">
+        <div class="mb-2">
           <label for="minutes">Temporarly unblock all sites for</label>
           <input
             id="minutes"
@@ -99,14 +99,12 @@ function withLeadingZero(value: number) {
         <h2 class="mb-2 font-bold">
           Extension is temporarily deactivated
         </h2>
-        <div class="mb-4 text-3xl text-blue-500 font-light">
+        <div class="mb-4 text-4xl text-blue-500 font-light">
           {{ withLeadingZero(timer.minutes) }}:{{ withLeadingZero(timer.seconds) }}
         </div>
-        <div>
-          <button class="block w-full rounded bg-blue-500 px-3 py-2 text-center text-blue-50 font-semibold leading-none active:bg-blue-700 hover:bg-blue-600" @click="unsnooze()">
-            Resume blocking
-          </button>
-        </div>
+        <button class="block w-full rounded bg-blue-500 px-3 py-2 text-center text-blue-50 font-semibold leading-none active:bg-blue-700 hover:bg-blue-600" @click="unsnooze()">
+          Resume blocking
+        </button>
       </div>
       <EnterCode
         v-else-if="screen === 'enter_code'"

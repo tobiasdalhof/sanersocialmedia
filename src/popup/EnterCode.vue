@@ -70,7 +70,7 @@ const inputStyles = computed(() => [
         {{ code }}
       </div>
     </div>
-    <div class="mb-3 flex gap-2">
+    <div class="mb-4 flex gap-2">
       <div
         v-for="(char, index) in enteredCode"
         :key="`char-${index}`"
