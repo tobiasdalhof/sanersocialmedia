@@ -8,7 +8,7 @@
 
 Tired of social media draining your time and energy? Saner Social Media helps you regain control by blocking distracting feeds while keeping essential features accessible. Whether for work or personal use, this extension boosts productivity and focus by replacing distractions with uplifting quotes.
 
-![X](./.github/x.png)
+![X](https://raw.githubusercontent.com/tobiasdalhof/sanersocialmedia/refs/heads/main/.github/x.png)
 
 ## Supported sites
 
