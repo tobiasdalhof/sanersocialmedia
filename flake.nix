@@ -8,7 +8,7 @@
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           pkgs.nodejs_24
-          pkgs.nodePackages.pnpm
+          pkgs.pnpm
           pkgs.p7zip
         ];
       };
